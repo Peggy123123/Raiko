@@ -40,35 +40,21 @@
         </table>
       </div>
     </div>
-
-    <button type="button" class="btn btn-primary" id="liveToastBtn">Show live toast</button>
-
-<div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11">
-  <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
-    <div class="toast-header">
-      <strong class="me-auto">Bootstrap</strong>
-      <small>11 mins ago</small>
-      <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
-    </div>
-    <div class="toast-body">
-      Hello, world! This is a toast message.
+  <!-- 加入購物車吐司 -->
+  <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11">
+    <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+      <div class="toast-header">
+        <strong class="me-auto">加入購物車</strong>
+        <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+      </div>
+      <div class="toast-body">加入成功！</div>
     </div>
   </div>
-</div>
 </template>
 
 <script>
 const { VITE_URL , VITE_PATH } = import.meta.env
-
-var toastTrigger = document.getElementById('liveToastBtn')
-var toastLiveExample = document.getElementById('liveToast')
-if (toastTrigger) {
-  toastTrigger.addEventListener('click', function () {
-    var toast = new bootstrap.Toast(toastLiveExample)
-
-    toast.show()
-  })
-}
+import * as bootstrap from 'bootstrap'
 
 export default {
     data(){
@@ -76,23 +62,8 @@ export default {
             productData:[],
             isLoading: true,
             fullPage: true,
+            toastInstance:null
         }
-    },
-    mounted(){
-      //取得產品列表
-      const url  =`${VITE_URL}/api/${VITE_PATH}/products/all`
-      this.isLoading = true;
-      this.$http.get(url)
-        .then(res=>{
-            this.productData = res.data.products
-        })
-        .catch(err=>{
-            alert(err.response.data.message)
-        })
-        .finally(()=>{
-          this.isLoading = false
-        })
-
     },
     methods: {
       //加入購物車
@@ -106,20 +77,44 @@ export default {
             }
           })
           .then(res=>{
-              alert(res.data.message)
-              // this.$refs.ProductComponent.hideModel() //關閉互動視窗
-              // this.addCartQty = 1 //購物車數量改回1
-              // this.$refs.ProductComponent.qty = 1
+            this.showToast()
+            // this.$refs.ProductComponent.hideModel() //關閉互動視窗
+            // this.addCartQty = 1 //購物車數量改回1
+            // this.$refs.ProductComponent.qty = 1
           })
           .catch(err=>{
               alert(err)
           })
           .finally(()=>{
             this.isLoading = false;
-
           })
       },
-  }
+      //初始化吐司
+      initToast(){
+        let toastLiveExample = document.getElementById('liveToast')
+        this.toastInstance = new bootstrap.Toast(toastLiveExample)
+      },
+      showToast(){
+        this.toastInstance.show()
+      }
+  },
+  mounted(){
+      //取得產品列表
+      const url  =`${VITE_URL}/api/${VITE_PATH}/products/all`
+      this.isLoading = true;
+      this.$http.get(url)
+        .then(res=>{
+            this.productData = res.data.products
+        })
+        .catch(err=>{
+            alert(err.response.data.message)
+        })
+        .finally(()=>{
+          this.isLoading = false
+        })
+        //初始化吐司模組
+        this.initToast()
+    },
 }
 
 </script> 

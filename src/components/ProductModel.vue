@@ -56,7 +56,6 @@
             this.singleProduct = new bootstrap.Modal(this.$refs.userProductModal , {
                   keyboard: false
               });
-              console.log(this.$refs.userProductModal);
           },
     }
 </script>

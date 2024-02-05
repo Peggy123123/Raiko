@@ -2,7 +2,7 @@
   <VueLoading :active="isLoading"/>
   <div class="container mt-5 pt-5">
     <div class="text-end">
-    <button class="btn btn-outline-danger" type="button" @click="deleteItem('all')">清空購物車</button>
+    <button class="btn btn-outline-danger" type="button" @click="deleteItem('all')" :disabled="cartData.length<1">清空購物車</button>
   </div>
   <table class="table align-middle">
     <thead>
@@ -18,7 +18,6 @@
         <tr v-for="item in cartData" :key="item.id">
           <td>
             <button type="button" class="btn btn-outline-danger btn-sm" @click="deleteItem('single',item)">
-              <!-- <i class="fas fa-spinner fa-pulse"></i> -->
               x
             </button>
           </td>
@@ -32,7 +31,7 @@
             <div class="input-group input-group-sm">
               <div class="input-group mb-3">
                 <input 
-                      min="1" type="number" class="form-control" v-model="item.qty" @change="(evt)=>changeCart(item,evt)">
+                      min="1" type="number" class="form-control" v-model="item.qty" @blur="(evt)=>changeCart(item,evt)">
                 <span class="input-group-text" id="basic-addon2">{{ item.product.unit }}</span>
               </div>
             </div>
@@ -106,6 +105,7 @@
     
 <script>
   const { VITE_URL , VITE_PATH } = import.meta.env
+  import Swal from 'sweetalert2';
 
 export default {
     data() {
@@ -164,21 +164,34 @@ export default {
         },
         //刪除購物車
         deleteItem(status,item){
-          this.isLoading = true
-          let api = `${VITE_URL}/api/${VITE_PATH}/carts`
-          if(status === 'single'){
-            api = `${VITE_URL}/api/${VITE_PATH}/cart/${item.id}`
-          }
-          this.$http.delete(api)
-            .then(res=>{
-                this.showCart()
-            })
-            .catch(err=>{
-                alert(err.response.data.message)
-            })
-            .finally(()=>{
-              this.isLoading = false
-            })
+          Swal.fire({
+            title: "確定刪除商品嗎?",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            cancelButtonText: "取消",
+            confirmButtonText: "確定",
+            width: 350,
+          }).then((result) => {
+            if (result.isConfirmed) {
+              this.isLoading = true
+              let api = `${VITE_URL}/api/${VITE_PATH}/carts`
+              if(status === 'single'){
+                api = `${VITE_URL}/api/${VITE_PATH}/cart/${item.id}`
+              }
+              this.$http.delete(api)
+              .then(res=>{
+                  this.showCart()
+              })
+              .catch(err=>{
+                  alert(err.response.data.message)
+              })
+              .finally(()=>{
+                this.isLoading = false
+              })
+              }
+            });
         },
         //電話驗證
         // isPhone(value) { 
@@ -216,3 +229,4 @@ export default {
     },
     }
 </script>
+
