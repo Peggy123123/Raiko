@@ -60,6 +60,16 @@
 <script>
 const { VITE_URL , VITE_PATH } = import.meta.env
 
+var toastTrigger = document.getElementById('liveToastBtn')
+var toastLiveExample = document.getElementById('liveToast')
+if (toastTrigger) {
+  toastTrigger.addEventListener('click', function () {
+    var toast = new bootstrap.Toast(toastLiveExample)
+
+    toast.show()
+  })
+}
+
 export default {
     data(){
         return {
