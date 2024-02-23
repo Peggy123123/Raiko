@@ -1,4 +1,5 @@
 <template>
+  <toastMessage />
   <header>
     <nav class="navbar navbar-expand-lg navbar-light bg-opacity fixed-top">
       <div class="container">
@@ -30,7 +31,9 @@
 
 
 <script>
-const { VITE_URL , VITE_PATH } = import.meta.env
+  const { VITE_URL , VITE_PATH } = import.meta.env
+  import toastMessage from '../../components/toastMessage.vue'
+
   export default {
     data(){
 		return{
@@ -38,7 +41,10 @@ const { VITE_URL , VITE_PATH } = import.meta.env
             api_path: VITE_PATH,
             
 		}
-  },methods:{
+  },component:{
+    toastMessage,
+  },
+  methods:{
     //驗證身份
 		checkUser(){
             this.$http.post(`${this.api}/api/user/check`)

@@ -23,10 +23,7 @@
                   <RouterLink to="/cart" class="link">購物車</RouterLink>
                 </li>
               <li class="nav-item">
-                <RouterLink to="/login" class="link">登入</RouterLink>
-              </li>
-              <li class="nav-item">
-                <RouterLink to="/admin" class="link">後台</RouterLink>
+                <RouterLink to="/login" class="link">登入後台</RouterLink>
               </li>
             </ul>
           </div>

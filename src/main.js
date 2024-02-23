@@ -7,9 +7,10 @@ import VueAxios from 'vue-axios';
 import Loading from 'vue-loading-overlay';
 import 'vue-loading-overlay/dist/css/index.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js'
-import {
-    Form, Field, ErrorMessage, defineRule, configure,
-  } from 'vee-validate';
+
+// import {
+//     Form, Field, ErrorMessage, defineRule, configure,
+//   } from 'vee-validate';
 
 
 
