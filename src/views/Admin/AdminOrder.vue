@@ -1,15 +1,16 @@
 <template>
     <VueLoading :active="isLoading"/>
     <div class="container">
+        <h2 class="py-8 mb-0">訂單管理</h2>
         <div class="row">
-            <table class="table mt-30 rounded align-middle text-center table-striped">
+            <table class="table align-middle text-center table-striped">
                 <thead>
                     <tr class="table-dark">
                     <th scope="col">購買時間</th>
                     <th scope="col" width="250">Email</th>
                     <th scope="col" width="250">購買品項</th>
                     <th scope="col">應付金額</th>
-                    <th scope="col">是否付款</th>
+                    <th scope="col">付款狀態</th>
                     <th scope="col"></th>
                     <th scope="col"></th>
                     </tr>
@@ -20,10 +21,13 @@
                         <td scope="row">{{ new Date(item.create_at*1000).toLocaleDateString() }}</td>
                         <td>{{item.user.email}}</td>
                         <td>
-                            <ul v-for="product in item.products" key="product.id" class="ps-0 mb-0">
-                                <li class="d-flex justify-content-between">
-                                    <div>{{ product.product.title }}</div>
-                                    <div class="pe-5 text-secondary">{{  product.qty + product.product.unit }}</div>
+                            <ul v-for="product in item.products" key="product.id" class="ps-0 mb-0 list-unstyled">
+                                <li class="mb-2 d-flex">
+                                    <img :src="product.product.imageUrl" alt="product.product.title" width="50" class="me-2 rounded">
+                                    <div class="d-flex align-items-center justify-content-between flex-grow-1">
+                                        <div>{{ product.product.title }}</div>
+                                        <div class="text-secondary text-start">{{  product.qty + product.product.unit }}</div>
+                                    </div>
                                 </li>
                             </ul>
                         </td>
@@ -43,11 +47,11 @@
                                 </div>
                         </td>
                         <td>
-                            <button type="button" class="btn btn-dark btn-sm" @click="openModal(item , 'edit')">檢視
+                            <button type="button" class="btn btn-dark btn-sm" @click="openModal(item , 'edit')"><i class="bi bi-eye-fill me-2"></i><span>檢視</span>
                             </button>
                         </td>
                         <td>
-                            <button type="button" class="btn btn-outline-danger btn-sm" @click="openModal(item ,'delete')"> 刪除</button>
+                            <button type="button" class="btn btn-outline-danger btn-sm" @click="openModal(item ,'delete')"><i class="bi bi-x-lg"></i></button>
                         </td>
                     </tr>
                     </template>
@@ -56,7 +60,7 @@
         </div>
     </div>
     <!-- 分頁標籤 -->
-    <pagination :total-Page="totalPage" :current-Page="currentPage" @swich-page="switchPage"></pagination>
+    <pagination :total-Page="totalPage" :current-Page="currentPage" @swich-page="switchPage" class="my-15"></pagination>
     <!-- OrderModal -->
     <div class="modal fade" id="orderModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
@@ -158,17 +162,16 @@
             </div>
         </div>
     </div>
-    <!-- toast-paid -->
-    <div class="toast-paid" role="alert" aria-live="assertive" aria-atomic="true">
-        <div class="toast-header">
-            <strong class="me-auto">Bootstrap</strong>
-            <small>11 mins ago</small>
-            <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+    <!-- toast訊息 -->
+    <div id="toast" class="toast hide toast-container position-fixed toast-placement" role="alert" aria-live="assertive" aria-atomic="true" >
+            <div class="toast-header mb-0">
+                <strong class="me-auto">{{toastTitle}}</strong>
+                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+            <div class="toast-body">
+                {{toastContent}}
+            </div>
         </div>
-        <div class="toast-body">
-            Hello, world! This is a toast message.
-        </div>
-    </div>
 </template>
 
 <script>
@@ -179,15 +182,18 @@
 
     let orderModal = null
     let deleteModal = null
-    let paidToast = null
+    let toast = null
 
     export default {
         data(){
             return {
                 orders:[], //所有訂單
+                totalPage:'',
                 currentPage: 1,
                 perpage: 10,
                 tempItem:{},
+                toastTitle:'', //吐司訊息標題
+                toastContent:'', //吐司訊息內文
                 isLoading:true,
                 fallPage:false
             }
@@ -196,18 +202,19 @@
             pagination
         },
         methods: {
-            getData(){ //取得訂單列表
-                const api = `${VITE_URL}/api/${VITE_PATH}/admin/orders?page=${this.currentPage}`
+            getData(page=1){ //取得訂單列表
+                const api = `${VITE_URL}/api/${VITE_PATH}/admin/orders?page=${page}`
                 this.isLoading = true
 
                 this.$http.get(api)
                 .then(res=>{
                     this.orders = res.data.orders
-                    this.pagination = res.data.pagination
-                    console.log(this.orders);
+                    this.totalPage = res.data.pagination.total_pages
                 })
                 .catch(err=>{
-                    alert(err.response.data.message)
+                    this.toastTitle = `取得訂單`
+                    this.toastContent = err.response.data.message
+                    toast.show()
                 })
                 .finally(()=>{
                     this.isLoading = false
@@ -222,10 +229,13 @@
                 .then(res=>{
                     console.log(res);
                     orderModal.hide()
-                    paidToast.show()
+                    this.toastTitle = `更新付款狀態`
+                    this.toastContent = `訂單狀態已更新成功`
+                    toast.show()
                 })
                 .catch(err=>{
-                    alert(err.response.data.message)
+                    this.toastContent = err.response.data.message
+                    toast.show()
                 })
                 .finally(()=>{
                     this.isLoading = false
@@ -233,7 +243,6 @@
             },
             openModal(item ,status){ //開啟檢視/刪除視窗
                 this.tempItem = item
-                console.log(this.tempItem);
 
                 if(status === "edit"){
                     orderModal.show()
@@ -247,12 +256,15 @@
 
                 this.$http.delete(api)
                 .then(res=>{
-                    console.log(res);
                     deleteModal.hide()
                     this.getData()
+                    this.toastTitle = `更新訂單`
+                    this.toastContent = `訂單已成功刪除`
+                    toast.show()
                 })
                 .catch(err=>{
-                    alert(err.response.data.message)
+                    this.toastContent = err.response.data.message
+                    toast.show()
                 })
                 .finally(()=>{
                     this.isLoading = false
@@ -273,7 +285,6 @@
             const token = document.cookie.replace(/(?:(?:^|.*;\s*)hexToken\s*\=\s*([^;]*).*$)|^.*$/,"$1");
             //token自動夾帶進去headers
             this.$http.defaults.headers.common['Authorization'] = token;
-            this.getData()
 
             //初始化orderModal
             orderModal = new Modal(document.getElementById('orderModal'), {
@@ -284,8 +295,21 @@
             })
 
             //初始化吐司
-            paidToast = new Toast(document.querySelector(".toast-paid"));
-            console.log(paidToast);
+            toast = new Toast(document.getElementById("toast"));
+
+            this.getData()
         }
     }
 </script>
+
+
+<style>
+body {
+    position: relative;
+}
+.toast-placement {
+    top: 20px;
+    right: 20px;
+    width: 300px;
+}
+</style>

@@ -1,6 +1,6 @@
 <template>
   <header>
-    <nav class="navbar navbar-expand-lg navbar-light bg-opacity fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top">
       <div class="container">
         <a class="navbar-brand" href="#">Logo</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
@@ -32,6 +32,10 @@
     </nav>
   </header>
 <RouterView />
+  <footer class="bg-light py-15 ">
+    <p class="text-center mb-0">Raiko 休日製作所</p>
+    <p class="text-center mb-0">本網站不提供商業用途</p>
+  </footer>
 </template>
 
 <style lang="scss">

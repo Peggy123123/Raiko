@@ -26,12 +26,12 @@ const router = createRouter({
         path: 'cart',
         name: '購物車',
         component:()=> import('../views/UserCart.vue')
+      },
+      {
+        path: 'login',
+        name: '登入頁面',
+        component:()=> import ('../views/LoginView.vue')
       }]
-    },
-    {
-      path: '/login',
-      name: '登入頁面',
-      component:()=> import ('../views/LoginView.vue')
     },
     {
       path: '/admin',
@@ -48,7 +48,11 @@ const router = createRouter({
           name: '訂單管理',
           component:()=> import('../views/Admin/AdminOrder.vue')
         },
-        
+        {
+          path: '/admincoupon',
+          name: '優惠券頁面',
+          component:()=> import ('../views/Admin/AdminCoupon.vue')
+        },
       ]
     },
   ]

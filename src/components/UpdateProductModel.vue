@@ -1,4 +1,5 @@
 <template>
+    <!-- <VueLoading :active="isLoading"/> -->
     <div ref="productsModal" class="modal fade" tabindex="-1" aria-labelledby="productModalLabel"
     aria-hidden="true">
  <div class="modal-dialog modal-xl">
@@ -13,11 +14,15 @@
        <div class="row">
          <div class="col-sm-4">
            <div class="mb-2">
+            <h6>主圖</h6>
              <div class="mb-3">
-               <h6>主要圖片</h6>
                <label for="imageUrl" class="form-label">輸入圖片網址</label>
                <input type="text" class="form-control"
                       placeholder="請輸入圖片連結" v-model="editProduct.imageUrl">
+             </div>
+             <div class="mb-3">
+              <label for="upload" class="form-label">或 上傳圖片</label>
+              <input type="file" id="upload" class="form-control" @change="uploadFile">
              </div>
              <img :src="editProduct.imageUrl" :alt="editProduct.title" width="150" class="mb-2" v-if="editProduct.imageUrl">
            </div>
@@ -30,7 +35,7 @@
                <div>
                  <!-- 如果imagesUrl長度為0，或陣列最後一個索引有值，就會顯示這段 -->
                  <div v-if="!editProduct.imagesUrl.length || editProduct.imagesUrl[editProduct.imagesUrl.length-1]">
-                   <button class="btn btn-outline-primary btn-sm d-block w-100" @click.prevent="editProduct.imagesUrl.push('')">
+                   <button class="btn btn-outline-success btn-sm d-block w-100" @click.prevent="editProduct.imagesUrl.push('')">
                    新增圖片
                    </button>
                  </div>
@@ -97,10 +102,10 @@
        </div>
      </div>
      <div class="modal-footer">
-       <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
+       <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
          取消
        </button>
-       <button type="button" class="btn btn-primary" @click.prevent="updateProduct">
+       <button type="button" class="btn btn-success" @click.prevent="updateProduct">
          確認
        </button>
      </div>
@@ -111,11 +116,15 @@
 
 <script> 
 import { Modal } from 'bootstrap' //從 node_modules 中的 bootstrap 模組中尋找並引入 Modal 類別
+const { VITE_URL , VITE_PATH } = import.meta.env
+
 export default {
     data() {
     return {
       productsModal: null,
-      editProduct:{} //因為不能直接變更傳進來的tempItem的值，所以tempItem要先賦予到新的變數上
+      editProduct:{}, //因為不能直接變更傳進來的tempItem的值，所以tempItem要先賦予到新的變數上
+      isLoading:true,
+      fallPage:false
     };
   },
   props: ["tempItem", "updateProduct"],
@@ -138,9 +147,32 @@ export default {
     },
     updateProduct(){
       this.$emit('update-Product')
+      console.log(this.editProduct);
+    },
+    uploadFile(){ //上傳圖片
+      this.isLoading = true
+      const upload = document.getElementById('upload')
+      const formData = new FormData()
+      formData.append('file-to-upload',upload.files[0]) //前者是api規定的name，後者是上傳的檔案在dom保存的地方
+      const api = `${VITE_URL}/api/${VITE_PATH}/admin/upload`
+      this.$http.post(api , formData)
+      .then(res=>{
+        this.editProduct.imageUrl = res.data.imageUrl
+      })
+      .catch(err=>{
+        alert(err.response.data.message)
+      })
+      .finally(()=>{
+            this.isLoading = false
+        });
     }
 },
   mounted() {
+    //取cookie資料
+    const token = document.cookie.replace(/(?:(?:^|.*;\s*)hexToken\s*\=\s*([^;]*).*$)|^.*$/,"$1");
+    //token自動夾帶進去headers
+    this.$http.defaults.headers.common['Authorization'] = token;
+
     this.productsModal = new Modal(
       this.$refs.productsModal,
       {

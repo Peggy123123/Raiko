@@ -6,7 +6,8 @@ import VueAxios from 'vue-axios';
 
 import Loading from 'vue-loading-overlay';
 import 'vue-loading-overlay/dist/css/index.css';
-import 'bootstrap/dist/js/bootstrap.bundle.min.js'
+import 'bootstrap/dist/js/bootstrap.bundle.min.js';
+import 'bootstrap-icons/font/bootstrap-icons.css'
 
 // import {
 //     Form, Field, ErrorMessage, defineRule, configure,

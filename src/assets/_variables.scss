@@ -425,6 +425,7 @@ $spacers: (
   13: $spacer * 3.25,
   14: $spacer * 3.5,
   15: $spacer * 3.75,
+  20: $spacer * 5,
   30: $spacer * 7.5,
   50: $spacer * 12.5,
 ) !default;
@@ -965,8 +966,8 @@ $form-check-radio-border-radius:          50% !default;
 $form-check-input-focus-border:           $input-focus-border-color !default;
 $form-check-input-focus-box-shadow:       $focus-ring-box-shadow !default;
 
-// $form-check-input-checked-color:          $component-active-color !default;
-$form-check-input-checked-color:          $dark;
+$form-check-input-checked-color:          $component-active-color !default;
+// $form-check-input-checked-color:          $dark;
 // $form-check-input-checked-bg-color:       $component-active-bg !default;
 $form-check-input-checked-bg-color:       $dark;
 // $form-check-input-checked-border-color:   $form-check-input-checked-bg-color !default;
@@ -1313,25 +1314,33 @@ $pagination-padding-x-lg:           1.5rem !default;
 
 $pagination-font-size:              $font-size-base !default;
 
-$pagination-color:                  var(--#{$prefix}link-color) !default;
+// $pagination-color:                  var(--#{$prefix}link-color) !default;
+$pagination-color:                  $dark;
 $pagination-bg:                     var(--#{$prefix}body-bg) !default;
 $pagination-border-radius:          var(--#{$prefix}border-radius) !default;
 $pagination-border-width:           var(--#{$prefix}border-width) !default;
 $pagination-margin-start:           calc(#{$pagination-border-width} * -1) !default; // stylelint-disable-line function-disallowed-list
 $pagination-border-color:           var(--#{$prefix}border-color) !default;
 
-$pagination-focus-color:            var(--#{$prefix}link-hover-color) !default;
-$pagination-focus-bg:               var(--#{$prefix}secondary-bg) !default;
-$pagination-focus-box-shadow:       $focus-ring-box-shadow !default;
+// $pagination-focus-color:            var(--#{$prefix}link-hover-color) !default;
+$pagination-focus-color:            white;
+// $pagination-focus-bg:               var(--#{$prefix}secondary-bg) !default;
+$pagination-focus-bg:                $dark;
+// $pagination-focus-box-shadow:       $focus-ring-box-shadow !default;
+$pagination-focus-box-shadow:       $dark;
 $pagination-focus-outline:          0 !default;
 
-$pagination-hover-color:            var(--#{$prefix}link-hover-color) !default;
+// $pagination-hover-color:            var(--#{$prefix}link-hover-color) !default;
+$pagination-hover-color:            $dark;
 $pagination-hover-bg:               var(--#{$prefix}tertiary-bg) !default;
 $pagination-hover-border-color:     var(--#{$prefix}border-color) !default; // Todo in v6: remove this?
 
-$pagination-active-color:           $component-active-color !default;
-$pagination-active-bg:              $component-active-bg !default;
-$pagination-active-border-color:    $component-active-bg !default;
+// $pagination-active-color:           $component-active-color !default;
+$pagination-active-color:           white;
+// $pagination-active-bg:              $component-active-bg !default;
+$pagination-active-bg:              $dark;
+// $pagination-active-border-color:    $component-active-bg !default;
+$pagination-active-border-color:    $dark;
 
 $pagination-disabled-color:         var(--#{$prefix}secondary-color) !default;
 $pagination-disabled-bg:            var(--#{$prefix}secondary-bg) !default;

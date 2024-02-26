@@ -1,9 +1,9 @@
 <template>
     <div id="delProductModal" ref="delProductModal" class="modal fade" tabindex="-1"
     aria-labelledby="delProductModalLabel" aria-hidden="true">
- <div class="modal-dialog">
+ <div class="modal-dialog modal-dialog-centered">
    <div class="modal-content border-0">
-     <div class="modal-header bg-danger text-white">
+     <div class="modal-header">
        <h5 id="delProductModalLabel" class="modal-title">
          <span>刪除產品</span>
        </h5>
@@ -11,10 +11,10 @@
      </div>
      <div class="modal-body">
        是否刪除
-       <strong class="text-danger">{{tempItem.title}} (刪除後將無法恢復)。</strong> 
+       <strong class="text-danger">{{tempItem.title}} (刪除後將無法恢復)</strong>
      </div>
      <div class="modal-footer">
-       <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
+       <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
          取消
        </button>
        <button type="button" class="btn btn-danger" @click.prevent="deleteProduct">
@@ -48,7 +48,6 @@ export default {
     this.deleteProductsModel = new Modal(
         this.$refs.delProductModal,
             {
-            backdrop: "static",
             keyboard: false,
             },
         )
