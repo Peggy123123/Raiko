@@ -39,17 +39,17 @@ const router = createRouter({
       component: ()=> import ('../views/Admin/AdminView.vue'),
       children:[
         {
-          path: '/adminproduct',
+          path: 'adminproduct',
           name: '商品管理',
           component:()=> import('../views/Admin/AdminProduct.vue')
         },
         {
-          path: '/adminorder',
+          path: 'adminorder',
           name: '訂單管理',
           component:()=> import('../views/Admin/AdminOrder.vue')
         },
         {
-          path: '/admincoupon',
+          path: 'admincoupon',
           name: '優惠券頁面',
           component:()=> import ('../views/Admin/AdminCoupon.vue')
         },

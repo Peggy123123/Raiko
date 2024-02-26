@@ -67,7 +67,7 @@ export default {
         toast.show()
         const {token , expired} = res.data;
         document.cookie = `hexToken=${token}; expires=${new Date(expired)}`
-        this.$router.push('/adminproduct')
+        this.$router.push('admin/adminproduct')
       })
       .catch(error=>{
         this.toastTitle = `登入失敗`
@@ -108,6 +108,6 @@ export default {
   .toast-placement {
     top: 20px;
     right: 20px;
-      width: 300px;
+    width: 300px;
   }
 </style>

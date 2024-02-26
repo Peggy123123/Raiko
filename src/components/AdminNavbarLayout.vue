@@ -6,7 +6,7 @@
             <a class="navbar-brand text-white" href="#">Logo</a>
             <ul class="list-unstyled mt-10">
                 <li>
-                <RouterLink to="adminproduct" class="admin-link">商品管理</RouterLink>
+                <RouterLink to="/admin/adminproduct" class="admin-link">商品管理</RouterLink>
                 </li>
                 <li>
                     <RouterLink to="adminorder" class="admin-link">訂單管理</RouterLink>
