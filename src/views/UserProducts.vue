@@ -5,7 +5,7 @@
         <table class="table align-middle mt-5">
           <thead>
             <tr>
-              <th>圖片</th>
+              <th>圖片test</th>
               <th>商品名稱</th>
               <th>價格</th>
               <th></th>
