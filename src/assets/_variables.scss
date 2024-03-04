@@ -120,7 +120,7 @@ $red-100: tint-color($red, 80%) !default;
 $red-200: tint-color($red, 60%) !default;
 $red-300: tint-color($red, 40%) !default;
 $red-400: tint-color($red, 20%) !default;
-$red-500: $red !default;
+$red-500: $red  !default;
 $red-600: shade-color($red, 20%) !default;
 $red-700: shade-color($red, 40%) !default;
 $red-800: shade-color($red, 60%) !default;
@@ -298,8 +298,10 @@ $cyans: (
 // fusv-enable
 
 // scss-docs-start theme-color-variables
-$primary:       $blue !default;
-$secondary:     $gray-600 !default;
+// $primary:       $blue !default;
+$primary:       #81CFDC; //custon
+// $secondary:     $gray-600 !default;
+$secondary:     #4D4D4D;  //custon
 $success:       $green !default;
 $info:          $cyan !default;
 $warning:       $yellow !default;
@@ -311,13 +313,16 @@ $dark:          $gray-900 !default;
 // scss-docs-start theme-colors-map
 $theme-colors: (
   "primary":    $primary,
+  "primary-light":#DFF3F7,
   "secondary":  $secondary,
-  "success":    $success,
-  "info":       $info,
-  "warning":    $warning,
-  "danger":     $danger,
-  "light":      $light,
-  "dark":       $dark
+  "yellow-200": #E0D979, //custon
+  "yellow-100":#F8F6D2, //custon
+  // "success":    $success,
+  // "info":       $info,
+  // "warning":    $warning,
+  // "danger":     $danger,
+  // "light":      $light,
+  // "dark":       $dark
 ) !default;
 // scss-docs-end theme-colors-map
 
@@ -658,7 +663,12 @@ $font-sizes: (
   3: $h3-font-size,
   4: $h4-font-size,
   5: $h5-font-size,
-  6: $h6-font-size
+  6: $h6-font-size,
+  10: 10px, //custom
+  12: 12px, //custom
+  14: 14px, //custom
+
+
 ) !default;
 // scss-docs-end font-sizes
 

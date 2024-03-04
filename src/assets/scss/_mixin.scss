@@ -1,0 +1,53 @@
+//RWD斷點
+@mixin desktop-up {
+  @media (min-width:992px) {
+    @content
+  }
+};
+
+@mixin pad-up {
+  @media (min-width:768px) {
+    @content
+  }
+};
+
+@mixin pad-down {
+  @media (max-width:767px) {
+    @content
+  }
+};
+
+@mixin mobile-up {
+  @media (min-width:576px) {
+    @content
+  }
+};
+
+@mixin mobile-down {
+  @media (max-width:575px) {
+    @content
+  }
+};
+
+//前台首頁
+@mixin background-position-left($width , $left , $top ){
+    width: $width;
+    left: $left;
+    top: $top;
+  }
+
+  @mixin background-position-right($width , $right , $top){
+    width: $width;
+    right: $right;
+    top: $top;
+  }
+
+  %background-zindex10 {
+    z-index: -10;
+    position: absolute;
+  }
+
+  %background-zindex5 {
+    z-index: -5;
+    position: absolute;
+  }
