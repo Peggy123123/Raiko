@@ -317,12 +317,12 @@ $theme-colors: (
   "secondary":  $secondary,
   "yellow-200": #E0D979, //custon
   "yellow-100":#F8F6D2, //custon
-  // "success":    $success,
-  // "info":       $info,
-  // "warning":    $warning,
-  // "danger":     $danger,
-  // "light":      $light,
-  // "dark":       $dark
+  "success":    $success,
+  "info":       $info,
+  "warning":    $warning,
+  "danger":     $danger,
+  "light":      $light,
+  "dark":       $dark
 ) !default;
 // scss-docs-end theme-colors-map
 
@@ -433,6 +433,10 @@ $spacers: (
   20: $spacer * 5,
   30: $spacer * 7.5,
   50: $spacer * 12.5,
+  65: $spacer * 16.25,
+  67: $spacer * 16.75,
+  80: $spacer * 20,
+  200: $spacer * 50,
 ) !default;
 // scss-docs-end spacer-variables-maps
 

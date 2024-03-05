@@ -3,10 +3,14 @@
     <header>
         <div class="nav d-flex flex-column bg-dark justify-content-between">
         <div>
-            <a class="navbar-brand text-white" href="#">Logo</a>
+            <router-link to="/">
+                <div class="d-flex justify-content-center text-white pt-10">
+                    <img width="150" src="https://i.imgur.com/pFJdiRb.png" alt="logo">
+                </div>
+            </router-link>
             <ul class="list-unstyled mt-10">
                 <li>
-                <RouterLink to="/admin/adminproduct" class="admin-link">商品管理</RouterLink>
+                <RouterLink to="adminproduct" class="admin-link">商品管理</RouterLink>
                 </li>
                 <li>
                     <RouterLink to="adminorder" class="admin-link">訂單管理</RouterLink>

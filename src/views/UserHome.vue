@@ -27,11 +27,11 @@
   </section>
 
   <!-- 第二段 選物分類 -->
-  <section class="pb-30">
+  <section class="pb-20 pb-lg-30">
     <div class="container">
       <div class="text-center">
         <h3 class="border-bottom border-yellow-200 border-5 d-inline-block pb-3 text-secondary">選物分類</h3>
-        <p class="text-secondary mb-20">週末到了...一覺睡到自然醒<br>來一場chill的週末吧</p>
+        <p class="text-secondary mb-md-10">週末到了...一覺睡到自然醒<br>來一場chill的週末吧</p>
       </div>
 
       <swiper
@@ -46,26 +46,26 @@
       :breakpoints="{ '992': { slidesPerView: 3, spaceBetween: 50, },'1': { slidesPerView: 1, spaceBetween: 50, } }"
     >
       <swiper-slide class="swiper-slide" v-slot="{ isActive }">
-        <div class="circle" :class="{'swiper-active' : isActive}">
-          <img width="30%" src="https://i.imgur.com/wYb3g5a.png" alt="家居小物" title="家居小物">
-          <p class="mb-0 text-white bg-secondary p-1 mt-2 fs-10 rounded-pill">家居小物</p>
+        <div class="classification-container classification-1" :class="{'swiper-active' : isActive}">
+          <img width="20%" src="https://i.imgur.com/wYb3g5a.png" alt="家居小物" title="家居小物">
+          <p class="classification-text rounded-pill">家居小物</p>
         </div>
       </swiper-slide>
       <swiper-slide class="swiper-slide" v-slot="{ isActive }">
-        <div class="circle" :class="{'swiper-active' : isActive}">
-          <img width="30%" src="https://i.imgur.com/PMepQfy.png" alt="療癒寢具" title="療癒寢具">
-          <p class="mb-0 text-white bg-secondary p-1 mt-2 fs-10 rounded-pill">療癒寢具</p>
+        <div class="classification-container classification-2" :class="{'swiper-active' : isActive}">
+          <img width="20%" src="https://i.imgur.com/I7ZGx0r.png" alt="療癒寢具" title="療癒寢具">
+          <p class="classification-text rounded-pill">療癒寢具</p>
         </div>
       </swiper-slide>
       <swiper-slide class="swiper-slide" v-slot="{ isActive }">
-        <div class="circle" :class="{'swiper-active' : isActive}">
-          <img width="30%" src="https://i.imgur.com/QwEiPpw.png" alt="辦公小物" title="辦公小物">
-          <p class="mb-0 text-white bg-secondary p-1 mt-2 fs-10 rounded-pill">辦公小物</p>
+        <div class="classification-container classification-3" :class="{'swiper-active' : isActive}">
+          <img width="20%" src="https://i.imgur.com/qHjTB06.png" alt="辦公小物" title="辦公小物">
+          <p class="classification-text rounded-pill">辦公小物</p>
         </div></swiper-slide>
       <swiper-slide class="swiper-slide" v-slot="{ isActive }">
-        <div class="circle" :class="{'swiper-active' : isActive}">
-          <img width="30%" src="https://i.imgur.com/wYb3g5a.png" alt="家居小物" title="家居小物">
-          <p class="mb-0 text-white bg-secondary p-1 mt-2 fs-10 rounded-pill">家居小物</p>
+        <div class="classification-container classification-4" :class="{'swiper-active' : isActive}">
+          <img width="20%" src="https://i.imgur.com/I7ZGx0r.png" alt="療癒家居" title="療癒家居">
+          <p class="classification-text rounded-pill">療癒家居</p>
         </div>
       </swiper-slide>
     </swiper>
@@ -73,38 +73,39 @@
   </section>
 
   <!-- 第三段 熱銷排行  -->
-  <section class="pb-30">
+  <section class="pb-20 pb-lg-30">
     <div class="container">
       <div class="row">
         <div class="col-lg-5 text-center">
-          <h3 class="border-bottom border-yellow-200 border-5 d-inline-block pb-3 text-secondary mb-10">熱銷排行</h3>
+          <h3 class="border-bottom border-yellow-200 border-5 d-inline-block pb-3 text-secondary">熱銷排行</h3>
+          <p class="mb-15 mb-md-10">懶得動腦時...<br>就選這個吧！</p>
           <ul class="row list-unstyled align-items-center justify-content-center mb-0">
             <li class="mb-5 col-6 col-lg-12 rank-item">
               <div class=" bg-primary rounded-5 d-flex justify-content-end p-3 position-relative">
                 <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-yellow-200 text-secondary px-4 py-3">1</span>
-                <p class="align-self-center text-white fw-bold flex-grow-1 mb-0 fs-5">午睡抱枕</p>
+                <p class="align-self-center text-white fw-bold flex-grow-1 mb-0">午睡抱枕</p>
                 <img class="align-self-end rank-item-img" src="https://i.imgur.com/AKlrFWi.png" alt="午睡抱枕" title="午睡抱枕">
               </div>
             </li>
             <li class="mb-5 col-6 col-lg-12 rank-item">
               <div class=" bg-primary rounded-5 d-flex justify-content-end p-3 position-relative">
                 <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-yellow-200 text-secondary px-4 py-3">2</span>
-                <p class="align-self-center text-white fw-bold flex-grow-1 mb-0 fs-5">質感筆記本</p>
-                <img class="align-self-end rank-item-img" src="https://i.imgur.com/K7eT4mx.png" alt="質感筆記本">
+                <p class="align-self-center text-white fw-bold flex-grow-1 mb-0">筆記本</p>
+                <img class="align-self-end rank-item-img" src="https://i.imgur.com/LNGE2Bd.png" alt="質感筆記本">
               </div>
             </li>
             <li class="mb-5 col-6 col-lg-12 rank-item">
               <div class=" bg-primary rounded-5 d-flex justify-content-end p-3 position-relative">
                 <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-yellow-200 text-secondary px-4 py-3">3</span>
-                <p class="align-self-center text-white fw-bold flex-grow-1 mb-0 fs-5">法蘭絨毯單人毯</p>
-                <img class="align-self-end rank-item-img" src="https://i.imgur.com/K7eT4mx.png" alt="法蘭絨毯單人毯">
+                <p class="align-self-center text-white fw-bold flex-grow-1 mb-0">法蘭絨毯</p>
+                <img class="align-self-end rank-item-img" src="https://i.imgur.com/JeuoxfL.png" alt="法蘭絨毯單人毯">
               </div>
             </li>
             <li class="mb-5 col-6 col-lg-12 rank-item">
               <div class="bg-primary rounded-5 d-flex justify-content-end p-3 position-relative">
                 <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-yellow-200 text-secondary px-4 py-3">4</span>
-                <p class="align-self-center text-white fw-bold flex-grow-1 mb-0 fs-5">大容量玻璃杯</p>
-                <img class="align-self-end rank-item-img" src="https://i.imgur.com/K7eT4mx.png" alt="大容量玻璃杯">
+                <p class="align-self-center text-white fw-bold flex-grow-1 mb-0">玻璃杯</p>
+                <img class="align-self-end rank-item-img" src="https://i.imgur.com/a1suTG4.png" alt="大容量玻璃杯">
               </div>
             </li>
           </ul>
@@ -125,11 +126,11 @@
                 <div class="col-lg-4">
                   <div class="d-flex flex-column text-white justify-content-between h-100 mt-4 mt-lg-0 ms-3 ms-lg-0">
                     <div>
-                      <h4 class="h3">午睡抱枕</h4>
-                      <p class="mb-4 mb-lg-0">一覺好眠白日夢滿滿</p>
+                      <h4 class="h3 fw-bold">午睡抱枕</h4>
+                      <small class="mb-4 mb-lg-0">一覺好眠白日夢滿滿</small>
                     </div>
                     <p class="mb-lg-0">枕芯到枕套<br>100%純手工台灣製作<br>面積/ 直徑45cm<br>厚度/ 約13cm<br>枕芯/ 450g</p>
-                    <p class="mb-0 h4">NT$550</p>
+                    <p class="mb-0 h4 fw-bold">NT$550</p>
                     <button type="button" class=" btn btn-secondary px-10 py-4  rounded-pill m-5 m-lg-0">加入購物車</button>
                   </div>
                 </div>
@@ -140,33 +141,61 @@
     </div>
   </section>
   <!-- 第四段 品牌介紹 -->
-  <section class="pb-30">
+  <section class="pb-20 pb-lg-30">
     <div class="container">
       <div class="text-center">
-        <h3 class="border-bottom border-yellow-200 border-5 d-inline-block pb-3 text-secondary mb-15">關於休日
+        <h3 class="border-bottom border-yellow-200 border-5 d-inline-block pb-3 text-secondary">關於休日
         </h3>
-        <div class="d-flex justify-content-center">
-          <img class="img-fluid" src="https://i.imgur.com/lowirph.png" alt="關於休日" title="關於休日">
+        <p class="text-secondary mb-15">Raiko休日製作所，以療癒為概念<br>慰勞週間忙碌的自己<br>選一件可以忘掉上班煩惱的小物<br>開啟週末慵懶模式！</p>
+        <div class="d-flex justify-content-center position-relative mx-auto">
+          <img class="about-img" src="https://i.imgur.com/lowirph.png" alt="關於休日" title="關於休日">
         </div>
       </div>
     </div>
   </section>
   <!-- 第五段 圖文 -->
-  <section class="pb-30">
+  <section class="pb-20 pb-lg-30">
     <div class="container">
-      <div class="row gy-3">
-        <div class="col-6 col-md-3">
-          <img class="img-fluid" src="https://i.imgur.com/Iw7o8MU.png" alt="">
+      <div class="text-center">
+        <h3 class="border-bottom border-yellow-200 border-5 d-inline-block pb-3 text-secondary mb-15">休日語錄
+        </h3>
+        <div class="row gy-5 mb-2" >
+          <div class="card-container col-6 col-md-3">
+            <div class="card-outer">
+              <div class="card-1">
+                <img class="img-fluid" src="https://i.imgur.com/Iw7o8MU.png" alt="">
+              </div>
+              <div class="card-2">
+                <img class="img-fluid" src="https://i.imgur.com/W0gk6ob.png" alt="">
+              </div>
+            </div>
+          </div>
+          <div class="card-container col-6 col-md-3">
+            <div class="card-outer">
+              <div class="card-1">
+                <img class="img-fluid" src="https://i.imgur.com/dw9gJwm.png" alt="">
+              </div>
+              <div class="card-2"><img class="img-fluid" src="https://i.imgur.com/jwlKTy0.png" alt=""> </div>
+            </div>
+          </div>
+          <div class="card-container col-6 col-md-3">
+            <div class="card-outer ">
+              <div class="card-1">
+                <img class="img-fluid" src="https://i.imgur.com/R4Cn0hG.png" alt="">
+              </div>
+              <div class="card-2"><img class="img-fluid" src="https://i.imgur.com/egmbavz.png" alt=""></div>
+            </div>
+          </div>
+          <div class="card-container col-6 col-md-3">
+            <div class="card-outer ">
+              <div class="card-1">
+                <img class="img-fluid" src="https://i.imgur.com/7ATYbGT.png" alt="">
+              </div>
+              <div class="card-2"><img class="img-fluid" src="https://i.imgur.com/SEAEusl.png" alt=""></div>
+            </div>
+          </div>
         </div>
-        <div class="col-6 col-md-3">
-          <img class="img-fluid" src="https://i.imgur.com/dw9gJwm.png" alt="">
-        </div>
-        <div class="col-6 col-md-3">
-          <img class="img-fluid" src="https://i.imgur.com/R4Cn0hG.png" alt="">
-        </div>
-        <div class="col-6 col-md-3">
-          <img class="img-fluid" src="https://i.imgur.com/7ATYbGT.png" alt="">
-        </div>
+        <p class="text-end text-secondary mt-10">To be continued...</p>
       </div>
     </div>
   </section>
@@ -280,7 +309,7 @@ h2 {
   margin-bottom: 0;
   text-align: center;
   @include pad-down {
-    width: 100px;
+    width: 130px;
   };
   @include pad-up {
     width: 150px;
@@ -297,7 +326,7 @@ h2 {
       @include background-position-left(38% , 50px ,220px) ;
     }
     @include mobile-down {
-      @include background-position-left(45% , 20px ,230px) ;
+      @include background-position-left(60% , 20px ,250px) ;
     }
     @include pad-up {
       @include background-position-left(32% , 30px ,160px) ;
@@ -313,7 +342,7 @@ h2 {
     @include background-position-right(38%,30px,140px)
   }
   @include mobile-down {
-    @include background-position-right(48%,15px,130px)
+    @include background-position-right(60%,10px,60px)
   }
   @include pad-up {
     @include background-position-right(32%,30px,110px)
@@ -329,7 +358,7 @@ h2 {
     @include background-position-left(30% , 80px ,260px) ;
   }
   @include mobile-down {
-    @include background-position-left(38% , 50px ,270px) ;
+    @include background-position-left(50% , 50px ,300px) ;
   }
   @include pad-up {
     @include background-position-left(22% , 100px ,220px) ;
@@ -345,7 +374,7 @@ h2 {
     @include background-position-right(32%,25px,140px);
   }
   @include mobile-down {
-    @include background-position-right(43%,10px,90px);
+    @include background-position-right(50%,0 ,40px);
   }
   @include pad-up {
     @include background-position-right(25%,80px,100px);
@@ -361,7 +390,7 @@ h2 {
     @include background-position-left(25% , 120px , 80px);
   }
   @include mobile-down {
-    @include background-position-left(25% , 60px , 150px);
+    @include background-position-left(25% , 20px , 160px);
   }
   @include pad-up {
     @include background-position-left(20% , 200px , 70px);
@@ -377,7 +406,7 @@ h2 {
     @include background-position-right(20% , 100px , 330px);
   }
   @include mobile-down {
-    @include background-position-right(25% , 40px , 270px);
+    @include background-position-right(25% , 20px , 270px);
   }
   @include pad-up {
     @include background-position-right(15% , 100px,300px);
@@ -392,7 +421,7 @@ h2 {
     @include background-position-left(18%,-40px,260px);
   }
   @include mobile-down {
-    @include background-position-left(23%,-40px,260px);
+    @include background-position-left(23%,-40px,300px);
   }
   @include pad-up {
     @include background-position-left(18%,-110px,200px);
@@ -409,7 +438,7 @@ h2 {
     @include background-position-right(12%,80px,60px);
   }
   @include mobile-down {
-    @include background-position-right(20%,0,60px);
+    @include background-position-right(20%,0,380px);
   }
   @include pad-up {
     @include background-position-right(10%,0px,60px);
@@ -425,7 +454,7 @@ h2 {
     @include background-position-right(6% ,180px,420px);
   }
   @include mobile-down {
-    @include background-position-right(8%,100px,330px);
+    @include background-position-right(8%,80px,330px);
   }
   @include pad-up {
     @include background-position-right(6% ,50px,400px);
@@ -441,7 +470,7 @@ h2 {
     @include background-position-left(8%,230px,60px);
   }
   @include mobile-down {
-    @include background-position-left(8%,130px,140px);
+    @include background-position-left(8%,90px,160px);
   }
   @include pad-up {
     @include background-position-left(5%,350px,50px);
@@ -456,7 +485,7 @@ h2 {
     @include background-position-left(15%,160px,450px);
   }
   @include mobile-down {
-    @include background-position-left(10%,140px,370px);
+    @include background-position-left(30%,-20px,30px);
   }
   @include pad-up {
     @include background-position-left(10%,200px,450px);
@@ -473,7 +502,7 @@ h2 {
     @include background-position-right(6%,230px,170px);
   }
   @include mobile-down {
-    @include background-position-right(10%,100px,80px);
+    @include background-position-right(15%,10px,-20px);
   }
   @include pad-up {
   @include background-position-right(6%,300px,150px);
@@ -483,9 +512,7 @@ h2 {
   }
 }
 
-.circle {
-  // background-color: $primary;
-  background-image: url(https://i.imgur.com/39Q99ne.png);
+.classification-container {
   background-size: cover;
   width: 250px;
   height: 250px;
@@ -494,18 +521,42 @@ h2 {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: end;
+  padding-bottom: 5%;
+}
+
+.classification-1 {
+  background-image: url(https://i.imgur.com/5SwETcr.png);
+}
+
+.classification-2 {
+  background-image: url(https://i.imgur.com/lsvEV6F.png);
+}
+
+.classification-3 {
+  background-image: url(https://i.imgur.com/aczBxfn.pngn);
+}
+
+.classification-4 {
+  background-image: url(https://i.imgur.com/39Q99ne.png);
 }
 
 .swiper-slide {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 400px;
+  @include desktop-up {
+    height: 400px;
+  }
+  @include pad-down {
+    height: 250px;
+  }
 }
 
 .swiper-active {
-  transform: scale(1.5);
+  @include desktop-up {
+    transform: scale(1.5);
+  }
   opacity: 1;
   transition: all .5s;
 }
@@ -582,6 +633,64 @@ h2 {
       width: 50px;
     }
   }
+
+.about-img {
+  max-width: 60%;
+  height: auto;
+}
+
+.classification-text {
+  margin-bottom: 0;
+  margin-top: 8px;
+  color: white;
+  background: $secondary;
+  padding: 8px;
+  font-size: 14px;
+  @include desktop-up {
+    font-size: 10px;
+  }
+}
+
+.card-container {
+    @include pad-down {
+    margin-bottom: 240px;
+  }
+  @include mobile-down {
+    margin-bottom: 170px;
+  }
+  @include pad-up {
+    margin-bottom:120px ;
+  }
+  @include desktop-up {
+    margin-bottom: 280px;
+  }
+  &:hover .card-outer {
+    transform: perspective(500px) rotateY(180deg);
+  }
+}
+
+.card-outer{
+  position: relative;
+  transition: all 1s ease-in-out;
+  transform-style:preserve-3d ;
+
+  @mixin cardstyle{
+position: absolute;
+left: 0;
+top: 0;
+backface-visibility:hidden;
+}
+
+  .card-1{
+    @include cardstyle;
+    z-index: 1;  /*   //正面index要設高一點 */
+}
+  .card-2{
+  @include cardstyle;
+  transform: rotateY(180deg);
+  }
+}
+
 
 // @keyframes shape-1 {
 //   0% { top:0% ;left: 0;}

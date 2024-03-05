@@ -31,7 +31,7 @@
         <tbody>
           <template v-for="item in data" :key="item.id">
             <tr>
-              <td><span class="bg-secondary p-3 text-white rounded-pill">{{item.category}}</span></td>
+              <td><span class="bg-dark p-3 text-white rounded-pill">{{item.category}}</span></td>
               <td class="text-start">
                 <img :src="item.imageUrl" :alt="item.title" width="100" class="me-3 rounded">
                 <span class="fw-bold">{{item.title}}</span>

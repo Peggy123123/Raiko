@@ -26,7 +26,7 @@
                                     <img :src="product.product.imageUrl" alt="product.product.title" width="50" class="me-2 rounded">
                                     <div class="d-flex align-items-center justify-content-between flex-grow-1">
                                         <div>{{ product.product.title }}</div>
-                                        <div class="text-secondary text-start">{{  product.qty + product.product.unit }}</div>
+                                        <div class="text-dark text-start">{{  product.qty + product.product.unit }}</div>
                                     </div>
                                 </li>
                             </ul>
