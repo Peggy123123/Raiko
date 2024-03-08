@@ -1,23 +1,26 @@
 <template>
   <VueLoading :active="isLoading"/>
     <div class="container">
-        <div class="row justify-content-center py-30">
-          <h2 class="h3 mb-8 font-weight-normal text-center my-auto">
-            登入後台
-          </h2>
-          <div class="col-3 ">
-            <form id="form" class="form-signin" @submit.prevent="login">
+        <div class="row py-30 justify-content-center align-items-center">
+          <div class="col-12 col-md-6 col-lg-5 d-flex justify-content-center">
+            <img class="login-image" src="https://i.imgur.com/lowirph.png" alt="">
+          </div>
+          <div class="col-12 col-md-6 col-lg-5">
+            <h2 class="h3 mb-8 border-bottom border-yellow-200 border-5 d-inline-block pb-3 text-secondary">
+              登入後台
+            </h2>
+            <form id="form" class="login-form text-secondary" @submit.prevent="login">
               <div class="form-floating mb-3">
-                <input type="email" class="form-control" id="username"
+                <input type="email" class="form-control " id="username"
                   placeholder="name@example.com" v-model="user.username" required autofocus>
-                <label for="username">Email address</label>
+                <label for="username">Email</label>
               </div>
               <div class="form-floating">
                 <input type="password" class="form-control" id="password"
-                  placeholder="Password" v-model="user.password" required>
-                <label for="password">Password</label>
+                  placeholder="password" v-model="user.password" required>
+                <label for="password">密碼</label>
               </div>
-              <button class="btn button mt-10" type="submit" @submit.prevent="login">
+              <button class="btn btn-secondary w-100 py-2 mt-10" type="submit" @submit.prevent="login">
                 登入
               </button>
             </form>
@@ -67,7 +70,7 @@ export default {
         toast.show()
         const {token , expired} = res.data;
         document.cookie = `hexToken=${token}; expires=${new Date(expired)}`
-        this.$router.push('admin/adminproduct')
+        this.$router.push('admin/adminhome')
       })
       .catch(error=>{
         this.toastTitle = `登入失敗`
@@ -86,25 +89,25 @@ export default {
 }
 </script>
 
-<style>
-  .button {
-    background-color: #000;
-    color: #fff;
-    width: 100%;
-    padding-top : .5rem;
-    padding-bottom: .5rem;
-    border-radius: 60px;
+<style lang="scss">
+@import '../assets/all.scss';
 
-    &:hover {
-      background-color: #fff;
-      color: #000;
-      border: 1px solid #000 ;
+  .login-image {
+    margin-bottom: 40px;
+    width: 50%;
+    @include pad-up {
+      width: 75%;
+      margin-bottom: 0;
     }
   }
 
-  body {
-    position: relative;
+  .login-form {
+    width: 100%;
+    @include pad-up {
+      width: 75%;
+    }
   }
+
   .toast-placement {
     top: 20px;
     right: 20px;

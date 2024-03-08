@@ -1,105 +1,128 @@
 <template>
   <VueLoading :active="isLoading"/>
-  <div class="container mt-5 pt-5">
-    <div class="text-end">
-    <button class="btn btn-outline-danger" type="button" @click="deleteItem('all')" :disabled="cartData.length<1">清空購物車</button>
-  </div>
-  <table class="table align-middle">
-    <thead>
-      <tr>
-        <th></th>
-        <th>品名</th>
-        <th style="width: 150px">數量/單位</th>
-        <th class="text-end">單價</th>
-      </tr>
-    </thead>
-    <tbody>
-      <template v-if="cartData">
-        <tr v-for="item in cartData" :key="item.id">
-          <td>
-            <button type="button" class="btn btn-outline-danger btn-sm" @click="deleteItem('single',item)">
-              x
-            </button>
-          </td>
-          <td>
-            {{ item.product.title }}
-            <div class="text-success">
-              已套用優惠券
-            </div>
-          </td>
-          <td>
-            <div class="input-group input-group-sm">
-              <div class="input-group mb-3">
-                <input 
-                      min="1" type="number" class="form-control" v-model="item.qty" @blur="(evt)=>changeCart(item,evt)">
-                <span class="input-group-text" id="basic-addon2">{{ item.product.unit }}</span>
+  <div class="container my-35">
+    <router-link class="d-inline-block my-8 link-secondary" to="/productslist"><i class="bi bi-arrow-left me-2"></i>返回商品列表</router-link>
+    <div class="row">
+      <h2 class="h5 mb-5">購物清單</h2>
+      <div class="col-lg-8 d-none d-md-block">
+        <table class="table align-middle table-light">
+          <thead>
+            <tr >
+              <th class="text-center thead-text">商品</th>
+              <th class="text-center thead-text">數量</th>
+              <th class="text-end thead-text">單價</th>
+              <th class="text-end thead-text">小計</th>
+              <th class="text-center thead-text">刪除</th>
+            </tr>
+          </thead>
+          <tbody>
+            <template v-if="cartData">
+              <tr v-for="item in cartData" :key="item.id">
+                <td height="100">
+                  <img :src="item.product.imageUrl" :alt="item.product.title" width="100" class="rounded-2 me-5">
+                  <span>{{ item.product.title }}</span>
+                </td>
+                <td>
+                  <div class="input-group input-group-sm">
+                    <button class="btn btn-primary text-white" type="button" :disabled="item.qty ===1" @click="changeCart(item,item.qty-1)"><i class="bi bi-dash"></i></button>
+                    <span  class="form-control text-center text-secondary">{{ item.qty }}</span>
+                    <button class="btn btn-primary text-white" type="button"><i class="bi bi-plus" @click="changeCart(item,item.qty+1)"></i></button>
+                  </div>
+                </td>
+                <td class="text-end">
+                  <div class="fs-12 text-decoration-line-through">{{ (item.product.origin_price).toLocaleString() }}</div>
+                  <div class="fs-14">NT.{{ (item.product.price).toLocaleString() }}</div></td>
+                <td class="text-end fs-14">NT.{{ (item.product.price*item.qty).toLocaleString() }}</td>
+                <td class="text-center">
+                  <span class="text-danger" @click="deleteItem('single',item)" style="cursor:pointer ;">
+                    <i class="bi bi-trash-fill"></i>
+                  </span>
+                </td>
+              </tr>
+              <div v-if="cartData.length<1">
+                <p class="text-center mb-0">購物車內還沒有商品</p>
               </div>
-            </div>
-          </td>
-          <td class="text-end">
-              {{ item.product.origin_price }} <br>
-            <small class="text-success ">折扣價：</small>
-            {{ item.product.price }}
-          </td>
-        </tr>
-        <div v-if="cartData.length<1">
-          <p class="text-center mb-0">購物車內還沒有商品</p>
+            </template>
+          </tbody>
+        </table>
+      </div>
+      <!-- 手機版 -->
+      <div class="d-md-none">
+        <table class="table align-middle table-light">
+          <thead>
+            <tr class="thead-text">
+              <th class="text-center">商品</th>
+              <th class="text-end">單價</th>
+              <th class="text-end">小計</th>
+              <th class="text-center">刪除</th>
+            </tr>
+          </thead>
+          <tbody>
+            <template v-if="cartData">
+              <tr v-for="item in cartData" :key="item.id">
+                <td height="100" class="text-center py-5">
+                  <img :src="item.product.imageUrl" :alt="item.product.title" width="120" class="rounded-2 mb-2">
+                  <div class="mb-5">{{ item.product.title }}</div>
+                  <div class="input-group input-group-sm">
+                    <button class="btn btn-primary text-white" type="button" :disabled="addCartQty ===1" @click="addCartQty -=1"><i class="bi bi-dash"></i></button>
+                    <span  class="form-control text-center text-secondary">{{ addCartQty }}</span>
+                    <button class="btn btn-primary text-white" type="button"><i class="bi bi-plus" @click="addCartQty ++"></i></button>
+                  </div>
+                </td>
+                <td class="text-end">
+                  <div class="fs-14 text-decoration-line-through">{{ (item.product.origin_price).toLocaleString() }}</div>
+                  <div>NT {{ (item.product.price).toLocaleString() }}</div></td>
+                <td class="text-end">NT{{ (item.product.price*item.qty).toLocaleString() }}</td>
+                <td class="text-center">
+                  <span class="text-danger" @click="deleteItem('single',item)" style="cursor:pointer ;">
+                    <i class="bi bi-trash-fill"></i>
+                  </span>
+                </td>
+              </tr>
+              <div v-if="cartData.length<1">
+                <p class="text-center mb-0">購物車內還沒有商品</p>
+              </div>
+            </template>
+          </tbody>
+        </table>
+      </div>
+      <!-- 手機版結束 -->
+      <div class="col-lg-4">
+        <!-- 優惠券 -->
+        <div class="mb-10">
+          <div class="bg-light border border-2 border-primary w-100 rounded-2 mb-5 mt-10 mt-md-0 px-5 py-2 fs-14">限今日輸入優惠碼「today」，享整單9折！</div>
+          <div class="input-group mb-3">
+            <input type="text" class="form-control" placeholder="輸入優惠碼" aria-label="Recipient's username" aria-describedby="button-addon2" v-model="couponCode">
+            <button class="btn btn-secondary fs-14" type="button" id="button-addon2" @click="addCoupon(couponCode)">套用優惠碼</button>
+          </div>
         </div>
-      </template>
-    </tbody>
-    <tfoot>
-      <tr>
-        <td colspan="3" class="text-end">總計</td>
-        <td class="text-end">{{ total }}</td>
-      </tr>
-      <tr>
-        <td colspan="3" class="text-end text-success">折扣價</td>
-        <td class="text-end text-success">{{ final_total }}</td>
-      </tr>
-    </tfoot>
-  </table>
-  <!-- 表單 -->
-  <!-- <div class="my-5 row justify-content-center">
-      <v-form ref="form" class="col-md-6" v-slot="{ errors }" @submit="sentOrder">
-          <div class="mb-3">
-          <label for="email" class="form-label">Email</label>
-          <v-field id="email" name="email" type="email" class="form-control" rules="email|required"
-                      :class="{ 'is-invalid': errors['email'] }" placeholder="請輸入 Email" 
-                      v-model="user.email"></v-field>
-          <error-message name="email" class="invalid-feedback"></error-message>
-          </div>
-
-          <div class="mb-3">
-          <label for="name" class="form-label">收件人姓名</label>
-          <v-field id="name" name="姓名" type="text" class="form-control" :class="{ 'is-invalid': errors['姓名'] }"
-                      placeholder="請輸入姓名" rules="required" v-model="user.name"></v-field>
-          <error-message name="姓名" class="invalid-feedback"></error-message>
-          </div>
-
-          <div class="mb-3">
-          <label for="tel" class="form-label">收件人電話</label>
-          <v-field id="tel" name="電話" type="text" class="form-control" :class="{ 'is-invalid': errors['電話'] }" placeholder="請輸入電話" :rules="isPhone" v-model="user.tel"></v-field>
-          <error-message name="電話" class="invalid-feedback"></error-message>
-          </div>
-
-          <div class="mb-3">
-          <label for="address" class="form-label">收件人地址</label>
-          <v-field id="address" name="地址" type="text" class="form-control" :class="{ 'is-invalid': errors['地址'] }"
-                      placeholder="請輸入地址" rules="required" v-model="user.address"></v-field>
-          <error-message name="地址" class="invalid-feedback"></error-message>
-          </div>
-
-          <div class="mb-3">
-          <label for="message" class="form-label">留言</label>
-          <textarea id="message" class="form-control" cols="30" rows="10" v-model="message"></textarea>
-          </div>
-          <div class="text-end">
-          <button type="submit" class="btn btn-danger"
-                  >送出訂單</button>
-          </div>
-      </v-form>
-    </div> -->
-  </div>
+          <div v-if="final_total !== total" class="mb-5 mt-10 mt-md-0 fs-14 text-primary"><i class="bi bi-check-lg"></i>已套用優惠碼！</div>
+          <table class="table table-borderless table-light mb-10 mb-md-5">
+            <thead>
+              <tr class="thead-text border-bottom">
+                <th>訂單小計</th>
+                <td></td>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="fs-14">
+                <td>合計金額</td>
+                <td>{{ total.toLocaleString() }} 元</td>
+              </tr>
+              <tr class="border-bottom fs-14">
+                <td>優惠折抵</td>
+                <td>{{ total-final_total }} 元</td>
+              </tr>
+              <tr class="fw-bold ">
+                <td >總金額</td>
+                <td>{{ final_total.toLocaleString() }} 元</td>
+              </tr>
+            </tbody>
+          </table>
+          <router-Link type="button" class="btn btn-primary w-100 text-white" to="checkout">前往結帳</router-Link>
+        </div>
+      </div>
+    </div>
 </template>
 
     
@@ -114,13 +137,7 @@ export default {
             addCartQty:1,
             final_total:0,
             total:0,
-            // user:{
-            //     name:'',
-            //     email:'',
-            //     tel:'',
-            //     address:'',
-            // },
-            // message:'',
+            couponCode:'', //輸入的優惠碼
             isLoading:true
         }
     },
@@ -143,13 +160,13 @@ export default {
             })
         },
         //更新購物車
-        changeCart(item,evt){
+        changeCart(item,cartQty){
           this.isLoading = true
             this.$http.put(`${VITE_URL}/api/${VITE_PATH}/cart/${item.id}`,
             {
                 data:{
                     product_id:item.product_id,
-                    qty:parseInt(evt.target.value)
+                    qty:parseInt(cartQty)
                 }
             })
             .then(res=>{
@@ -183,6 +200,7 @@ export default {
               this.$http.delete(api)
               .then(res=>{
                   this.showCart()
+                  console.log(res);
               })
               .catch(err=>{
                   alert(err.response.data.message)
@@ -193,35 +211,25 @@ export default {
               }
             });
         },
-        //電話驗證
-        // isPhone(value) { 
-        //     const phoneNumber = /^(09)[0-9]{8}$/
-        //     return phoneNumber.test(value) ? true : '需要正確的電話號碼'
-            
-        // },
-        //送出訂單
-        // sentOrder(){
-        //     let user = this.user
-        //     let message = this.message
-        //     let loader = this.$loading.show()
-        //     axios.post(`${this.url}/api/${this.api_path}/order`,
-        //     {
-        //         data:{
-        //             user
-        //         },
-        //         message:message
-        //     })
-        //     .then(res=>{
-        //         alert(res.data.message);
-        //         this.cartData=[] //清空購物車
-        //         this.$refs.form.resetForm() //使用內建方法resetForm()來清空表單
-        //         loader.hide()
-        //     })
-        //     .catch(err=>{
-        //         alert(err.response.data.message);
-        //         loader.hide()
-        //     });
-        // }
+        addCoupon(code){
+          const api = `${VITE_URL}/api/${VITE_PATH}/coupon`
+
+          this.$http.post(api , {
+            data:{
+              code:code
+            }
+          })
+          .then(res=>{
+                  this.showCart()
+                  console.log(res);
+              })
+              .catch(err=>{
+                  alert(err.response.data.message)
+              })
+              .finally(()=>{
+                this.isLoading = false
+              })
+        }
     },
     mounted() {
         //取得購物車列表
@@ -230,3 +238,7 @@ export default {
     }
 </script>
 
+<style lang="scss">
+  @import '../assets/all.scss';
+
+</style>

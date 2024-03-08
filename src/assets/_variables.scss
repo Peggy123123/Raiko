@@ -432,6 +432,7 @@ $spacers: (
   15: $spacer * 3.75,
   20: $spacer * 5,
   30: $spacer * 7.5,
+  35: $spacer * 8.75,
   50: $spacer * 12.5,
   65: $spacer * 16.25,
   67: $spacer * 16.75,
@@ -671,6 +672,7 @@ $font-sizes: (
   10: 10px, //custom
   12: 12px, //custom
   14: 14px, //custom
+  16: 16px, //custom
 
 
 ) !default;
@@ -762,7 +764,8 @@ $table-cell-padding-x-sm:     .25rem !default;
 
 $table-cell-vertical-align:   top !default;
 
-$table-color:                 var(--#{$prefix}emphasis-color) !default;
+// $table-color:                 var(--#{$prefix}emphasis-color) !default;
+$table-color:                 $secondary; //custom
 $table-bg:                    var(--#{$prefix}body-bg) !default;
 $table-accent-bg:             transparent !default;
 

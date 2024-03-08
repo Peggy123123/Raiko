@@ -1,9 +1,10 @@
 <template>
+  <VueLoading :active="isLoading"/>
   <!-- 主視覺 -->
   <section class="mt-5 pt-5 pb-30">
     <div class="banner sc1">
       <div class="d-flex align-items-center justify-content-center">
-        <h2></h2>
+        <h2 class="title"></h2>
       </div>
       <img class="sofa-bottom" src="https://i.imgur.com/bU1o7r4.png" alt="sofa-bottom">
       <img class="bed-bottom" src="https://i.imgur.com/lPdYMr1.png" alt="bed-bottom">
@@ -29,13 +30,13 @@
   <!-- 第二段 選物分類 -->
   <section class="pb-20 pb-lg-30">
     <div class="container">
-      <div class="text-center">
+      <div class="text-center" data-aos="fade-up">
         <h3 class="border-bottom border-yellow-200 border-5 d-inline-block pb-3 text-secondary">選物分類</h3>
         <p class="text-secondary mb-md-10">週末到了...一覺睡到自然醒<br>來一場chill的週末吧</p>
       </div>
 
       <swiper
-
+      data-aos="fade-up"
       :loop="true"
       :navigation="true"
       :modules="modules"
@@ -46,10 +47,12 @@
       :breakpoints="{ '992': { slidesPerView: 3, spaceBetween: 50, },'1': { slidesPerView: 1, spaceBetween: 50, } }"
     >
       <swiper-slide class="swiper-slide" v-slot="{ isActive }">
-        <div class="classification-container classification-1" :class="{'swiper-active' : isActive}">
-          <img width="20%" src="https://i.imgur.com/wYb3g5a.png" alt="家居小物" title="家居小物">
-          <p class="classification-text rounded-pill">家居小物</p>
-        </div>
+        <a href="#">
+          <div class="classification-container classification-1" :class="{'swiper-active' : isActive}">
+            <img width="20%" src="https://i.imgur.com/wYb3g5a.png" alt="家居小物" title="家居小物">
+            <p class="classification-text rounded-pill">家居小物</p>
+          </div>
+        </a>
       </swiper-slide>
       <swiper-slide class="swiper-slide" v-slot="{ isActive }">
         <div class="classification-container classification-2" :class="{'swiper-active' : isActive}">
@@ -76,33 +79,33 @@
   <section class="pb-20 pb-lg-30">
     <div class="container">
       <div class="row">
-        <div class="col-lg-5 text-center">
+        <div class="col-lg-5 text-center" data-aos="fade-up">
           <h3 class="border-bottom border-yellow-200 border-5 d-inline-block pb-3 text-secondary">熱銷排行</h3>
           <p class="mb-15 mb-md-10">懶得動腦時...<br>就選這個吧！</p>
           <ul class="row list-unstyled align-items-center justify-content-center mb-0">
             <li class="mb-5 col-6 col-lg-12 rank-item">
-              <div class=" bg-primary rounded-5 d-flex justify-content-end p-3 position-relative">
+              <div class="bg-primary rounded-5 d-flex justify-content-end p-3 position-relative" :class="{'opacity-25' : tempProduct.title !== '午睡抱枕'}" @click="rankItem('午睡抱枕')" style="cursor: pointer;">
                 <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-yellow-200 text-secondary px-4 py-3">1</span>
                 <p class="align-self-center text-white fw-bold flex-grow-1 mb-0">午睡抱枕</p>
                 <img class="align-self-end rank-item-img" src="https://i.imgur.com/AKlrFWi.png" alt="午睡抱枕" title="午睡抱枕">
               </div>
             </li>
             <li class="mb-5 col-6 col-lg-12 rank-item">
-              <div class=" bg-primary rounded-5 d-flex justify-content-end p-3 position-relative">
+              <div class=" bg-primary rounded-5 d-flex justify-content-end p-3 position-relative" :class="{'opacity-25' : tempProduct.title !== '質感綁帶日記本'}" @click="rankItem('質感綁帶日記本')" style="cursor: pointer;">
                 <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-yellow-200 text-secondary px-4 py-3">2</span>
-                <p class="align-self-center text-white fw-bold flex-grow-1 mb-0">筆記本</p>
-                <img class="align-self-end rank-item-img" src="https://i.imgur.com/LNGE2Bd.png" alt="質感筆記本">
+                <p class="align-self-center text-white fw-bold flex-grow-1 mb-0">日記本</p>
+                <img class="align-self-end rank-item-img" src="https://i.imgur.com/LNGE2Bd.png" alt="質感綁帶日記本">
               </div>
             </li>
             <li class="mb-5 col-6 col-lg-12 rank-item">
-              <div class=" bg-primary rounded-5 d-flex justify-content-end p-3 position-relative">
+              <div class=" bg-primary rounded-5 d-flex justify-content-end p-3 position-relative" :class="{'opacity-25' : tempProduct.title !== '法蘭絨單人毯'}" @click="rankItem('法蘭絨單人毯')" style="cursor: pointer;">
                 <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-yellow-200 text-secondary px-4 py-3">3</span>
                 <p class="align-self-center text-white fw-bold flex-grow-1 mb-0">法蘭絨毯</p>
                 <img class="align-self-end rank-item-img" src="https://i.imgur.com/JeuoxfL.png" alt="法蘭絨毯單人毯">
               </div>
             </li>
             <li class="mb-5 col-6 col-lg-12 rank-item">
-              <div class="bg-primary rounded-5 d-flex justify-content-end p-3 position-relative">
+              <div class="bg-primary rounded-5 d-flex justify-content-end p-3 position-relative" :class="{'opacity-25' : tempProduct.title !== '質感玻璃杯'}" @click="rankItem('質感玻璃杯')" style="cursor: pointer;">
                 <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-yellow-200 text-secondary px-4 py-3">4</span>
                 <p class="align-self-center text-white fw-bold flex-grow-1 mb-0">玻璃杯</p>
                 <img class="align-self-end rank-item-img" src="https://i.imgur.com/a1suTG4.png" alt="大容量玻璃杯">
@@ -110,28 +113,28 @@
             </li>
           </ul>
         </div>
-        <div class="col-lg-7 d-flex">
+        <div class="col-lg-7 d-flex" data-aos="fade-up">
           <div class="bg-primary rounded-5 px-3 py-5 p-lg-8 align-self-center w-100">
             <div class="row">
               <div class="col-lg-8 d-flex flex-row flex-lg-column">
                 <div class="d-flex justify-content-center">
-                  <img class="rank-big-image img-fluid" src="https://i.imgur.com/39Q99ne.png" alt="午睡抱枕" title="午睡抱枕">
+                  <img class="rank-big-image img-fluid" :src="tempProduct.imageUrl" alt="午睡抱枕" title="午睡抱枕">
                 </div>
                 <div class="d-flex rank-sm-image-container mt-3 flex-column flex-lg-row">
-                  <img class="rank-sm-image" src="https://i.imgur.com/iDqJrpC.png" alt="">
-                <img class="rank-sm-image" src="https://i.imgur.com/oBSZoLw.png" alt="">
-                <img class="rank-sm-image" src="https://i.imgur.com/4095OBk.png" alt="">
+                  <!-- <img class="rank-sm-image" :src=" tempProduct.imagesUrl[0]" :alt="tempProduct.title">
+                <img class="rank-sm-image" :src="tempProduct.imagesUrl[1]" :alt="tempProduct.title"> -->
+                <!-- <img class="rank-sm-image" :src="tempProduct.imagesUrl[2]" :alt="tempProduct.title"> -->
               </div>
                 </div>
                 <div class="col-lg-4">
                   <div class="d-flex flex-column text-white justify-content-between h-100 mt-4 mt-lg-0 ms-3 ms-lg-0">
                     <div>
-                      <h4 class="h3 fw-bold">午睡抱枕</h4>
-                      <small class="mb-4 mb-lg-0">一覺好眠白日夢滿滿</small>
+                      <h4 class="h3 fw-bold">{{ tempProduct.title }}</h4>
+                      <small class="mb-4 mb-lg-0">{{tempProduct.content}}</small>
                     </div>
-                    <p class="mb-lg-0">枕芯到枕套<br>100%純手工台灣製作<br>面積/ 直徑45cm<br>厚度/ 約13cm<br>枕芯/ 450g</p>
-                    <p class="mb-0 h4 fw-bold">NT$550</p>
-                    <button type="button" class=" btn btn-secondary px-10 py-4  rounded-pill m-5 m-lg-0">加入購物車</button>
+                    <p class="mb-lg-0">{{tempProduct.description}}</p>
+                    <p class="mb-0 h4 fw-bold">NT${{tempProduct.origin_price}}</p>
+                    <router-link :to="`productslist/${tempProduct.id}`" class=" btn btn-secondary px-10 py-4  rounded-pill m-5 m-lg-0">查看商品</router-link>
                   </div>
                 </div>
               </div>
@@ -143,11 +146,11 @@
   <!-- 第四段 品牌介紹 -->
   <section class="pb-20 pb-lg-30">
     <div class="container">
-      <div class="text-center">
+      <div class="text-center" data-aos="fade-up">
         <h3 class="border-bottom border-yellow-200 border-5 d-inline-block pb-3 text-secondary">關於休日
         </h3>
         <p class="text-secondary mb-15">Raiko休日製作所，以療癒為概念<br>慰勞週間忙碌的自己<br>選一件可以忘掉上班煩惱的小物<br>開啟週末慵懶模式！</p>
-        <div class="d-flex justify-content-center position-relative mx-auto">
+        <div class="d-flex justify-content-center position-relative mx-auto" data-aos="fade-up">
           <img class="about-img" src="https://i.imgur.com/lowirph.png" alt="關於休日" title="關於休日">
         </div>
       </div>
@@ -157,9 +160,9 @@
   <section class="pb-20 pb-lg-30">
     <div class="container">
       <div class="text-center">
-        <h3 class="border-bottom border-yellow-200 border-5 d-inline-block pb-3 text-secondary mb-15">休日語錄
+        <h3 class="border-bottom border-yellow-200 border-5 d-inline-block pb-3 text-secondary mb-15" data-aos="fade-up">休日語錄
         </h3>
-        <div class="row gy-5 mb-2" >
+        <div class="row gy-5 mb-2" data-aos="fade-up">
           <div class="card-container col-6 col-md-3">
             <div class="card-outer">
               <div class="card-1">
@@ -195,7 +198,7 @@
             </div>
           </div>
         </div>
-        <p class="text-end text-secondary mt-10">To be continued...</p>
+        <p class="text-end text-secondary mt-10" data-aos="fade-up">To be continued...</p>
       </div>
     </div>
   </section>
@@ -210,6 +213,11 @@
   import { gsap } from "gsap";
   import { ScrollTrigger } from "gsap/ScrollTrigger";
   gsap.registerPlugin(ScrollTrigger);
+
+  import AOS from 'aos'
+  import 'aos/dist/aos.css'
+
+  const { VITE_URL , VITE_PATH } = import.meta.env
 
   export default{
     components:{
@@ -229,9 +237,61 @@
     },
     data() {
       return {
+        data:[],
+        tempProduct:{},
+        active:false, //熱銷排行按鈕
+        isLoading:true,
+        fullPage:false
       }
     },
+    methods: {
+      getData(){
+        const api = `${VITE_URL}/api/${VITE_PATH}/products/all`
+        this.isLoading = true
+
+        this.$http.get(api)
+        .then(res=>{
+            this.data = res.data.products
+            this.tempProduct = this.data[0]
+            this.filterProducts()
+            console.log(this.data);
+        })
+        .catch(err=>{
+            alert(err.response.data.message)
+        })
+        .finally(()=>{
+            this.isLoading = false
+        })
+      },
+      filterProducts(){ //篩選出熱銷排行商品(固定)
+        let rankItem = ["-NnEpJllzVL7UzQgnLuu","-NooJ_KE6rZS9UevJYU4","-NopKNHWtnjaPd65kiTB","-NpIFvPKAut75_MDj8nC"]
+
+        let filterdproducts =  this.data.filter(item=>{
+          return rankItem.includes(item.id)
+        })
+
+        this.data = filterdproducts
+      },
+      rankItem(product){ //點擊出現商品資訊
+        let rankItem = this.data.filter(item=>{
+          return item.title === product
+        })
+        console.log(this.tempProduct);
+        this.tempProduct = rankItem[0]
+      },
+    },
     mounted(){
+      AOS.init({
+        delay: 150,
+        offset: 150,
+        duration: 1000,
+        easing: 'ease',
+        once: false,
+        }
+      );
+
+      this.getData()
+
       gsap.from('h2', {
       scrollTrigger: {
         trigger: 'h2',
@@ -300,7 +360,7 @@
   height: 300px;
 }
 
-h2 {
+.title {
   background-image: url(https://i.imgur.com/uHsC0Ln.png);
   background-size: contain;
   background-repeat: no-repeat;
@@ -617,6 +677,7 @@ h2 {
     margin-right: 10px;
   }
   max-width: 80px;
+  border-radius: 16px;
 }
 
 .rank-item {
@@ -637,6 +698,10 @@ h2 {
 .about-img {
   max-width: 60%;
   height: auto;
+
+  @include desktop-up {
+    max-width: 40%;
+  }
 }
 
 .classification-text {

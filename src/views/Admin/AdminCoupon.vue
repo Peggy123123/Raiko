@@ -3,11 +3,11 @@
     <div class="container">
         <h2 class="py-8 mb-0">優惠券管理</h2>
         <div class="row">
-        <div class=" text-end mb-2">
-            <button class="btn btn-dark fw-bold" @click="openModal(item={},'new')">
-            建立優惠券
-            </button>
-        </div>
+            <div class="text-end bg-light py-5 border rounded-3 d-flex justify-content-between">
+                <button class="btn btn-dark fw-bold" @click="openModal(item={},'new')">
+                建立優惠券
+                </button>
+            </div>
             <table class="table mt-4 align-middle text-center table-striped">
                 <thead>
                 <tr class="table-dark">

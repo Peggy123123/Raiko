@@ -12,16 +12,16 @@
           </div>
           <div class="offcanvas-body">
             <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
-              <li class="nav-item">
-                <RouterLink to="/" class="link">首頁</RouterLink>
+              <li class="user-nav-item" data-bs-dismiss="offcanvas">
+                <RouterLink to="/" class="link" aria-current="page">首頁</RouterLink>
               </li>
-              <li class="nav-item">
+              <li class="user-nav-item"  data-bs-dismiss="offcanvas">
                 <RouterLink to="/productslist" class="link">商品列表</RouterLink>
               </li>
-              <li class="nav-item">
+              <li class="user-nav-item" data-bs-dismiss="offcanvas">
                   <RouterLink to="/cart" class="link">購物車</RouterLink>
                 </li>
-              <li class="nav-item">
+              <li class="user-nav-item" data-bs-dismiss="offcanvas">
                 <RouterLink to="/login" class="link">登入後台</RouterLink>
               </li>
             </ul>
@@ -76,10 +76,25 @@
   </footer>
 </template>
 
+<script>
+// import { offcanvas } from 'bootsrap'
+
+// let closeOffcanvas = null
+
+export default {
+  mounted() {
+    // console.log(offcanvas);
+    // let myOffcanvas = document.getElementById('myOffcanvas')
+    // closeOffcanvas = Offcanvas(myOffcanvas)
+  },
+}
+
+</script>
+
 <style lang="scss">
 @import "../assets/all.scss";
 
-.nav-item {
+.user-nav-item {
   border-radius: 20px;
   margin: 12px;
   padding: 8px 0;
@@ -95,7 +110,9 @@
 
 .link {
   color: $secondary;
-  padding: 16px 20px;
+  display: block;
+  width: 100%;
+  padding: 0  16px;
 }
 
 .navbar-brand {

@@ -3,12 +3,13 @@
     <header>
         <div class="nav d-flex flex-column bg-dark justify-content-between">
         <div>
-            <router-link to="/">
-                <div class="d-flex justify-content-center text-white pt-10">
-                    <img width="150" src="https://i.imgur.com/pFJdiRb.png" alt="logo">
-                </div>
-            </router-link>
+            <div class="d-flex justify-content-center text-white pt-10">
+                <img width="150" src="https://i.imgur.com/pFJdiRb.png" alt="logo">
+            </div>
             <ul class="list-unstyled mt-10">
+                <li>
+                <RouterLink to="adminhome" class="admin-link">後台總覽</RouterLink>
+                </li>
                 <li>
                 <RouterLink to="adminproduct" class="admin-link">商品管理</RouterLink>
                 </li>
@@ -18,14 +19,23 @@
                 <li>
                 <RouterLink to="admincoupon" class="admin-link">優惠券管理</RouterLink>
                 </li>
-                <li>
-                    <a href="#" class="admin-link" @click.prevent="openModal">登出</a>
-                </li>
             </ul>
             </div>
-            <div class="text-white mb-20 fw-bold d-flex align-items-center justify-content-center">
-            <i class="bi bi-person-circle fs-1"></i>
-            <p class="mb-0 ms-2">歡迎回來！ <span>管理者1</span></p>
+            <div>
+                <div class="text-white fw-bold d-flex align-items-center justify-content-center pb-5">
+                <i class="bi bi-person-circle fs-1"></i>
+                <p class="mb-0 ms-2">歡迎回來！ <span>管理者1</span></p>
+                </div>
+                <div class="border-top border-white pt-5">
+                    <ul class="ps-0">
+                        <li>
+                            <router-link to="/" class="admin-link">回前台</router-link>
+                        </li>
+                        <li>
+                            <a href="#" class="admin-link" @click.prevent="openModal">登出</a>
+                        </li>
+                    </ul>
+                </div>
             </div>
         </div>
     </header>

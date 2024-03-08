@@ -28,6 +28,21 @@ const router = createRouter({
         component:()=> import('../views/UserCart.vue')
       },
       {
+        path: 'checkout',
+        name: '結帳',
+        component:()=> import('../views/UserCheckout.vue')
+      },
+      {
+        path: 'order_complete',
+        name: '結帳完成',
+        component:()=> import('../views/UserOderComplete.vue')
+      },
+      {
+        path: 'paid_complete',
+        name: '付款完成',
+        component:()=> import('../views/UserPaid.vue')
+      },
+      {
         path: 'login',
         name: '登入頁面',
         component:()=> import ('../views/LoginView.vue')
@@ -38,6 +53,11 @@ const router = createRouter({
       name: '後台',
       component: ()=> import ('../views/Admin/AdminView.vue'),
       children:[
+        {
+          path: 'adminhome',
+          name: '後台首頁',
+          component:()=> import ('../views/Admin/AdminHome.vue')
+        },
         {
           path: 'adminproduct',
           name: '商品管理',

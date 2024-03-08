@@ -147,7 +147,6 @@ export default {
     },
     updateProduct(){
       this.$emit('update-Product')
-      console.log(this.editProduct);
     },
     uploadFile(){ //上傳圖片
       this.isLoading = true

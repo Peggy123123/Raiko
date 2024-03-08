@@ -1,0 +1,26 @@
+//手機版寬度50% 平板以上100%
+.pad-width-change{
+    width: 50%;
+
+    @include pad-up {
+        width: 100%;
+    }
+}
+
+//手機版寬度100% 平板以上25%
+.pad-width-change-25{
+    width: 100%;
+
+    @include pad-up {
+        width: 25%;
+    }
+}
+
+//手機版寬度100% 平板以上50%
+.pad-width-change-50{
+    width: 100%;
+
+    @include pad-up {
+        width: 50%;
+    }
+}

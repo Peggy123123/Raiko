@@ -1,11 +1,15 @@
 <template>
-  <VueLoading :active="isLoading"/>
+  <VueLoading :active="isLoading" :loader="loader" />
   <div class="container">
     <h2 class="py-8 mb-0">商品管理</h2>
     <div class="row">
-      <div class="text-end mb-2">
+      <div class="text-end bg-light py-5 border rounded-3 d-flex justify-content-between">
+        <!-- <div class="input-group w-25"> -->
+          <!-- <input type="text" class="form-control " placeholder="搜尋產品" aria-label="Recipient's username" aria-describedby="button-addon2">
+          <button class="btn btn-outline-dark" type="button" id="button-addon2">搜尋</button>
+        </div> -->
         <button class="btn btn-dark fw-bold" @click="openModel('new')">
-          建立新產品
+          建立新商品
         </button>
       </div>
       <table class="table mt-4 align-middle text-center table-striped">
@@ -95,8 +99,9 @@ export default {
       toastTitle:'', //吐司訊息標題
       toastContent:'', //吐司訊息內文
       isLoading:true,
-      fallPage:false
-    };
+      fullPage: true,
+      loader:'bars'
+    };ｚ
   },
   methods: {
     getData(page=1) {

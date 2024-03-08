@@ -51,3 +51,12 @@
     z-index: -5;
     position: absolute;
   }
+
+  //響應式文字大小
+
+  @mixin rwd-text-size ($padup , $pad-down){
+    font-size:$pad-down ;
+    @include pad-up {
+      font-size: $padup;
+    }
+  }
