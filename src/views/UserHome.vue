@@ -32,7 +32,7 @@
     <div class="container">
       <div class="text-center" data-aos="fade-up">
         <h3 class="border-bottom border-yellow-200 border-5 d-inline-block pb-3 text-secondary">選物分類</h3>
-        <p class="text-secondary mb-md-10">週末到了...一覺睡到自然醒<br>來一場chill的週末吧</p>
+        <p class="text-secondary mb-md-10">週末到了...一覺睡到自然醒<br>來一場chill的週末</p>
       </div>
 
       <swiper
@@ -47,29 +47,36 @@
       :breakpoints="{ '992': { slidesPerView: 3, spaceBetween: 50, },'1': { slidesPerView: 1, spaceBetween: 50, } }"
     >
       <swiper-slide class="swiper-slide" v-slot="{ isActive }">
-        <a href="#">
+        <router-link to="productslist?category=家居小物">
           <div class="classification-container classification-1" :class="{'swiper-active' : isActive}">
             <img width="20%" src="https://i.imgur.com/wYb3g5a.png" alt="家居小物" title="家居小物">
             <p class="classification-text rounded-pill">家居小物</p>
           </div>
-        </a>
+        </router-link>
       </swiper-slide>
       <swiper-slide class="swiper-slide" v-slot="{ isActive }">
-        <div class="classification-container classification-2" :class="{'swiper-active' : isActive}">
-          <img width="20%" src="https://i.imgur.com/I7ZGx0r.png" alt="療癒寢具" title="療癒寢具">
-          <p class="classification-text rounded-pill">療癒寢具</p>
-        </div>
+        <router-link to="productslist?category=療癒寢具">
+          <div class="classification-container classification-2" :class="{'swiper-active' : isActive}">
+            <img width="20%" src="https://i.imgur.com/I7ZGx0r.png" alt="療癒寢具" title="療癒寢具">
+            <p class="classification-text rounded-pill">療癒寢具</p>
+          </div>
+        </router-link>
       </swiper-slide>
       <swiper-slide class="swiper-slide" v-slot="{ isActive }">
-        <div class="classification-container classification-3" :class="{'swiper-active' : isActive}">
-          <img width="20%" src="https://i.imgur.com/qHjTB06.png" alt="辦公小物" title="辦公小物">
-          <p class="classification-text rounded-pill">辦公小物</p>
-        </div></swiper-slide>
-      <swiper-slide class="swiper-slide" v-slot="{ isActive }">
-        <div class="classification-container classification-4" :class="{'swiper-active' : isActive}">
-          <img width="20%" src="https://i.imgur.com/I7ZGx0r.png" alt="療癒家居" title="療癒家居">
-          <p class="classification-text rounded-pill">療癒家居</p>
-        </div>
+        <router-link to="productslist?category=辦公小物">
+          <div class="classification-container classification-3" :class="{'swiper-active' : isActive}">
+            <img width="20%" src="https://i.imgur.com/qHjTB06.png" alt="辦公小物" title="辦公小物">
+            <p class="classification-text rounded-pill">辦公小物</p>
+          </div>
+        </router-link>
+      </swiper-slide>
+        <swiper-slide class="swiper-slide" v-slot="{ isActive }">
+        <router-link to="productslist?category=療癒寢具">
+          <div class="classification-container classification-2" :class="{'swiper-active' : isActive}">
+            <img width="20%" src="https://i.imgur.com/I7ZGx0r.png" alt="療癒寢具" title="療癒寢具">
+            <p class="classification-text rounded-pill">療癒寢具</p>
+          </div>
+        </router-link>
       </swiper-slide>
     </swiper>
     </div>
@@ -118,12 +125,13 @@
             <div class="row">
               <div class="col-lg-8 d-flex flex-row flex-lg-column">
                 <div class="d-flex justify-content-center">
-                  <img class="rank-big-image img-fluid" :src="tempProduct.imageUrl" alt="午睡抱枕" title="午睡抱枕">
+                  <img class="rank-big-image img-fluid" :src="bigImage" alt="午睡抱枕" title="午睡抱枕">
                 </div>
                 <div class="d-flex rank-sm-image-container mt-3 flex-column flex-lg-row">
-                  <!-- <img class="rank-sm-image" :src=" tempProduct.imagesUrl[0]" :alt="tempProduct.title">
-                <img class="rank-sm-image" :src="tempProduct.imagesUrl[1]" :alt="tempProduct.title"> -->
-                <!-- <img class="rank-sm-image" :src="tempProduct.imagesUrl[2]" :alt="tempProduct.title"> -->
+                  <img class="rank-sm-image" :src="tempProduct.imageUrl" alt="tempProduct.imageUrl" @click="bigImage = tempProduct.imageUrl" style="cursor: pointer;">
+                  <template v-for="item in tempProduct.imagesUrl" :key="item" >
+                    <img class="rank-sm-image" :src="item" :alt="item" @click="bigImage = item" style="cursor: pointer;">
+                  </template>
               </div>
                 </div>
                 <div class="col-lg-4">
@@ -239,6 +247,7 @@
       return {
         data:[],
         tempProduct:{},
+        bigImage:'https://i.imgur.com/OE6lA20.jpg',
         active:false, //熱銷排行按鈕
         isLoading:true,
         fullPage:false
@@ -254,7 +263,6 @@
             this.data = res.data.products
             this.tempProduct = this.data[0]
             this.filterProducts()
-            console.log(this.data);
         })
         .catch(err=>{
             alert(err.response.data.message)
@@ -276,13 +284,13 @@
         let rankItem = this.data.filter(item=>{
           return item.title === product
         })
-        console.log(this.tempProduct);
         this.tempProduct = rankItem[0]
+        this.bigImage = this.tempProduct.imageUrl
       },
     },
     mounted(){
       AOS.init({
-        delay: 150,
+        delay: 50,
         offset: 150,
         duration: 1000,
         easing: 'ease',
@@ -664,7 +672,6 @@
     margin-bottom: 8px;
   }
   @include mobile-down {
-    max-width: 50px;
     margin-left: 8px;
     margin-bottom: 8px;
   }

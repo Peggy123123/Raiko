@@ -1,10 +1,23 @@
 <template>
+    <VueLoading :active="isLoading"/>
   <header>
     <nav class="navbar navbar-light bg-opacity fixed-top pt-5">
       <div class="container">
         <RouterLink class="navbar-brand" to="/"><h1>休日製作所</h1></RouterLink>
         <!-- menu button -->
-        <button class="btn btn-secondary py-2 px-4 rounded-pill" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar"><i class="bi bi-list me-2"></i>MENU</button>
+        <div class="d-flex align-items-center">
+          <!-- 購物車按鈕 -->
+          <router-link class="me-2 me-md-5" type="button" to="cart">
+            <span class="bg-secondary px-3 py-2 rounded-circle text-white position-relative"><i class="bi bi-cart"></i>
+              <span  class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-primary">
+              {{ cartData.length }}
+              <span class="visually-hidden">unread messages</span>
+            </span>
+            </span>
+          </router-link>
+          <button class="btn btn-secondary py-2 px-4 rounded-pill" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar"><i class="bi bi-list me-0 me-md-2"></i><span class="d-none d-md-inline">MENU</span></button>
+
+        </div>
         <div class="offcanvas offcanvas-end w-100" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
           <div class="offcanvas-header">
             <h5 class="offcanvas-title" id="offcanvasNavbarLabel">導覽</h5>
@@ -77,18 +90,20 @@
 </template>
 
 <script>
-// import { offcanvas } from 'bootsrap'
+  import { mapState , mapActions } from 'pinia';
+  import userCartStore from '../stores/userCartStore.js';
 
-// let closeOffcanvas = null
-
-export default {
-  mounted() {
-    // console.log(offcanvas);
-    // let myOffcanvas = document.getElementById('myOffcanvas')
-    // closeOffcanvas = Offcanvas(myOffcanvas)
-  },
-}
-
+  export default {
+    computed:{
+      ...mapState(userCartStore,['cartData'])
+    },
+    methods: {
+      ...mapActions(userCartStore,['showCart']),
+    },
+    mounted() {
+      this.showCart()
+    },
+  }
 </script>
 
 <style lang="scss">

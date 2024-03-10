@@ -65,13 +65,13 @@
       </div>
     </div>
   <!-- 加入購物車吐司 -->
-  <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11">
+  <div class="toast-style position-fixed end-0 p-3 border-0" style="z-index: 11">
     <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
-      <div class="toast-header">
-        <strong class="me-auto">加入購物車</strong>
-        <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+      <div class="toast-body d-flex justify-content-between">
+          <p class="mb-0 fw-bold d-flex align-items-center">已加入購物車！</p>
+          <router-link type= "button" class="btn bg-primary fs-12" to="cart">查看購物車</router-link>
+          <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
       </div>
-      <div class="toast-body">加入成功！</div>
     </div>
   </div>
 </template>
@@ -80,6 +80,8 @@
 const { VITE_URL , VITE_PATH } = import.meta.env
 import * as bootstrap from 'bootstrap'
 import 'bootstrap/dist/js/bootstrap.bundle' //使用bs5的下拉選單，需引用此當案
+import { mapActions } from 'pinia'
+import userCartStore  from '@/stores/userCartStore.js'
 
 export default {
     data(){
@@ -127,9 +129,7 @@ export default {
           })
           .then(res=>{
             this.showToast()
-            // this.$refs.ProductComponent.hideModel() //關閉互動視窗
-            // this.addCartQty = 1 //購物車數量改回1
-            // this.$refs.ProductComponent.qty = 1
+            this.showCart()
           })
           .catch(err=>{
             alert(err.response.data.message)
@@ -148,10 +148,12 @@ export default {
       },
       detailPage(item){
         this.$router.push(`productslist/${item.id}`)
-      }
+      },
+      ...mapActions(userCartStore,['showCart']),
   },
   mounted(){
     this.getData()
+    this.showCart()
 
     //初始化吐司模組
     this.initToast()
@@ -304,6 +306,16 @@ export default {
 
   .product-text-size {
     @include rwd-text-size (16px,20px)
+  }
+
+  .toast-style {
+    top: 12%;
+    @include pad-up{
+      width: 50%;
+    }
+    @include desktop-up{
+      width: 25%;
+    }
   }
 
 </style>

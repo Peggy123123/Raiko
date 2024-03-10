@@ -15,7 +15,6 @@
                     <th class="text-center thead-text">數量</th>
                     <th class="text-end thead-text ">單價</th>
                     <th class="text-end thead-text">小計</th>
-                    <th class="text-center thead-text d-none d-md-block">刪除</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -31,11 +30,6 @@
                         <div class="fs-12 text-decoration-line-through">{{ (item.product.origin_price).toLocaleString() }}</div>
                         <div class="fs-14">NT.{{ (item.product.price).toLocaleString() }}</div></td>
                         <td class="text-end fs-14">NT.{{ (item.product.price*item.qty).toLocaleString() }}</td>
-                        <td class="text-center">
-                        <span class="text-danger" @click="deleteItem('single',item)" style="cursor:pointer ;">
-                            <i class="bi bi-trash-fill"></i>
-                        </span>
-                        </td>
                     </tr>
                     <div v-if="cartData.length<1">
                         <p class="text-center mb-0">購物車內還沒有商品</p>

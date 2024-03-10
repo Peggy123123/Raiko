@@ -39,22 +39,22 @@
                   </span>
                 </td>
               </tr>
-              <div v-if="cartData.length<1">
-                <p class="text-center mb-0">購物車內還沒有商品</p>
-              </div>
             </template>
           </tbody>
         </table>
+        <div v-if="cartData.length<1" class="text-center">
+          <p class="mb-0">購物車內還沒有商品</p>
+        </div>
       </div>
       <!-- 手機版 -->
       <div class="d-md-none">
         <table class="table align-middle table-light">
           <thead>
-            <tr class="thead-text">
-              <th class="text-center">商品</th>
-              <th class="text-end">單價</th>
-              <th class="text-end">小計</th>
-              <th class="text-center">刪除</th>
+            <tr>
+              <th class="text-center thead-text">商品</th>
+              <th class="text-end thead-text">單價</th>
+              <th class="text-end thead-text">小計</th>
+              <th class="text-center thead-text">刪除</th>
             </tr>
           </thead>
           <tbody>
@@ -64,9 +64,9 @@
                   <img :src="item.product.imageUrl" :alt="item.product.title" width="120" class="rounded-2 mb-2">
                   <div class="mb-5">{{ item.product.title }}</div>
                   <div class="input-group input-group-sm">
-                    <button class="btn btn-primary text-white" type="button" :disabled="addCartQty ===1" @click="addCartQty -=1"><i class="bi bi-dash"></i></button>
-                    <span  class="form-control text-center text-secondary">{{ addCartQty }}</span>
-                    <button class="btn btn-primary text-white" type="button"><i class="bi bi-plus" @click="addCartQty ++"></i></button>
+                    <button class="btn btn-primary text-white" type="button" :disabled="item.qty ===1" @click="changeCart(item,item.qty-1)"><i class="bi bi-dash"></i></button>
+                    <span  class="form-control text-center text-secondary">{{ item.qty  }}</span>
+                    <button class="btn btn-primary text-white" type="button"><i class="bi bi-plus" @click="changeCart(item,item.qty+1)"></i></button>
                   </div>
                 </td>
                 <td class="text-end">
@@ -79,12 +79,12 @@
                   </span>
                 </td>
               </tr>
-              <div v-if="cartData.length<1">
-                <p class="text-center mb-0">購物車內還沒有商品</p>
-              </div>
             </template>
           </tbody>
         </table>
+        <div v-if="cartData.length<1" class="text-center">
+          <p class="mb-0">購物車內還沒有商品</p>
+        </div>
       </div>
       <!-- 手機版結束 -->
       <div class="col-lg-4">
@@ -113,9 +113,9 @@
                 <td>優惠折抵</td>
                 <td>{{ total-final_total }} 元</td>
               </tr>
-              <tr class="fw-bold ">
-                <td >總金額</td>
-                <td>{{ final_total.toLocaleString() }} 元</td>
+              <tr class="fw-bold">
+                <td class="text-primary">總金額</td>
+                <td class="text-primary">{{ final_total.toLocaleString() }} 元</td>
               </tr>
             </tbody>
           </table>
@@ -129,36 +129,38 @@
 <script>
   const { VITE_URL , VITE_PATH } = import.meta.env
   import Swal from 'sweetalert2';
+  import userCartStore from "../stores/userCartStore.js";
+  import { mapState ,mapActions } from 'pinia';
 
 export default {
     data() {
         return {
-            cartData :[],
-            addCartQty:1,
-            final_total:0,
-            total:0,
             couponCode:'', //輸入的優惠碼
-            isLoading:true
+            isLoading:false,
         }
     },
+    computed:{
+      ...mapState(userCartStore,['cartData','addCartQty','final_total','total'])
+    },
     methods:{
+      ...mapActions(userCartStore,['showCart']),
         //顯示購物車
-        showCart(){
-          this.isLoading = true
-          const api = `${VITE_URL}/api/${VITE_PATH}/cart`
-            this.$http.get(api)
-            .then(res=>{
-              this.cartData = res.data.data.carts
-              this.final_total = res.data.data.final_total
-              this.total = res.data.data.total
-            })
-            .catch(err=>{
-              alert(err.response.data.message)
-            })
-            .finally(()=>{
-              this.isLoading = false
-            })
-        },
+        // showCart(){
+        //   this.isLoading = true
+        //   const api = `${VITE_URL}/api/${VITE_PATH}/cart`
+        //     this.$http.get(api)
+        //     .then(res=>{
+        //       this.cartData = res.data.data.carts
+        //       this.final_total = res.data.data.final_total
+        //       this.total = res.data.data.total
+        //     })
+        //     .catch(err=>{
+        //       alert(err.response.data.message)
+        //     })
+        //     .finally(()=>{
+        //       this.isLoading = false
+        //     })
+        // },
         //更新購物車
         changeCart(item,cartQty){
           this.isLoading = true
