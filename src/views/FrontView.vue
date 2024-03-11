@@ -7,37 +7,42 @@
         <!-- menu button -->
         <div class="d-flex align-items-center">
           <!-- 購物車按鈕 -->
-          <router-link class="me-2 me-md-5" type="button" to="cart">
+          <router-link class="me-2 me-md-5" type="button" to="/cart">
             <span class="bg-secondary px-3 py-2 rounded-circle text-white position-relative"><i class="bi bi-cart"></i>
               <span  class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-primary">
               {{ cartData.length }}
-              <span class="visually-hidden">unread messages</span>
+              <span class="visually-hidden">cart</span>
             </span>
             </span>
           </router-link>
-          <button class="btn btn-secondary py-2 px-4 rounded-pill" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar"><i class="bi bi-list me-0 me-md-2"></i><span class="d-none d-md-inline">MENU</span></button>
+          <button @click="menu=!menu" class="menu-btn btn btn-secondary py-2 px-4 rounded-pill" type="button">
+            <div class="d-flex">
+              <div class="menu-icon-container">
+                <span class="menu-icon" :class="{ 'menu-icon-close':menu }"></span>
+                <span class="menu-icon" :class="{ 'menu-icon-close':menu }"></span>
+              </div>
+              <span class="d-none d-md-inline ms-5">MENU</span>
+            </div>
+          </button>
         </div>
         <!-- menu視窗 -->
-        <div class="offcanvas offcanvas-end w-100 bg-secondary" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
-          <div class="offcanvas-header d-flex justify-content-end">
-            <button type="button" class="btn btn-secondary py-2 px-4 rounded-pill" data-bs-dismiss="offcanvas" aria-label="Close"><i class="bi bi-list me-0 me-md-2"></i><span class="d-none d-md-inline">MENU</span></button>
-          </div>
-          <div class="offcanvas-body text-white row justify-content-center">
-            <ul class="navbar-nav col-sm-5 col-md-4 d-flex justify-content-center ms  -10 pe-0  ">
-              <li class="user-nav-item" data-bs-dismiss="offcanvas">
-                <RouterLink to="/" class="link" aria-current="page">首頁</RouterLink>
+        <div class="w-100 bg-secondary menu-hide " :class="{ 'menu-show': menu }">
+          <div class="text-white row justify-content-center mt-20">
+            <ul class="navbar-nav col-6 col-sm-5 col-md-4 d-flex justify-content-center pe-0">
+              <li class="user-nav-item">
+                <a href="#" class="link" aria-current="page" @click.prevent="goPage('首頁')">首頁</a>
               </li>
-              <li class="user-nav-item"  data-bs-dismiss="offcanvas">
-                <RouterLink to="/productslist" class="link">商品一覽</RouterLink>
+              <li class="user-nav-item">
+                <a href="#" class="link" @click.prevent="goPage('商品一覽')">商品一覽</a>
               </li>
-              <li class="user-nav-item" data-bs-dismiss="offcanvas">
-                  <RouterLink to="/cart" class="link">購物車</RouterLink>
+              <li class="user-nav-item">
+                  <a href="#" class="link" @click.prevent="goPage('購物車')">購物車</a>
                 </li>
-              <li class="user-nav-item" data-bs-dismiss="offcanvas">
-                <RouterLink to="/login" class="link">登入後台</RouterLink>
+              <li class="user-nav-item">
+                <a href="#" class="link" @click.prevent="goPage('登入後台')">登入後台</a>
               </li>
             </ul>
-            <div class="col-12 col-sm-5 col-md-4 d-flex justify-content-center">
+            <div class="d-none d-md-block col-12 col-sm-5 col-md-4 d-flex justify-content-center">
               <img class="menu-image" src="https://i.imgur.com/lowirph.png" alt="image">
             </div>
           </div>
@@ -74,11 +79,28 @@
   import userCartStore from '../stores/userCartStore.js';
 
   export default {
+    data() {
+      return {
+        menu:false
+      }
+    },
     computed:{
       ...mapState(userCartStore,['cartData'])
     },
     methods: {
       ...mapActions(userCartStore,['showCart']),
+      goPage(page){
+        this.menu = !this.menu
+        if(page === "首頁"){
+          this.$router.push('/')
+        }else if(page === "商品一覽"){
+          this.$router.push('/productslist')
+        }else if(page === "購物車"){
+          this.$router.push('/cart')
+        }else if(page === "登入後台"){
+          this.$router.push('/login')
+        }
+      }
     },
     mounted() {
       this.showCart()
@@ -90,6 +112,8 @@
 @import "../assets/all.scss";
 
 .user-nav-item {
+  opacity: 0;
+  transform: translateY(100px);
   font-size: 28px;
   transition: all .2s;
   position: relative;
@@ -173,24 +197,100 @@ h1 {
   }
 }
 
-.logo-bottom-sm {
-  max-width: 250px;
-  top: -40px;
-  left: -50px;
+  .logo-bottom-sm {
+    max-width: 250px;
+    top: -40px;
+    left: -50px;
 
-  @include mobile-up {
-    display: none;
-  }
+    @include mobile-up {
+      display: none;
+    }
 }
 
-.menu-image {
+  .menu-image {
     margin-bottom: 40px;
     width: 50%;
-    object-fit: contain;
     @include pad-up {
       width: 65%;
       margin-bottom: 0;
     }
   }
+
+  .menu-btn {
+    z-index: 10;
+  }
+
+  .menu-hide {
+    transform: translateX(100%);
+    transition: .5s;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100vh;
+  }
+
+  .menu-show {
+    transform: translateX(0);
+
+    .user-nav-item:nth-child(1)  {
+      transform: translateY(0%);
+      transition: .8s;
+      opacity: 1;
+      transition-delay: .5s;
+    }
+    .user-nav-item:nth-child(2)  {
+      transform: translateY(0%);
+      transition: .8s;
+      opacity: 1;
+      transition-delay: .7s;
+    }
+    .user-nav-item:nth-child(3)  {
+      transform: translateY(0%);
+      transition: .8s;
+      opacity: 1;
+      transition-delay: .9s;
+    }
+    .user-nav-item:nth-child(4)  {
+      transform: translateY(0%);
+      transition: .8s;
+      opacity: 1;
+      transition-delay: 1.1s;
+    }
+  }
+
+  .menu-icon-container {
+    position: relative;
+    height: 24px;
+    width: 24px;
+  }
+
+  .menu-icon {
+    display: block;
+    width: 25px;
+    height: 1px;
+    background-color: #fff;
+    transition: 1s;
+    position: absolute;
+    &:nth-child(1){
+      top: 40%;
+      left: 0;
+    }
+    &:nth-child(2){
+      top: 70%;
+      left: 0;
+    }
+  }
+
+  .menu-icon-close:nth-child(1) {
+    top: 50%;
+    transform: rotate(45deg);
+  }
+  .menu-icon-close:nth-child(2) {
+    top: 50%;
+    transform: rotate(-45deg);
+  }
+
+
+
 
 </style>

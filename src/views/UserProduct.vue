@@ -19,7 +19,6 @@
                     <div>
                         <h2 class="mb-3">{{ productData.title }}</h2>
                         <p>{{ productData.content }}</p>
-                        <small class="mb-3 d-block">{{ productData.description }}</small>
                         <div>
                             <small class="text-decoration-line-through">NT. {{ productData.origin_price }}</small>
                             <p class="mb-0 text-primary fw-bold h4">NT. {{ productData.price }}</p>
@@ -59,7 +58,8 @@
         </ul>
     <div class="tab-content" id="myTabContent">
         <div class="tab-pane fade show active" id="productIformation" role="tabpanel" aria-labelledby="home-tab">
-            <div class="container my-20 text-center">
+            <div class="container my-20">
+                <h3 class="h5 fw-bold">商品介紹</h3>
                 {{ productData.description }}
             </div>
         </div>
@@ -85,7 +85,7 @@
     <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
       <div class="toast-body d-flex justify-content-between">
           <p class="mb-0 fw-bold d-flex align-items-center">已加入購物車！</p>
-          <router-link type= "button" class="btn bg-primary fs-12" to="cart">查看購物車</router-link>
+          <router-link type= "button" class="btn bg-primary fs-12" to="/cart">查看購物車</router-link>
           <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
       </div>
     </div>

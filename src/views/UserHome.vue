@@ -10,14 +10,14 @@
       <img class="bed-bottom" src="https://i.imgur.com/lPdYMr1.png" alt="bed-bottom">
       <img class="sofa" src="https://i.imgur.com/XvrdvLz.png" alt="sofa">
       <img class="bed" src="https://i.imgur.com/77mgdol.png" alt="bed">
-      <img class="primary-light-1" src="https://i.imgur.com/zhR0XMk.png" alt="light-1">
-      <img class="primary-light-2" src="https://i.imgur.com/fhnBTI3.png" alt="light-2">
-      <img class="yellow-1" src="https://i.imgur.com/wUBawXp.png" alt="yellow-1">
-      <img class="yellow-2" src="https://i.imgur.com/Bx5Qdqr.png" alt="yellow-2">
-      <img class="yellow-3" src="https://i.imgur.com/7yEoKrX.png" alt="yellow-3">
-      <img class="yellow-light-1" src="https://i.imgur.com/nwyVDhc.png" alt="yellow-loght-1">
-      <img class="yellow-light-2" src="https://i.imgur.com/7XoqMCZ.png" alt="yellow-loght-2">
-      <img class="yellow-light-3" src="https://i.imgur.com/7XoqMCZ.png" alt="yellow-loght-3">
+      <img class="primary-light-1 bg-move-1" src="https://i.imgur.com/zhR0XMk.png" alt="light-1">
+      <img class="primary-light-2 bg-move-2" src="https://i.imgur.com/fhnBTI3.png" alt="light-2">
+      <img class="yellow-1 bg-move-2" src="https://i.imgur.com/wUBawXp.png" alt="yellow-1">
+      <img class="yellow-2 bg-move-2" src="https://i.imgur.com/Bx5Qdqr.png" alt="yellow-2">
+      <img class="yellow-3 bg-move-1" src="https://i.imgur.com/7yEoKrX.png" alt="yellow-3">
+      <img class="yellow-light-1 bg-move-1" src="https://i.imgur.com/nwyVDhc.png" alt="yellow-loght-1">
+      <img class="yellow-light-2 bg-move-2" src="https://i.imgur.com/7XoqMCZ.png" alt="yellow-loght-2">
+      <img class="yellow-light-3 bg-move-1" src="https://i.imgur.com/7XoqMCZ.png" alt="yellow-loght-3">
     </div>
     <div class="text-center sticky-30 pb-35 pb-md-100">
       <p class="text-secondary p1 ">從這一刻開始</p>
@@ -363,19 +363,144 @@
       y:20,
       });
 
+      gsap.to('.sofa', {
+      scrollTrigger: {
+        trigger: '.sofa',
+        markers: false,
+        start: "bottom -600",
+        end: "+=100",
+        scrub: 2,
+      },
+      duration: 3,
+      x:-150,
+      y:200,
+      rotate: 30
+      });
+
+      gsap.to('.sofa-bottom', {
+      scrollTrigger: {
+        trigger: '.sofa',
+        markers: false,
+        start: "bottom -600",
+        end: "+=100",
+        scrub: 3,
+      },
+      duration: 3,
+      x:-150,
+      y:200,
+      rotate: 30
+      });
+
+      gsap.to('.bed', {
+      scrollTrigger: {
+        trigger: '.bed',
+        markers: false,
+        start: "bottom -650",
+        end: "+=100",
+        scrub: 2,
+      },
+      duration: 3,
+      x:50,
+      y:-200,
+      rotate: -30
+      });
+
+      gsap.to('.bed-bottom', {
+      scrollTrigger: {
+        trigger: '.bed',
+        markers: false,
+        start: "bottom -650",
+        end: "+=100",
+        scrub: 3,
+      },
+      duration: 3,
+      x:50,
+      y:-200,
+      rotate: -30,
+      });
+
+      gsap.to('.bg-move-1', {
+      duration: 2,
+      y:20,
+      repeat:-1,
+      yoyo:true
+      });
+
+      gsap.to('.bg-move-2', {
+      duration: 2,
+      y:-20,
+      repeat:-1,
+      yoyo:true
+      });
+
+      ScrollTrigger.matchMedia({
+      "(max-width: 767px)": () => {
+        gsap.to('.sofa', {
+          scrollTrigger: {
+            trigger: '.sofa',
+            markers: false,
+            start: "bottom 350",
+            end: "+=100",
+            scrub: 2,
+          },
+          duration: 3,
+          y:50,
+          rotate: 5
+          });
+        gsap.to('.sofa-bottom', {
+          scrollTrigger: {
+            trigger: '.sofa',
+            markers: false,
+            start: "bottom 350",
+            end: "+=100",
+            scrub: 3,
+          },
+          duration: 3,
+          y:50,
+          rotate: 5
+          });
+
+        gsap.to('.bed', {
+        scrollTrigger: {
+          trigger: '.bed',
+          markers: false,
+          start: "bottom 100",
+          end: "+=100",
+          scrub: 2,
+        },
+        duration: 3,
+        y:-80,
+        rotate: -10
+        });
+        gsap.to('.bed-bottom', {
+        scrollTrigger: {
+          trigger: '.bed',
+          markers: false,
+          start: "bottom 100",
+          end: "+=100",
+          scrub: 3,
+        },
+        duration: 3,
+        y:-80,
+        rotate: -10,
+        });
+      },
+    });
     }
   }
 </script>
 
+
+
 <style lang="scss">
 @import '../assets/all.scss';
 
+//主視覺 文字動畫
 .sc1 {
   top: 15%;
   position: sticky;
   // margin-bottom: 80px;
 }
-
 .sticky-30 {
   position:sticky;
   top:50%;
@@ -383,7 +508,6 @@
     top:30%;
   }
 }
-
 .sticky-35 {
   position:sticky;
   top:55%;
@@ -391,7 +515,6 @@
     top:35%;
   }
 }
-
 .sticky-50 {
   position:sticky;
   top:65%;
@@ -399,6 +522,10 @@
     top:50%;
   }
 }
+.p1 , .p2 , .bn-btn {
+  opacity: 1;
+}
+
 
 .banner {
   @include pad-down {
@@ -411,18 +538,6 @@
     padding-bottom: 460px;
   };
     max-width: 100%;
-}
-
-.p1 , .p2 , .bn-btn {
-  opacity: 1;
-}
-
-.box{
-  height: 100px;
-}
-
-.box2 {
-  height: 500px;
 }
 
 .title {
@@ -635,6 +750,25 @@
   @include desktop-up {
     @include background-position-right(6%,230px,30px);
   }
+}
+
+@keyframes move {
+  0% {
+    top: 0;
+  }
+  50% {
+    top:2%
+  }
+  100% {
+    top: 0;
+  }
+}
+
+.move {
+  animation-name: move;
+  animation-duration: 4s;
+  animation-iteration-count: infinite;
+  animation-fill-mode: both;
 }
 
 .classification-container {

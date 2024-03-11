@@ -101,7 +101,7 @@ export default {
       isLoading:true,
       fullPage: true,
       loader:'bars'
-    };ｚ
+    };
   },
   methods: {
     getData(page=1) {
@@ -112,6 +112,7 @@ export default {
         .then((res) => {
             this.data = res.data.products;
             this.totalPage = res.data.pagination.total_pages
+            this.currentPage = res.data.pagination.current_page
         })
         .catch((err) => {
           alert(err.response.data.message);

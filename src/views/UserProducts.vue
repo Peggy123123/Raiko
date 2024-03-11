@@ -32,7 +32,7 @@
             </ul>
           </div>
         </div>
-        <div class="col-md-10 mb-25">
+        <div class="col-md-10">
           <div class="row my-10 gy-5">
             <template v-for="item in productData" :key="item.id">
               <div class="productCard col-md-6 col-lg-4 d-flex justify-content-center h-100">
@@ -46,7 +46,6 @@
                     <div class="p-3">
                       <div class="d-flex justify-content-between">
                         <small class="border border-yellow-200 p-1 text-secondary">{{item.category}}</small>
-                        <div><i class="bi bi-heart"></i></div>
                       </div>
                       <p class="mb-0 text-secondary product-text-size mt-3">{{item.title}}</p>
                       <div class="d-flex justify-content-end text-secondary ">
@@ -74,6 +73,8 @@
       </div>
     </div>
   </div>
+  <!-- 分頁標籤 -->
+  <pagination :total-Page="totalPage" :current-Page="currentPage" @swich-page="swichPage" class="my-15"></pagination>
 </template>
 
 <script>
@@ -82,74 +83,100 @@ import * as bootstrap from 'bootstrap'
 import 'bootstrap/dist/js/bootstrap.bundle' //使用bs5的下拉選單，需引用此當案
 import { mapActions } from 'pinia'
 import userCartStore  from '@/stores/userCartStore.js'
+import pagination from '../components/PaginationMode.vue'
 
 export default {
-    data(){
-        return {
-            productData:[],
-            categories:['家居小物','療癒寢具','辦公小物'],
-            mobileMenuText:'所有商品',
-            isLoading: true,
-            fullPage: true,
-            toastInstance:null,
-        }
-    },
-    watch:{ //點下產品分類時會改變路由，要監聽路由中的query
-      '$route.query':{
-        handler(){
-          this.getData()
-        }
+  components:{
+    pagination
+  },
+  data(){
+    return {
+      productData:[],
+      categories:['家居小物','療癒寢具','辦公小物'],
+      mobileMenuText:'所有商品',
+      isLoading: true,
+      currentPage: 1, //當前頁碼
+      perPage: 10, //每頁最多幾筆
+      totalPage:'',
+      fullPage: true,
+      toastInstance:null,
+    }
+  },
+  watch:{ //點下產品分類時會改變路由，要監聽路由中的query
+    '$route.query':{
+      handler(){
+        this.getData()
       }
-    },
-    methods: {
-      getData(){
-        let { category = ''} = this.$route.query //取路由中的關鍵字(如果category是undefined，要預設一個值是空字串)
-        const url  =`${VITE_URL}/api/${VITE_PATH}/products?category=${category}` //可以用分類打api
-        this.isLoading = true;
-        this.$http.get(url)
-          .then(res=>{
-              this.productData = res.data.products
-          })
-          .catch(err=>{
-              alert(err.response.data.message)
-          })
-          .finally(()=>{
-            this.isLoading = false
-          })
-        },
-      //加入購物車
-      addCart(item,qty=1){
-        const api =`${VITE_URL}/api/${VITE_PATH}/cart`
-        this.isLoading = true;
-          this.$http.post(api, {
-            data:{
-                product_id:item.id,
-                qty:qty
-            }
-          })
-          .then(res=>{
-            this.showToast()
-            this.showCart()
-          })
-          .catch(err=>{
+    }
+  },
+  methods: {
+    getData(page=1){
+      let { category = ''} = this.$route.query //取路由中的關鍵字(如果category是undefined，要預設一個值是空字串)
+      const url  =`${VITE_URL}/api/${VITE_PATH}/products?page=${page}&category=${category}` //可以用分類打api
+      this.isLoading = true;
+      this.$http.get(url)
+        .then(res=>{
+            this.productData = res.data.products
+            this.totalPage = res.data.pagination.total_pages
+        })
+        .catch(err=>{
             alert(err.response.data.message)
-          })
-          .finally(()=>{
-            this.isLoading = false;
-          })
+        })
+        .finally(()=>{
+          this.isLoading = false
+        })
       },
-      //初始化吐司
-      initToast(){
-        let toastLiveExample = document.getElementById('liveToast')
-        this.toastInstance = new bootstrap.Toast(toastLiveExample)
+      swichPage(page){
+      let { category = ''} = this.$route.query
+      const api = `${VITE_URL}/api/${VITE_PATH}/products?page=${page}&category=${category}`
+      this.isLoading = true;
+
+      this.$http.get(api)
+      .then(res=>{
+            this.productData = res.data.products
+            this.totalPage = res.data.pagination.total_pages
+            this.currentPage = res.data.pagination.current_page
+        })
+        .catch(err=>{
+            alert(err.response.data.message)
+        })
+        .finally(()=>{
+          this.isLoading = false
+        })
       },
-      showToast(){
-        this.toastInstance.show()
-      },
-      detailPage(item){
-        this.$router.push(`productslist/${item.id}`)
-      },
-      ...mapActions(userCartStore,['showCart']),
+    //加入購物車
+    addCart(item,qty=1){
+      const api =`${VITE_URL}/api/${VITE_PATH}/cart`
+      this.isLoading = true;
+        this.$http.post(api, {
+          data:{
+              product_id:item.id,
+              qty:qty
+          }
+        })
+        .then(res=>{
+          this.showToast()
+          this.showCart()
+        })
+        .catch(err=>{
+          alert(err.response.data.message)
+        })
+        .finally(()=>{
+          this.isLoading = false;
+        })
+    },
+    //初始化吐司
+    initToast(){
+      let toastLiveExample = document.getElementById('liveToast')
+      this.toastInstance = new bootstrap.Toast(toastLiveExample)
+    },
+    showToast(){
+      this.toastInstance.show()
+    },
+    detailPage(item){
+      this.$router.push(`productslist/${item.id}`)
+    },
+    ...mapActions(userCartStore,['showCart']),
   },
   mounted(){
     this.getData()
@@ -157,7 +184,7 @@ export default {
 
     //初始化吐司模組
     this.initToast()
-    },
+  },
 }
 
 </script>
