@@ -11,3 +11,30 @@
     font-size: 14px;
     color: #ADADAD	!important;
 }
+
+//吐司訊息樣式
+.toast-style {
+    top: 10%;
+      width: 70%;
+    @include desktop-up{
+      width: 25%;
+    }
+  }
+
+//sweetAlert購物車頁面刪除單一品項
+.swal2-popup {
+    font-size : 16px  !important ;
+    font-family : 'Noto Sans TC' , sans-serif;
+    .swal2-title {
+        font-size : 16px  !important ;
+    }
+ }
+
+ .swal2-icon{
+    width: 50px !important;
+    height: 50px !important;
+
+    .swal2-icon-content {
+        font-size: 40px;
+    }
+  }

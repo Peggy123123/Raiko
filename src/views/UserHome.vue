@@ -18,12 +18,16 @@
       <img class="yellow-light-1" src="https://i.imgur.com/nwyVDhc.png" alt="yellow-loght-1">
       <img class="yellow-light-2" src="https://i.imgur.com/7XoqMCZ.png" alt="yellow-loght-2">
       <img class="yellow-light-3" src="https://i.imgur.com/7XoqMCZ.png" alt="yellow-loght-3">
+    </div>
+    <div class="text-center sticky-30 pb-35 pb-md-100">
+      <p class="text-secondary p1 ">從這一刻開始</p>
+    </div>
+       <div class="text-center sticky-35 pb-25 pb-md-90">
+        <p class="text-center text-secondary p2">開啟週末慵懶模式吧！</p>
       </div>
-      <div class="box"></div>
-      <p class="text-center text-secondary p1">從這一刻開始</p>
-      <div class="box"></div>
-      <p class="text-center text-secondary p2">開啟懶洋洋模式吧</p>
-      <div class="box"></div>
+      <div class="text-center sticky-50 pb-60 d-none d-md-block">
+        <router-link type="button" class="btn btn-primary text-white px-10 py-5 rounded-pill fw-bold bn-btn" to="productslist">開始選物<i class="bi bi-arrow-right ms-3"></i></router-link>
+      </div>
 
   </section>
 
@@ -83,7 +87,7 @@
   </section>
 
   <!-- 第三段 熱銷排行  -->
-  <section class="pb-20 pb-lg-30">
+  <section class="pb-20 pb-lg-30" id="rankSection">
     <div class="container">
       <div class="row">
         <div class="col-lg-5 text-center" data-aos="fade-up">
@@ -304,41 +308,61 @@
       scrollTrigger: {
         trigger: 'h2',
         markers: false,
-        start: "top 300",
+        start: "top 250",
         end: "top 200",
-        scrub: true
+        scrub: 1
         // toggleActions:"restart none none reverse"
       },
-      duration: .5,
+      duration: 1,
       scale: 1.5,
       y:250,
       });
 
-      gsap.to('.p1', {
+      gsap.from('.p1', {
       scrollTrigger: {
         trigger: '.p1',
         markers: false,
-        start: "top 450",
-        end: "top 150",
-        scrub: true
+        start: "top 400",
+        end: "top 400",
+        scrub: 2,
         // toggleActions:"restart none none reverse"
       },
-      duration: 2,
+      delay:1,
+      duration: 1,
       opacity: 0,
+      y:100,
       });
 
-      gsap.to('.p2', {
+      gsap.from('.p2', {
       scrollTrigger: {
         trigger: '.p2',
         markers: false,
-        start: "top 450",
-        end: "top 150",
-        scrub: true
+        start: "top 500",
+        end: "top 400",
+        scrub: 1,
+        // delay:1,
         // toggleActions:"restart none none reverse"
       },
       duration: 1,
       opacity: 0,
+      y:20,
       });
+
+      gsap.from('.bn-btn', {
+      scrollTrigger: {
+        trigger: '.bn-btn',
+        markers: false,
+        start: "top 500",
+        end: "top 400",
+        scrub: 1,
+        // delay:1,
+        // toggleActions:"restart none none reverse"
+      },
+      duration: 1,
+      opacity: 0,
+      y:20,
+      });
+
     }
   }
 </script>
@@ -349,6 +373,31 @@
 .sc1 {
   top: 15%;
   position: sticky;
+  // margin-bottom: 80px;
+}
+
+.sticky-30 {
+  position:sticky;
+  top:50%;
+  @include pad-up {
+    top:30%;
+  }
+}
+
+.sticky-35 {
+  position:sticky;
+  top:55%;
+  @include pad-up {
+    top:35%;
+  }
+}
+
+.sticky-50 {
+  position:sticky;
+  top:65%;
+  @include pad-up {
+    top:50%;
+  }
 }
 
 .banner {
@@ -364,8 +413,16 @@
     max-width: 100%;
 }
 
+.p1 , .p2 , .bn-btn {
+  opacity: 1;
+}
+
 .box{
-  height: 300px;
+  height: 100px;
+}
+
+.box2 {
+  height: 500px;
 }
 
 .title {

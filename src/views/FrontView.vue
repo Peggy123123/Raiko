@@ -16,20 +16,19 @@
             </span>
           </router-link>
           <button class="btn btn-secondary py-2 px-4 rounded-pill" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar"><i class="bi bi-list me-0 me-md-2"></i><span class="d-none d-md-inline">MENU</span></button>
-
         </div>
-        <div class="offcanvas offcanvas-end w-100" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
-          <div class="offcanvas-header">
-            <h5 class="offcanvas-title" id="offcanvasNavbarLabel">導覽</h5>
-            <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        <!-- menu視窗 -->
+        <div class="offcanvas offcanvas-end w-100 bg-secondary" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+          <div class="offcanvas-header d-flex justify-content-end">
+            <button type="button" class="btn btn-secondary py-2 px-4 rounded-pill" data-bs-dismiss="offcanvas" aria-label="Close"><i class="bi bi-list me-0 me-md-2"></i><span class="d-none d-md-inline">MENU</span></button>
           </div>
-          <div class="offcanvas-body">
-            <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+          <div class="offcanvas-body text-white row justify-content-center">
+            <ul class="navbar-nav col-sm-5 col-md-4 d-flex justify-content-center ms  -10 pe-0  ">
               <li class="user-nav-item" data-bs-dismiss="offcanvas">
                 <RouterLink to="/" class="link" aria-current="page">首頁</RouterLink>
               </li>
               <li class="user-nav-item"  data-bs-dismiss="offcanvas">
-                <RouterLink to="/productslist" class="link">商品列表</RouterLink>
+                <RouterLink to="/productslist" class="link">商品一覽</RouterLink>
               </li>
               <li class="user-nav-item" data-bs-dismiss="offcanvas">
                   <RouterLink to="/cart" class="link">購物車</RouterLink>
@@ -38,6 +37,9 @@
                 <RouterLink to="/login" class="link">登入後台</RouterLink>
               </li>
             </ul>
+            <div class="col-12 col-sm-5 col-md-4 d-flex justify-content-center">
+              <img class="menu-image" src="https://i.imgur.com/lowirph.png" alt="image">
+            </div>
           </div>
         </div>
       </div>
@@ -51,39 +53,17 @@
 <RouterView />
   <footer class="bg-primary pt-15 pb-5">
     <div class="container">
-      <div class="row gy-4 text-white pb-15 border-bottom border-2">
-        <div class="col-12 col-sm-6 col-lg-4">
-          <span class="mb-3 fs-5 border-top py-3 d-inline-block border-2">關於我們</span>
+      <div class="mb-5"><a href="https://www.instagram.com/raiko_yasumi/" target="_blank"><i class="bi bi-instagram text-white h3 me-5"></i></a></div>
+        <div class="text-white pb-5">
+          <span class="mb-3 fs-5 border-top py-5 d-inline-block border-2">聯絡我們</span>
           <ul class="list-unstyled">
-            <li class="mb-2"><i class="bi bi-telephone-fill me-1"></i>0978-885-145</li>
-            <li class="mb-2"><i class="bi bi-envelope-fill me-1"></i>raikoraiko@gmail.com</li>
-            <li class="mb-2"><i class="bi bi-cursor-fill me-1"></i>週一至週五 AM9:00~PM6:00</li>
+            <li class="mb-2"><i class="bi bi-telephone-fill me-3"></i><a class="text-white" href="tel:+886-78-885-145">0978-885-145</a></li>
+            <li class="mb-2"><i class="bi bi-envelope-fill me-3"></i><a class="text-white" href="mailTo:raikoraiko@gmail.com">raikoraiko@gmail.com</a></li>
+            <li class="mb-2"><i class="bi bi-cursor-fill me-3"></i>週一至週五 AM9:00~PM6:00</li>
           </ul>
         </div>
-        <div class="col-12 col-sm-6 col-lg-4">
-          <span class="mb-3 fs-5 border-top py-3 d-inline-block border-2">休日製作所</span>
-          <ul class="list-unstyled">
-            <li class="mb-2"><a href="#" class="text-white">品牌故事</a></li>
-            <li class="mb-2"><a href="#" class="text-white">熱銷排行</a></li>
-            <li class="mb-2"><a href="#" class="text-white">聯絡我們</a></li>
-          </ul>
-        </div>
-        <div class="col-12 col-sm-6 col-lg-4">
-          <span class="mb-3 fs-5 border-top py-3 d-inline-block border-2">顧客權益</span>
-          <ul class="list-unstyled">
-            <li class="mb-2"><a href="#" class="text-white">購物流程</a></li>
-            <li class="mb-2"><a href="#" class="text-white">退換貨須知</a></li>
-            <li class="mb-2"><a href="#" class="text-white">隱私政策</a></li>
-          </ul>
-        </div>
-      </div>
-      <div class="d-flex justify-content-between pt-5 align-items-center">
-        <p class=" mb-0 text-white flex-grow-1 text-center">本網站不提供商業用途</p>
-        <ul class="d-flex list-unstyled">
-          <li><a href="#"><i class="bi bi-facebook text-white fs-8 me-5"></i></a></li>
-          <li><a href="#"><i class="bi bi-instagram text-white fs-8 me-5"></i></a></li>
-          <li><a href="#"><i class="bi bi-youtube text-white fs-8"></i></a></li>
-        </ul>
+      <div class="text-center border-top py-5">
+        <p class=" mb-0 text-white flex-grow-1">本網站不提供商業用途</p>
       </div>
     </div>
   </footer>
@@ -110,24 +90,42 @@
 @import "../assets/all.scss";
 
 .user-nav-item {
-  border-radius: 20px;
-  margin: 12px;
-  padding: 8px 0;
+  font-size: 28px;
   transition: all .2s;
-  &:hover {
-    background-color: $secondary;
-    transition: all .2s;
-    .link {
-      color: #fff;
+  position: relative;
+  overflow: hidden;
+
+  @include pad-up {
+    font-size: 40px;
+  }
+
+  &:hover{
+    &::after {
+      transform: translateX(0);
+      transition: all .5s;
     }
   }
-}
 
-.link {
-  color: $secondary;
-  display: block;
-  width: 100%;
-  padding: 0  16px;
+  &::after {
+    position: absolute;
+    content: '';
+    width: 100%;
+    height: 10%;
+    bottom: 0;
+    left: 0;
+    background-color: #E0D979;
+    transform: translateX(-110%);
+  }
+
+  .link {
+    color: #fff;
+    display: block;
+    width: 100%;
+    padding: 20px 0;
+  }
+  &:hover {
+    transition: all .2s;
+  }
 }
 
 .navbar-brand {
@@ -184,5 +182,15 @@ h1 {
     display: none;
   }
 }
+
+.menu-image {
+    margin-bottom: 40px;
+    width: 50%;
+    object-fit: contain;
+    @include pad-up {
+      width: 65%;
+      margin-bottom: 0;
+    }
+  }
 
 </style>

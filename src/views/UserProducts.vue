@@ -65,7 +65,7 @@
       </div>
     </div>
   <!-- 加入購物車吐司 -->
-  <div class="toast-style position-fixed end-0 p-3 border-0" style="z-index: 11">
+  <div class="toast-style position-fixed end-0 p-3 border-0 d-flex justify-content-end" style="z-index: 11">
     <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
       <div class="toast-body d-flex justify-content-between">
           <p class="mb-0 fw-bold d-flex align-items-center">已加入購物車！</p>
@@ -308,14 +308,5 @@ export default {
     @include rwd-text-size (16px,20px)
   }
 
-  .toast-style {
-    top: 12%;
-    @include pad-up{
-      width: 50%;
-    }
-    @include desktop-up{
-      width: 25%;
-    }
-  }
 
 </style>

@@ -44,5 +44,9 @@ app.component('VForm', Form);
 app.component('VField', Field);
 app.component('ErrorMessage', ErrorMessage);
 
+router.afterEach((to, from, next) => {
+	window.scrollTo(0, 0);
+});
+
 
 app.mount('#app')

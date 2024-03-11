@@ -187,10 +187,11 @@ export default {
             title: "確定刪除商品嗎?",
             icon: "warning",
             showCancelButton: true,
-            confirmButtonColor: "#3085d6",
-            cancelButtonColor: "#d33",
+            confirmButtonColor: "#81CFDC",
+            cancelButtonColor: "#707070",
             cancelButtonText: "取消",
             confirmButtonText: "確定",
+            imageWidth: '50',
             width: 350,
           }).then((result) => {
             if (result.isConfirmed) {

@@ -81,13 +81,13 @@
         </div>
     </div>
       <!-- 加入購物車吐司 -->
-  <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11">
+      <div class="toast-style position-fixed end-0 p-3 border-0 d-flex justify-content-end" style="z-index: 11">
     <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
-      <div class="toast-header">
-        <strong class="me-auto">加入購物車</strong>
-        <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+      <div class="toast-body d-flex justify-content-between">
+          <p class="mb-0 fw-bold d-flex align-items-center">已加入購物車！</p>
+          <router-link type= "button" class="btn bg-primary fs-12" to="cart">查看購物車</router-link>
+          <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
       </div>
-      <div class="toast-body">加入成功！</div>
     </div>
   </div>
 </template>
