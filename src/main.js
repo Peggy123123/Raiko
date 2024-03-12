@@ -22,7 +22,7 @@ Object.keys(rules).forEach(rule => {
 });
 
 // 讀取外部的資源
-loadLocaleFromURL('./src/zh_TW.json');
+loadLocaleFromURL('@/zh_TW.json');
 
 //套用多國語系檔案
 configure({

@@ -123,10 +123,20 @@
               </tr>
             </tbody>
           </table>
-          <router-Link type="button" class="addcart-btn-hover w-100 text-center" to="checkout">前往結帳</router-Link>
+          <a href="#" type="button" class="addcart-btn-hover w-100 text-center" @click.prevent="checkOut">前往結帳</a>
         </div>
       </div>
     </div>
+    <!-- 加入購物車吐司 -->
+    <div class="toast-style position-fixed end-0 p-3 border-0 d-flex justify-content-end" style="z-index: 11">
+      <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+      <div class="toast-body d-flex justify-content-between">
+          <p class="mb-0 fw-bold d-flex align-items-center">還沒有選購商品！</p>
+          <router-link type= "button" class="btn bg-primary fs-12" to="/productslist">返回商品一覽</router-link>
+          <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+      </div>
+    </div>
+  </div>
 </template>
 
     
@@ -135,6 +145,7 @@
   import Swal from 'sweetalert2';
   import userCartStore from "../stores/userCartStore.js";
   import { mapState ,mapActions } from 'pinia';
+  import * as bootstrap from 'bootstrap';
 
 export default {
     data() {
@@ -220,11 +231,29 @@ export default {
               .finally(()=>{
                 this.isLoading = false
               })
-        }
+        },
+        checkOut(){
+          if(this.cartData.length === 0){
+            this.showToast()
+          }else{
+            this.$router.push('checkout')
+          }
+        },
+        //初始化吐司
+        initToast(){
+            let toastLiveExample = document.getElementById('liveToast')
+            this.toastInstance = new bootstrap.Toast(toastLiveExample)
+        },
+        showToast(){
+            this.toastInstance.show()
+        },
     },
     mounted() {
         //取得購物車列表
         this.showCart()
+
+        //初始化吐司模組
+        this.initToast()
     },
     }
 </script>

@@ -145,7 +145,6 @@ export default {
                 }
             })
             .then(res=>{
-                console.log(res.data);
                 this.showToast()
                 this.addCartQty = 1 //購物車數量改回1
                 this.showCart()
