@@ -1,5 +1,9 @@
 <template>
-  <VueLoading :active="isLoading"/>
+  <VueLoading :active="isLoading">
+    <div class="loading-img-bg">
+      <img class="loading-img" src="@/assets/image/icon.png" alt="">
+    </div>
+  </VueLoading>
   <div class="container my-35">
     <router-link class="d-inline-block my-8 link-secondary" to="/cart"><i class="bi bi-arrow-left me-2"></i>返回購物車</router-link>
     <!-- 購物車 -->
@@ -123,7 +127,7 @@
                     <textarea id="message" class="form-control" placeholder="有什麼想告訴賣家的嗎？" cols="30" rows="3" v-model="message"></textarea>
                     </div>
                     <div class="text-end mt-8">
-                        <button type="submit" class="btn btn-primary text-white pad-width-change-25" @submit="sentOrder">確認訂購</button>
+                        <button type="submit" class="addcart-btn-hover  pad-width-change-25" @submit="sentOrder">確認訂購</button>
                     </div>
                 </v-form>
             </div>

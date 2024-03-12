@@ -1,5 +1,9 @@
 <template>
-  <VueLoading :active="isLoading"/>
+  <VueLoading :active="isLoading">
+    <div class="loading-img-bg">
+      <img class="loading-img" src="@/assets/image/icon.png" alt="">
+    </div>
+  </VueLoading>
   <!-- 主視覺 -->
   <section class="mt-5 pt-5 pb-30">
     <div class="banner sc1">
@@ -10,7 +14,7 @@
       <img class="bed-bottom" src="https://i.imgur.com/lPdYMr1.png" alt="bed-bottom">
       <img class="sofa" src="https://i.imgur.com/XvrdvLz.png" alt="sofa">
       <img class="bed" src="https://i.imgur.com/77mgdol.png" alt="bed">
-      <img class="primary-light-1 bg-move-1" src="https://i.imgur.com/zhR0XMk.png" alt="light-1">
+      <img class="primary-light-1 bg-move-2" src="https://i.imgur.com/zhR0XMk.png" alt="light-1">
       <img class="primary-light-2 bg-move-2" src="https://i.imgur.com/fhnBTI3.png" alt="light-2">
       <img class="yellow-1 bg-move-2" src="https://i.imgur.com/wUBawXp.png" alt="yellow-1">
       <img class="yellow-2 bg-move-2" src="https://i.imgur.com/Bx5Qdqr.png" alt="yellow-2">
@@ -26,7 +30,7 @@
         <p class="text-center text-secondary p2">開啟週末慵懶模式吧！</p>
       </div>
       <div class="text-center sticky-50 pb-60 d-none d-md-block">
-        <router-link type="button" class="btn btn-primary text-white px-10 py-5 rounded-pill fw-bold bn-btn" to="productslist">開始選物<i class="bi bi-arrow-right ms-3"></i></router-link>
+        <router-link type="button" class="btn btn-primary text-white px-10 py-5 rounded-pill fw-bold bn-btn" to="productslist">開始選物<i class="bi bi-arrow-right ms-3 shop-arrow"></i></router-link>
       </div>
 
   </section>
@@ -104,7 +108,7 @@
             <li class="mb-5 col-6 col-lg-12 rank-item">
               <div class=" bg-primary rounded-5 d-flex justify-content-end p-3 position-relative" :class="{'opacity-25' : tempProduct.title !== '質感綁帶日記本'}" @click="rankItem('質感綁帶日記本')" style="cursor: pointer;">
                 <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-yellow-200 text-secondary px-4 py-3">2</span>
-                <p class="align-self-center text-white fw-bold flex-grow-1 mb-0">日記本</p>
+                <p class="align-self-center text-white fw-bold flex-grow-1 mb-0">綁帶日記本</p>
                 <img class="align-self-end rank-item-img" src="https://i.imgur.com/LNGE2Bd.png" alt="質感綁帶日記本">
               </div>
             </li>
@@ -116,7 +120,7 @@
               </div>
             </li>
             <li class="mb-5 col-6 col-lg-12 rank-item">
-              <div class="bg-primary rounded-5 d-flex justify-content-end p-3 position-relative" :class="{'opacity-25' : tempProduct.title !== '質感玻璃杯'}" @click="rankItem('質感玻璃杯')" style="cursor: pointer;">
+              <div class="bg-primary rounded-5 d-flex justify-content-end p-3 position-relative" :class="{'opacity-25' : tempProduct.title !== '超薄高球杯'}" @click="rankItem('超薄高球杯')" style="cursor: pointer;">
                 <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-yellow-200 text-secondary px-4 py-3">4</span>
                 <p class="align-self-center text-white fw-bold flex-grow-1 mb-0">玻璃杯</p>
                 <img class="align-self-end rank-item-img" src="https://i.imgur.com/a1suTG4.png" alt="大容量玻璃杯">
@@ -134,19 +138,18 @@
                 <div class="d-flex rank-sm-image-container mt-3 flex-column flex-lg-row">
                   <img class="rank-sm-image" :src="tempProduct.imageUrl" alt="tempProduct.imageUrl" @click="bigImage = tempProduct.imageUrl" style="cursor: pointer;">
                   <template v-for="item in tempProduct.imagesUrl" :key="item" >
-                    <img class="rank-sm-image" :src="item" :alt="item" @click="bigImage = item" style="cursor: pointer;">
+                    <img class="rank-sm-image img-hover" :src="item" :alt="item" @click="bigImage = item" style="cursor: pointer;">
                   </template>
               </div>
                 </div>
                 <div class="col-lg-4">
-                  <div class="d-flex flex-column text-white justify-content-between h-100 mt-4 mt-lg-0 ms-3 ms-lg-0">
+                  <div class="d-flex flex-column text-white h-100 mt-4 mt-lg-0 ms-3 ms-lg-0 pb-lg-30 justify-content-evenly">
                     <div>
-                      <h4 class="h3 fw-bold">{{ tempProduct.title }}</h4>
-                      <small class="mb-4 mb-lg-0">{{tempProduct.content}}</small>
+                      <h4 class="h3 fw-bold mb-5">{{ tempProduct.title }}</h4>
+                      <small class="mb-4 mb-lg-0 mb-5">{{tempProduct.content}}</small>
                     </div>
-                    <p class="mb-lg-0">{{tempProduct.description}}</p>
-                    <p class="mb-0 h4 fw-bold">NT${{tempProduct.origin_price}}</p>
-                    <router-link :to="`productslist/${tempProduct.id}`" class=" btn btn-secondary px-10 py-4  rounded-pill m-5 m-lg-0">查看商品</router-link>
+                    <p class="mb-0 h4 fw-bold mb-5">NT${{tempProduct.origin_price}}</p>
+                    <router-link :to="`productslist/${tempProduct.id}`" class="cart-btn-hover btn btn-secondary px-10 py-4  rounded-pill m-5 m-lg-0">查看商品</router-link>
                   </div>
                 </div>
               </div>
@@ -340,8 +343,6 @@
         start: "top 500",
         end: "top 400",
         scrub: 1,
-        // delay:1,
-        // toggleActions:"restart none none reverse"
       },
       duration: 1,
       opacity: 0,
@@ -355,15 +356,82 @@
         start: "top 500",
         end: "top 400",
         scrub: 1,
-        // delay:1,
-        // toggleActions:"restart none none reverse"
       },
       duration: 1,
       opacity: 0,
       y:20,
       });
 
-      gsap.to('.sofa', {
+      gsap.to('.bg-move-1', {
+      duration: 1.5,
+      y:20,
+      repeat:-1,
+      yoyo:true,
+      rotate:-10,
+      });
+
+      gsap.to('.bg-move-2', {
+      duration: 1.5,
+      y:-20,
+      repeat:-1,
+      yoyo:true,
+      rotate:10,
+      });
+
+      ScrollTrigger.matchMedia({
+      "(max-width: 767px)": () => {
+        gsap.to('.sofa', {
+          scrollTrigger: {
+            trigger: '.sofa',
+            markers: false,
+            start: "bottom 350",
+            end: "+=20",
+            scrub: 2,
+          },
+          duration: 1,
+          y:50,
+          rotate: 3
+          });
+        gsap.to('.sofa-bottom', {
+          scrollTrigger: {
+            trigger: '.sofa',
+            markers: false,
+            start: "bottom 350",
+            end: "+=20",
+            scrub: 3,
+          },
+          duration: 1,
+          y:50,
+          rotate: 3
+          });
+
+        gsap.to('.bed', {
+        scrollTrigger: {
+          trigger: '.bed',
+          markers: false,
+          start: "bottom 100",
+          end: "+=20",
+          scrub: 2,
+        },
+        duration: 1,
+        y:-80,
+        rotate: 0
+        });
+        gsap.to('.bed-bottom', {
+        scrollTrigger: {
+          trigger: '.bed',
+          markers: false,
+          start: "bottom 100",
+          end: "+=20",
+          scrub: 3,
+        },
+        duration: 1,
+        y:-80,
+        rotate: 0
+        });
+      },
+      "(min-width:768px)":()=>{
+        gsap.to('.sofa', {
       scrollTrigger: {
         trigger: '.sofa',
         markers: false,
@@ -372,7 +440,7 @@
         scrub: 2,
       },
       duration: 3,
-      x:-150,
+      x:150,
       y:200,
       rotate: 30
       });
@@ -386,11 +454,10 @@
         scrub: 3,
       },
       duration: 3,
-      x:-150,
+      x:150,
       y:200,
       rotate: 30
       });
-
       gsap.to('.bed', {
       scrollTrigger: {
         trigger: '.bed',
@@ -400,9 +467,9 @@
         scrub: 2,
       },
       duration: 3,
-      x:50,
-      y:-200,
-      rotate: -30
+      x:-50,
+      y:-100,
+      rotate: -20
       });
 
       gsap.to('.bed-bottom', {
@@ -414,77 +481,11 @@
         scrub: 3,
       },
       duration: 3,
-      x:50,
-      y:-200,
-      rotate: -30,
+      x:-50,
+      y:-100,
+      rotate: -20,
       });
-
-      gsap.to('.bg-move-1', {
-      duration: 2,
-      y:20,
-      repeat:-1,
-      yoyo:true
-      });
-
-      gsap.to('.bg-move-2', {
-      duration: 2,
-      y:-20,
-      repeat:-1,
-      yoyo:true
-      });
-
-      ScrollTrigger.matchMedia({
-      "(max-width: 767px)": () => {
-        gsap.to('.sofa', {
-          scrollTrigger: {
-            trigger: '.sofa',
-            markers: false,
-            start: "bottom 350",
-            end: "+=100",
-            scrub: 2,
-          },
-          duration: 3,
-          y:50,
-          rotate: 5
-          });
-        gsap.to('.sofa-bottom', {
-          scrollTrigger: {
-            trigger: '.sofa',
-            markers: false,
-            start: "bottom 350",
-            end: "+=100",
-            scrub: 3,
-          },
-          duration: 3,
-          y:50,
-          rotate: 5
-          });
-
-        gsap.to('.bed', {
-        scrollTrigger: {
-          trigger: '.bed',
-          markers: false,
-          start: "bottom 100",
-          end: "+=100",
-          scrub: 2,
-        },
-        duration: 3,
-        y:-80,
-        rotate: -10
-        });
-        gsap.to('.bed-bottom', {
-        scrollTrigger: {
-          trigger: '.bed',
-          markers: false,
-          start: "bottom 100",
-          end: "+=100",
-          scrub: 3,
-        },
-        duration: 3,
-        y:-80,
-        rotate: -10,
-        });
-      },
+      }
     });
     }
   }
@@ -494,6 +495,25 @@
 
 <style lang="scss">
 @import '../assets/all.scss';
+
+@keyframes shop-arrow {
+  0% {
+    transform: translateX(-100%);
+  }
+  50% {
+    transform: translateX( 50%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.shop-arrow::before {
+  animation-name:shop-arrow ;
+  animation-duration: 1s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  }
 
 //主視覺 文字動畫
 .sc1 {
@@ -611,10 +631,10 @@
 .bed{
   @extend %background-zindex5 ;
   @include pad-down {
-    @include background-position-right(32%,25px,140px);
+    @include background-position-right(32%,35px,140px);
   }
   @include mobile-down {
-    @include background-position-right(50%,0 ,40px);
+    @include background-position-right(50%,20px,40px);
   }
   @include pad-up {
     @include background-position-right(25%,80px,100px);
@@ -675,16 +695,16 @@
 .yellow-2 {
   @extend %background-zindex10 ;
   @include pad-down {
-    @include background-position-right(12%,80px,60px);
+    @include background-position-right(12%,100px,60px);
   }
   @include mobile-down {
-    @include background-position-right(20%,0,380px);
+    @include background-position-right(20%,20,380px);
   }
   @include pad-up {
-    @include background-position-right(10%,0px,60px);
+    @include background-position-right(10%,20px,60px);
   }
   @include desktop-up {
-    @include background-position-right(10%,0px,60px);
+    @include background-position-right(10%,20px,60px);
   }
 }
 
@@ -953,27 +973,5 @@ backface-visibility:hidden;
   transform: rotateY(180deg);
   }
 }
-
-
-// @keyframes shape-1 {
-//   0% { top:0% ;left: 0;}
-//   50% { top:5%;left: 0; }
-//   100% { top:0;left: 0;}
-// }
-
-// .shape1 {
-//     position: relative;
-//     position: absolute;
-//     /* position: fixed; */
-//     animation-name: shape-1;
-//     animation-duration: 4s;
-//     animation-timing-function: linear;
-//     animation-iteration-count: infinite;
-//     animation-fill-mode: both;
-//     z-index: -20;
-//     width: 50%;
-//     scale: .8;
-//   }
-
 
 </style>

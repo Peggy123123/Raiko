@@ -1,5 +1,9 @@
 <template>
-  <VueLoading :active="isLoading"/>
+  <VueLoading :active="isLoading">
+    <div class="loading-img-bg">
+      <img class="loading-img" src="@/assets/image/icon.png" alt="">
+    </div>
+  </VueLoading>
     <div class="container">
       <div class="row justify-content-end">
         <div class="col-md-10 mb-5">

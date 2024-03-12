@@ -1,5 +1,9 @@
 <template>
-  <VueLoading :active="isLoading"/>
+  <VueLoading :active="isLoading">
+    <div class="loading-img-bg">
+      <img class="loading-img" src="@/assets/image/icon.png" alt="">
+    </div>
+  </VueLoading>
     <div class="container">
         <div class="row py-30 justify-content-center align-items-center">
           <div class="col-12 col-md-6 col-lg-5 d-flex justify-content-center">

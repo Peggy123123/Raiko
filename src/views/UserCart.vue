@@ -1,5 +1,9 @@
 <template>
-  <VueLoading :active="isLoading"/>
+  <VueLoading :active="isLoading">
+    <div class="loading-img-bg">
+      <img class="loading-img" src="@/assets/image/icon.png" alt="">
+    </div>
+  </VueLoading>
   <div class="container my-35">
     <router-link class="d-inline-block my-8 link-secondary" to="/productslist"><i class="bi bi-arrow-left me-2"></i>返回商品列表</router-link>
     <div class="row">
@@ -119,7 +123,7 @@
               </tr>
             </tbody>
           </table>
-          <router-Link type="button" class="btn btn-primary w-100 text-white" to="checkout">前往結帳</router-Link>
+          <router-Link type="button" class="addcart-btn-hover w-100 text-center" to="checkout">前往結帳</router-Link>
         </div>
       </div>
     </div>
@@ -135,32 +139,16 @@
 export default {
     data() {
         return {
-            couponCode:'', //輸入的優惠碼
-            isLoading:false,
+          couponCode:'', //輸入的優惠碼
+          isLoading:false,
         }
     },
     computed:{
       ...mapState(userCartStore,['cartData','addCartQty','final_total','total'])
     },
     methods:{
+      //顯示購物車
       ...mapActions(userCartStore,['showCart']),
-        //顯示購物車
-        // showCart(){
-        //   this.isLoading = true
-        //   const api = `${VITE_URL}/api/${VITE_PATH}/cart`
-        //     this.$http.get(api)
-        //     .then(res=>{
-        //       this.cartData = res.data.data.carts
-        //       this.final_total = res.data.data.final_total
-        //       this.total = res.data.data.total
-        //     })
-        //     .catch(err=>{
-        //       alert(err.response.data.message)
-        //     })
-        //     .finally(()=>{
-        //       this.isLoading = false
-        //     })
-        // },
         //更新購物車
         changeCart(item,cartQty){
           this.isLoading = true

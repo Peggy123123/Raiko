@@ -1,5 +1,9 @@
 <template>
-    <VueLoading :active="isLoading"/>
+  <VueLoading :active="isLoading">
+    <div class="loading-img-bg">
+      <img class="loading-img" src="@/assets/image/icon.png" alt="">
+    </div>
+  </VueLoading>
     <div class="container">
         <h2 class="py-8 mb-0">後台總覽</h2>
         <div class="row ps-0 list-unstyled bg-light py-10 justify-content-evenly mb-50">

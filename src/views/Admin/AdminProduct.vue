@@ -1,5 +1,9 @@
 <template>
-  <VueLoading :active="isLoading" :loader="loader" />
+  <VueLoading :active="isLoading">
+    <div class="loading-img-bg">
+      <img class="loading-img" src="@/assets/image/icon.png" alt="">
+    </div>
+  </VueLoading>
   <div class="container">
     <h2 class="py-8 mb-0">商品管理</h2>
     <div class="row">

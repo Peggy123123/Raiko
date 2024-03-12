@@ -1,5 +1,9 @@
 <template>
-    <VueLoading :active="isLoading"/>
+  <VueLoading :active="isLoading">
+    <div class="loading-img-bg">
+      <img class="loading-img" src="@/assets/image/icon.png" alt="">
+    </div>
+  </VueLoading>
     <div class="container py-30 py-md-35">
         <div class="row">
             <div class="col-md-6">
@@ -30,7 +34,7 @@
                             <span  class="form-control text-center text-secondary">{{ addCartQty }}</span>
                             <button class="btn btn-primary text-white" type="button"><i class="bi bi-plus" @click="addCartQty ++"></i></button>
                         </div>
-                        <button type="button" class="btn pad-width-change button-primary btn-primary text-white mt-5" @click.stop="addCart">加入購物車</button>
+                        <button type="button" class="addcart-btn-hover pad-width-change mt-5" @click.stop="addCart">加入購物車</button>
                     </div>
                 </div>
             </div>
@@ -39,9 +43,9 @@
         <div class="row d-none d-md-block">
             <div class="col-md-6">
                 <div class="text-center">
-                    <img :src="productData.imageUrl" alt="主圖1" class="product-image-width me-2 mt-3 rounded-3" @click="picture = productData.imageUrl" style="cursor:pointer;">
+                    <img :src="productData.imageUrl" alt="主圖1" class="product-image-width me-2 mt-3 rounded-3 img-hover" @click="picture = productData.imageUrl" style="cursor:pointer;">
                     <template v-for="item in productData.imagesUrl" :key="item">
-                        <img :src="item" alt="主圖" class="product-image-width me-2 mt-3 rounded-3" @click="picture = item" style="cursor:pointer;">
+                        <img :src="item" alt="主圖" class="product-image-width me-2 mt-3 rounded-3 img-hover" @click="picture = item" style="cursor:pointer;">
                     </template>
                 </div>
             </div>
@@ -95,6 +99,8 @@
 
 <script>
     import * as bootstrap from 'bootstrap'
+    import { mapActions , mapState } from 'pinia'
+    import userCartStore from '../stores/userCartStore.js'
     const { VITE_URL , VITE_PATH } = import.meta.env
 
 export default {
@@ -107,6 +113,9 @@ export default {
             fallPage:false
         }
     },
+    computed:{
+        ...mapActions(userCartStore,['showCart'])
+    },
     methods: {
         getData(){
             const id = this.$route.params.id
@@ -117,7 +126,6 @@ export default {
             .then(res=>{
                 this.productData = res.data.product
                 this.picture = this.productData.imageUrl
-                console.log(this.productData);
             })
             .catch(err=>{
                 alert(err.response.message)
@@ -140,6 +148,7 @@ export default {
                 console.log(res.data);
                 this.showToast()
                 this.addCartQty = 1 //購物車數量改回1
+                this.showCart()
             })
             .catch(err=>{
                 alert(err.response.data.message)
@@ -166,12 +175,18 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss">
+@import '../assets/all.scss';
     .product-image-width {
         width: 20%;
     }
 
     .nav-item-width {
         width: 40%;
+    }
+
+    .img-hover:hover {
+        filter: grayscale(50%);
+        transition: .3s;
     }
 </style>

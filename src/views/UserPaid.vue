@@ -1,5 +1,9 @@
 <template>
-    <VueLoading :active="isLoading"/>
+  <VueLoading :active="isLoading">
+    <div class="loading-img-bg">
+      <img class="loading-img" src="@/assets/image/icon.png" alt="">
+    </div>
+  </VueLoading>
     <div class="container my-35">
       <h2 class="h4 text-center mb-10">已付款完成！</h2>
       <div class="row justify-content-center">
@@ -54,7 +58,7 @@
             </tbody>
           </table>
           <div class="text-end">
-            <router-Link type="button" class="btn btn-primary w-50 text-white" to="/">返回首頁</router-Link>  
+            <router-Link type="button" class="addcart-btn-hover w-50 text-center" to="/">返回首頁</router-Link>
           </div>
         </div>
       </div>

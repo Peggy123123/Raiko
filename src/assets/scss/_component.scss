@@ -3,6 +3,40 @@
     padding-top: 12px ;
     padding-bottom: 12px;
     border-radius: 10px;
+}
+
+.addcart-btn-hover {
+  border: none;
+  border-radius: 12px;
+  padding: 12px ;
+  background-color: $primary;
+  color: #fff;
+  transition: .3s;
+  &:hover {
+      background-color: #fff;
+      color:$primary;
+      border: 2px solid $primary;
+  }
+}
+
+//navbar
+.cart-btn-hover{
+  background-color: $secondary;
+  color: #fff;
+  transition: .3s;
+
+  &:hover {
+  background-color: #fff;
+  border: 2px solid $secondary;
+  color:$secondary;
+
+  .bi-cart {
+    color:$secondary;
+  }
+  .menu-icon {
+    background-color:$secondary ;
+  }
+}
 
 }
 
@@ -37,4 +71,38 @@
     .swal2-icon-content {
         font-size: 40px;
     }
+  }
+
+  //loading圖示
+  @keyframes loading-img {
+    0% {
+      // background-color: $yellow-100;
+      border: 5px solid white;
+    }
+    50% {
+      // background-color: $yellow-200;
+      border: 5px solid $primary;
+    }
+    100% {
+      // background-color: $yellow-100;
+      border: 5px solid white;
+    }
+  }
+  .loading-img {
+  object-fit: contain;
+  width: 80%;
+  }
+
+  .loading-img-bg {
+    text-align: center;
+    line-height: 100%;
+    height: 120px;
+    width: 120px;
+    padding: 20px;
+    border-radius: 50%;
+    animation-name:loading-img;
+    animation-duration: 1s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite ;
+    background-color: #DFF3F7;
   }
