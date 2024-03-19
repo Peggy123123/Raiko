@@ -1,12 +1,12 @@
 <template>
-      <VueLoading :active="isLoading">
+  <VueLoading :active="isLoading">
     <div class="loading-img-bg">
       <img class="loading-img" src="@/assets/image/icon.png" alt="">
     </div>
   </VueLoading>
 <header>
     <nav class="navbar navbar-light bg-opacity fixed-top pt-5">
-      <div class="container">
+      <div class="container-fluid">
         <RouterLink class="navbar-brand" to="/"><h1>休日製作所</h1></RouterLink>
         <!-- menu button -->
         <div class="d-flex align-items-center">
@@ -149,12 +149,6 @@
   max-width: 252px;
   background-size: contain;
   background-repeat: no-repeat;
-  @include pad-down {
-    margin-left:-10%;
-  }
-  @include mobile-down {
-    margin-left:0;
-  }
 }
 
 h1 {
