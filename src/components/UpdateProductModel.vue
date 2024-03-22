@@ -156,12 +156,10 @@ export default {
       const api = `${VITE_URL}/api/${VITE_PATH}/admin/upload`
       this.$http.post(api , formData)
       .then(res=>{
-        // this.editProduct.imageUrl = res.data.imageUrl
-        console.log(res.data.imageUrl);
+        this.editProduct.imageUrl = res.data.imageUrl
       })
       .catch(err=>{
-        // alert(err.response)
-        console.log(err);
+        alert(err.response)
       })
       .finally(()=>{
         this.isLoading = false
