@@ -100,28 +100,28 @@
           <ul class="row list-unstyled align-items-center justify-content-center mb-0">
             <li class="mb-5 col-6 col-lg-12 rank-item">
               <div class="bg-primary rounded-5 d-flex justify-content-end p-3 position-relative" :class="{'opacity-25' : tempProduct.title !== '午睡抱枕'}" @click="rankItem('午睡抱枕')" style="cursor: pointer;">
-                <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-yellow-200 text-secondary px-4 py-3">1</span>
+                <span class="position-absolute rank-icon translate-middle badge rounded-pill bg-yellow-200 text-secondary px-4 py-3">1</span>
                 <p class="align-self-center text-white fw-bold flex-grow-1 mb-0">午睡抱枕</p>
                 <img class="align-self-end rank-item-img" src="https://i.imgur.com/AKlrFWi.png" alt="午睡抱枕" title="午睡抱枕">
               </div>
             </li>
             <li class="mb-5 col-6 col-lg-12 rank-item">
               <div class=" bg-primary rounded-5 d-flex justify-content-end p-3 position-relative" :class="{'opacity-25' : tempProduct.title !== '質感綁帶日記本'}" @click="rankItem('質感綁帶日記本')" style="cursor: pointer;">
-                <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-yellow-200 text-secondary px-4 py-3">2</span>
+                <span class="position-absolute rank-icon translate-middle badge rounded-pill bg-yellow-200 text-secondary px-4 py-3">2</span>
                 <p class="align-self-center text-white fw-bold flex-grow-1 mb-0">綁帶日記本</p>
                 <img class="align-self-end rank-item-img" src="https://i.imgur.com/LNGE2Bd.png" alt="質感綁帶日記本">
               </div>
             </li>
             <li class="mb-5 col-6 col-lg-12 rank-item">
               <div class=" bg-primary rounded-5 d-flex justify-content-end p-3 position-relative" :class="{'opacity-25' : tempProduct.title !== '法蘭絨單人毯'}" @click="rankItem('法蘭絨單人毯')" style="cursor: pointer;">
-                <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-yellow-200 text-secondary px-4 py-3">3</span>
+                <span class="position-absolute rank-icon translate-middle badge rounded-pill bg-yellow-200 text-secondary px-4 py-3">3</span>
                 <p class="align-self-center text-white fw-bold flex-grow-1 mb-0">法蘭絨毯</p>
                 <img class="align-self-end rank-item-img" src="https://i.imgur.com/JeuoxfL.png" alt="法蘭絨毯單人毯">
               </div>
             </li>
             <li class="mb-5 col-6 col-lg-12 rank-item">
               <div class="bg-primary rounded-5 d-flex justify-content-end p-3 position-relative" :class="{'opacity-25' : tempProduct.title !== '超薄高球杯'}" @click="rankItem('超薄高球杯')" style="cursor: pointer;">
-                <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-yellow-200 text-secondary px-4 py-3">4</span>
+                <span class="position-absolute rank-icon translate-middle badge rounded-pill bg-yellow-200 text-secondary px-4 py-3">4</span>
                 <p class="align-self-center text-white fw-bold flex-grow-1 mb-0">玻璃杯</p>
                 <img class="align-self-end rank-item-img" src="https://i.imgur.com/a1suTG4.png" alt="大容量玻璃杯">
               </div>
@@ -973,5 +973,10 @@ backface-visibility:hidden;
   transform: rotateY(180deg);
   }
 }
+//熱銷排行icon位置
+ .rank-icon {
+  top: 0;
+  left: 95%;
+ }
 
 </style>
