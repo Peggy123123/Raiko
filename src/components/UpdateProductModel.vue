@@ -156,14 +156,16 @@ export default {
       const api = `${VITE_URL}/api/${VITE_PATH}/admin/upload`
       this.$http.post(api , formData)
       .then(res=>{
-        this.editProduct.imageUrl = res.data.imageUrl
+        // this.editProduct.imageUrl = res.data.imageUrl
+        console.log(res.data.imageUrl);
       })
       .catch(err=>{
-        alert(err.response.data.message)
+        // alert(err.response)
+        console.log(err);
       })
       .finally(()=>{
-            this.isLoading = false
-        });
+        this.isLoading = false
+      });
     }
 },
   mounted() {

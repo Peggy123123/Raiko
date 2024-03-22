@@ -200,7 +200,7 @@ export default {
   //封面
   .cover {
     height: 180px;
-    background-image: url(https://i.imgur.com/OE6lA20.jpg);
+    background-image: url(https://storage.googleapis.com/vue-course-api.appspot.com/peggy123/1711102632545.jpg?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=JiuD1k4x1pJVls2fsARyk%2BYtIFDwTUQhTBvjzO1fpYWkxRKDuLGK4dStgy3Iwhcp4ZXXFjeD2A7FoFHaoi3%2FeOJMKM5JmnXbjz83iydGfn9Yopd9irOLMi6WbUCh55eU9bDN8V4XBFW%2Be9GBoeVa4A4f6G38%2BPjnEImVjb%2BmsEFnJ1FfHi9H7t3sDqyzpcM6Tz75TKag%2F%2Blh0C9RRGIEXMMpemQghSnxVb%2FM5%2F%2FFs5XDifxWelEIjjXnSvYWyLdHyjNsPcDQrwDdJ1%2ByJwZmA%2B7miNmeTq7OTRSpLG3P0hMmmB3cXhnY98Z638m6JiPoUUIq%2B6txK5qbwL3lcYWgHA%3D%3D);
     background-size: cover;
     background-position: 50% 50%;
   }

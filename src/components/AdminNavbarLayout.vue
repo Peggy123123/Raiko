@@ -4,7 +4,7 @@
         <div class="nav d-flex flex-column bg-dark justify-content-between">
         <div>
             <div class="d-flex justify-content-center text-white pt-10">
-                <img width="150" src="https://i.imgur.com/pFJdiRb.png" alt="logo">
+                <img width="150" src="https://storage.googleapis.com/vue-course-api.appspot.com/peggy123/1711103044938.png?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=JoPOx1%2FyZBjJkn1kQe1egWcxWpM0yDwTwDSzszHCDeQzAfGgJgimiAOgS1XbbaPTV0oJND3ac9%2Fy0wb9I%2BNsEJpMxITifeQVTMUjYxbuxTppkxeHlMnZ01uHC5PYFP5dMFp55eYmY%2BM2XtJlhbcdPA6i35eZbU4E3t0Pl7B4v32ik3YeVOJpNspzDN1SqrXfos5J4poxmPxmOm3hZzP1HzaLHavJfWEiANifjH9Saa7sge5C48zlSp3%2F04mltaJH7PqGYCu7GEde5CorCF4hw2nd0HGftKJ482enYoxYJyKnKv5cgNvXVNSVhgZqDRCixCwjM0%2BcqYchfgvVyV%2FGxw%3D%3D" alt="logo">
             </div>
             <ul class="list-unstyled mt-10">
                 <li>
