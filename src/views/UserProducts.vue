@@ -158,7 +158,7 @@ export default {
               qty:qty
           }
         })
-        .then(res=>{
+        .then(()=>{
           this.showToast()
           this.showCart()
         })

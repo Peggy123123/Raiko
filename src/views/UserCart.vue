@@ -170,7 +170,7 @@ export default {
                     qty:parseInt(cartQty)
                 }
             })
-            .then(res=>{
+            .then(()=>{
                 this.showCart()
             })
             .catch(err=>{

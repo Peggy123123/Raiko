@@ -160,7 +160,7 @@ export default {
         this.toastContent = `商品已新增成功`
       }
       this.$http[http](api, { data: this.tempItem })
-        .then((res) => {
+        .then(() => {
           this.getData();
           this.$refs.pModel.closeModel();
           toast.show()
@@ -178,7 +178,7 @@ export default {
       this.$http.delete(
         `${VITE_URL}/api/${VITE_PATH}/admin/product/${this.tempItem.id}`,
       )
-      .then((res) => {
+      .then(() => {
         this.getData();
         this.$refs.dModel.closeModel()
         this.toastTitle = `刪除商品`
@@ -215,7 +215,7 @@ export default {
   },
   mounted(){
     //取cookie資料
-    const token = document.cookie.replace(/(?:(?:^|.*;\s*)hexToken\s*\=\s*([^;]*).*$)|^.*$/,"$1");
+    const token = document.cookie.replace(/(?:(?:^|.*;\s*)hexToken\s*=\s*([^;]*).*$)|^.*$/,"$1");
     //token自動夾帶進去headers
     this.$http.defaults.headers.common['Authorization'] = token;
 

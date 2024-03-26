@@ -1,3 +1,4 @@
+<!-- eslint-disable vue/no-parsing-error -->
 <template>
 <nav class="d-flex justify-content-center">
     <ul class="pagination">

@@ -29,7 +29,7 @@
     //驗證身份
 		checkUser(){
             this.$http.post(`${this.api}/api/user/check`)
-            .then(res=>{
+            .then(()=>{
                 // alert('登入成功')
             })
             .catch(error=>{
@@ -41,7 +41,7 @@
       },
         mounted(){
         //取cookie資料
-        const token = document.cookie.replace(/(?:(?:^|.*;\s*)hexToken\s*\=\s*([^;]*).*$)|^.*$/,"$1");
+        const token = document.cookie.replace(/(?:(?:^|.*;\s*)hexToken\s*=\s*([^;]*).*$)|^.*$/,"$1");
          //token自動夾帶進去headers
          this.$http.defaults.headers.common['Authorization'] = token;
          this.checkUser();

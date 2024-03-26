@@ -77,7 +77,7 @@
         },
         mounted() {
             //取cookie資料
-            const token = document.cookie.replace(/(?:(?:^|.*;\s*)hexToken\s*\=\s*([^;]*).*$)|^.*$/,"$1");
+            const token = document.cookie.replace(/(?:(?:^|.*;\s*)hexToken\s*=\s*([^;]*).*$)|^.*$/,"$1");
             //token自動夾帶進去headers
             this.$http.defaults.headers.common['Authorization'] = token;
 

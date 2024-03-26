@@ -99,7 +99,7 @@
 
 <script>
     import * as bootstrap from 'bootstrap'
-    import { mapActions , mapState } from 'pinia'
+    import { mapActions } from 'pinia'
     import userCartStore from '../stores/userCartStore.js'
     const { VITE_URL , VITE_PATH } = import.meta.env
 
@@ -144,7 +144,7 @@ export default {
                     qty:this.addCartQty
                 }
             })
-            .then(res=>{
+            .then(()=>{
                 this.showToast()
                 this.addCartQty = 1 //購物車數量改回1
                 this.showCart()

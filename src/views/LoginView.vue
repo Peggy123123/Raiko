@@ -76,7 +76,7 @@ export default {
         document.cookie = `hexToken=${token}; expires=${new Date(expired)}`
         this.$router.push('admin/adminhome')
       })
-      .catch(error=>{
+      .catch(()=>{
         this.toastTitle = `登入失敗`
         this.toastContent = `帳號或密碼錯誤，請重新登入`
         toast.show()

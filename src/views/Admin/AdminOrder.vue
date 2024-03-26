@@ -1,3 +1,4 @@
+<!-- eslint-disable vue/require-v-for-key -->
 <template>
   <VueLoading :active="isLoading">
     <div class="loading-img-bg">
@@ -259,7 +260,7 @@
                 this.isLoading = true
 
                 this.$http.delete(api)
-                .then(res=>{
+                .then(()=>{
                     deleteModal.hide()
                     this.getData()
                     this.toastTitle = `更新訂單`
@@ -280,13 +281,14 @@
         },
         computed:{
             //計算總共要有幾頁
+            // eslint-disable-next-line vue/no-dupe-keys
             totalPage(){
                 return Math.ceil(this.orders.length / this.perpage)
             }
         },
         mounted(){
             //取cookie資料
-            const token = document.cookie.replace(/(?:(?:^|.*;\s*)hexToken\s*\=\s*([^;]*).*$)|^.*$/,"$1");
+            const token = document.cookie.replace(/(?:(?:^|.*;\s*)hexToken\s*=\s*([^;]*).*$)|^.*$/,"$1");
             //token自動夾帶進去headers
             this.$http.defaults.headers.common['Authorization'] = token;
 

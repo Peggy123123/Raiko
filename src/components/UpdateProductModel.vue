@@ -145,6 +145,7 @@ export default {
     closeModel(){
         this.productsModal.hide()
     },
+    // eslint-disable-next-line vue/no-dupe-keys
     updateProduct(){
       this.$emit('update-Product')
     },
@@ -168,7 +169,7 @@ export default {
 },
   mounted() {
     //取cookie資料
-    const token = document.cookie.replace(/(?:(?:^|.*;\s*)hexToken\s*\=\s*([^;]*).*$)|^.*$/,"$1");
+    const token = document.cookie.replace(/(?:(?:^|.*;\s*)hexToken\s*=\s*([^;]*).*$)|^.*$/,"$1");
     //token自動夾帶進去headers
     this.$http.defaults.headers.common['Authorization'] = token;
 

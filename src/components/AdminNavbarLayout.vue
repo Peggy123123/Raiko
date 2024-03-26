@@ -86,10 +86,10 @@
                 logoutModal.hide()
                 
                 this.$http.post(api)
-                .then(res=>{
+                .then(()=>{
                     this.$router.push('/login')
                 })
-                .catch(err=>{
+                .catch(()=>{
                     this.toastTitle = `登出`
                     this.toastContent = `請重新操作`
                     toast.show()

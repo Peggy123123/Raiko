@@ -100,7 +100,7 @@
         const api = `${VITE_URL}/api/${VITE_PATH}/pay/${this.orderId}`
 
         this.$http.post(api)
-        .then(res=>{
+        .then(()=>{
           this.$router.push('paid_complete')
         })
         .catch(err=>{

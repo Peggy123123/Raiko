@@ -216,7 +216,7 @@
                 }
 
                 this.$http[requestMethod]( api , { data : this.tempItem })
-                .then(res=>{
+                .then(()=>{
                     this.getData()
                     couponEditModal.hide()
                     toast.show()
@@ -234,7 +234,7 @@
                 const api = `${VITE_URL}/api/${VITE_PATH}/admin/coupon/${this.tempItem.id}`
 
                 this.$http.delete(api)
-                .then(res=>{
+                .then(()=>{
                     this.getData()
                     couponDeleteModal.hide()
                     this.toastTitle = `刪除優惠券`
@@ -273,7 +273,7 @@
         }, 
         mounted(){
             //取cookie資料
-            const token = document.cookie.replace(/(?:(?:^|.*;\s*)hexToken\s*\=\s*([^;]*).*$)|^.*$/,"$1");
+            const token = document.cookie.replace(/(?:(?:^|.*;\s*)hexToken\s*=\s*([^;]*).*$)|^.*$/,"$1");
             //token自動夾帶進去headers
             this.$http.defaults.headers.common['Authorization'] = token;
 

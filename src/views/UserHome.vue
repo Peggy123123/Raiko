@@ -241,7 +241,7 @@
       SwiperSlide,
     },
     setup() {
-      const onSwiper = (swiper) => {
+      const onSwiper = () => {
       };
       const onSlideChange = () => {
       };
