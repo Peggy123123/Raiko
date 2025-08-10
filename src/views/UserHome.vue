@@ -10,18 +10,16 @@
       <div class="d-flex align-items-center justify-content-center">
         <h2 class="title"></h2>
       </div>
-      <img class="sofa-bottom" src="https://storage.googleapis.com/vue-course-api.appspot.com/peggy123/1711103281520.png?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=pef1VX1s3Q7SwX%2FHX7udVxPGWcnf2SbSbJscW55GDOhAEavWnk75S2KwwR%2FPJTG6eUwHW2erbj5pezVmwtqHk83KezxV2rjUSQ9zR7aJOHXY5FitArzzlHpW5y49DxKB5fEBtMvi3MdCmWUZRgCWCnRJNE4l7D3nYkVMAd1B0eovheD8HAmRb3hmUQsr77nC0wm68YR8j7nA3rj4TCCF3%2FGPQpdIWDJu0Rvdm2idL%2BbgPdaLmanmof1WZrS4NOj2XatM41yIUkvgvgWXmlof4hDKIwAbVqlDbhcfGL41TRTt3ZBkcg57q%2Fmv7c5t1vWoTGkyPxNdOfpeQ43rMcaTFA%3D%3D" alt="sofa-bottom">
-      <img class="bed-bottom" src="https://storage.googleapis.com/vue-course-api.appspot.com/peggy123/1711103301102.png?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=oBuH4syb%2Fgq6V4eGz6M3L%2BOlrE5pQ0Xd4ADXPq695mI6tH4gFmU87iztWYSw5a5TzkyKLGIDgTDGnw1l5d2f6C52arYvnZOBzT5M3M1KLNCeveVlYxVMuyPlcuEKc2X7%2BJxE81yhAHqsPsURrm7rtze4oktqUOuMqzok%2FHebRtMu2CHALHoIWDn3yAgeCfKis4u1BimYm0069%2FBVN8YXqHzaausugZmxf6bdruZ3CDPWXFiSLrpRCq2h13ZC2LsABgS0Y5OV5suTxK%2FGDDcZEBwFUl0vWrninMvj%2FghHtaPd1DAutUz5Ch1MpOTrvWYxisaYhOnnle489snNd7%2FhUw%3D%3D" alt="bed-bottom">
-      <img class="sofa" src="https://storage.googleapis.com/vue-course-api.appspot.com/peggy123/1711103218445.png?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=lVHs2IjaxBPfNW8z76UzprM5eJ7C8gYT69t0pSa%2BSElrDUrucILgNW%2Bv9ataDniIGGw1awmihAtLRwHx3jNglZuE5gs04GLCmjn3uGNO2k24rG%2BbcM3CLog9Vcyc09tkPPaB8IZwOXXPh%2FQh6EjzzMVyQ8z%2Fun0LhLy5XBbCD6QB6cIaCdWxfaAeOexpcdyffmYbYg5vb4LyxABXW%2B7AwWGkYMwiDaIuW68axpMoGf6o7FVtY2dLhhKufjjs%2BkfuG8RTj5ivg2RBGSQ6Yvq9ADfPYXgX4kwG59J4Yf1s63HTrAr41o9HVllj9ERPn06RYSWXfyFtYv%2FXCRlmtMnLig%3D%3D" alt="sofa">
-      <img class="bed" src="https://storage.googleapis.com/vue-course-api.appspot.com/peggy123/1711103253052.png?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=HvHWY%2FHvtbU9PoF50i6FR%2Bl%2BS%2FHAvxYAU5nT31ipOet%2FNhBw43fmgujwKIWNmVbQOd%2Fue0GIS1N0mP2LOIeR7x%2FRuzMhpgjt5xUPcRlArI%2Bjmu1dXsd2qjvToY%2F7%2FHnpYCFyHo37lZsSxgiVKaoRnRh%2FyGETSD4lu8zwFQ5P74ecOznTp3AUjpKpB6QQtQl%2FMYEVqtwuRsqKIUUwIt3AfEIe5ELYD97GFdaGk6%2FQgwni%2BQj1X0lcUrm7l4QDrmpj3f9qq0Cwc%2BTZ2g7ieLJXsvrtvQ3rJlcagMVnjfEaUOeULQOeEglv2pYjdfT%2FuuvD74i9O41fc5DPwb31fxQgaQ%3D%3D" alt="bed">
-      <!-- <img class="primary-light-1 bg-move-2" src="https://storage.googleapis.com/vue-course-api.appspot.com/peggy123/1711103351429.png?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=Q6qaa%2FI%2Boi4Je3QafOVGkakRLoJY5NR8%2Boj6Z1bYInk1%2BYqZLAoTZrAKVOsMC%2Ft%2BdS6NIWayKfZmVgOfI2ZJZMzsxX%2BHv23YPdxb9Z56vOmtoCevnt91EC3gVZekn1bqtTwG0qGfthThgJYs9lGybEis%2FyZt%2BtNS1uzjlRh%2Fwi4ZdMhfIq733bDk5kMR4WW6VD9ZVDcdhc5wDoBdtxsVBOR1uMFdETY4sjJlniVwl7b6M2IDSY%2FJPJ77UgxSZB46XLrENfGdOpX9t8JrStVIYZXcdWS2qS1pUBga%2B16LGluewguBBhAiMXj83Yi0FPPUmm7lFqL23YUNWUr8ZMfUug%3D%3D" alt="light-1"> -->
-      <img class="primary-light-2 bg-move-2" src="https://storage.googleapis.com/vue-course-api.appspot.com/peggy123/1711103399229.png?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=p8rGy9pYpTvMk9pmjjXPoA0ifzGXYCHcCu3oDvNBupn45axzhJ5KCVq5zFshxM4LgCtnBINj9AsNbpXX%2BYT2su0E4jNEwb9ezRnu%2Bna6YqGhkHB6ZoUbKciOu6%2FGgi%2BAuYQNN8Wc9SqUdNcQPeuy5JtYOEaK3c9ZcpvwiPKVHPTWNAGBofujfnkTzaBYimvVoyQrsAkFnxcn47MUlyP9pHjjl3VG7Pv4p%2FzDSaq%2FPjxG1dIDW9nCJIny73R6fm5PqsMl0KzoDpJ3moLXIG%2BAZYYottvc%2FL0Ba86oQs%2FOWEx0wOr%2FR1ZQG1hoxSH3%2F07eNaoGHEaTyLNSB0JoWgXxxg%3D%3D" alt="light-2">
-      <img class="yellow-1 bg-move-2" src="https://storage.googleapis.com/vue-course-api.appspot.com/peggy123/1711103430536.png?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=GgMR8Ob0WvLOozkq%2BKFpqhCEuY6RF8Xvz1g1AaEiznk81KQmkwPD8pJwPRSQrGneYYmHQGaVVveaIqBwPxLKICAY24NblLPFwkZ5VehiheWbPXZSw284s3gUlsP5jbNVku%2BJZPaTUFrCoC9FKdCaiEQ6IpXFo8w%2BXI6Vq4cOyNnlbHiVQN3Y8Hc5q%2FdNPidrtZpYYvuBMLdJDYBlDwXvhabbt5i%2FPCoLSL1R8WsHD9UNbggEM1lHAXyv3FAmbuZVz5NAcJDvuQtgfZvAczx7ijwTPyOAGJyE%2BGL95FBfzmagRohDKkdWhM%2FwxhrzySOyTVn79YotyglyCViGeHAYWA%3D%3D" alt="yellow-1">
-      <img class="yellow-2 bg-move-2" src="https://storage.googleapis.com/vue-course-api.appspot.com/peggy123/1711103454570.png?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=HVEt99r8AtDfpwRfMDnOqIEsZUkRF5J3VerHmmDcNh9IUl1rdSXSxotePwwQ%2FYSRqwR%2Ft2rdOoqr2GhKokU8ecX6mP6YWq%2FCR2a8a1R7VeGr4YZ93ovDbWnMpWqZ581rw7LUDt%2FLJrc38TIlVBtlx2MoYoet7oSmFGdCkBknWa0C2HwTWmg0C1GoommUWbq%2FfihJo5mEFIsBCxsyVZyg6YTf3USZefcFe49lRJhmaLoySCdu9CnFLj6lJSQ%2BsdoE1ITSlSSEX89LOhWgKP%2F5WSnEdgssP8Mg1drxFWNeLsPHvOpOYy12TmZgzzb3tsj9hTkRFTAXnaWYfFR40OsTSQ%3D%3D" alt="yellow-2">
-      <img class="yellow-3 bg-move-1" src="https://storage.googleapis.com/vue-course-api.appspot.com/peggy123/1711103497942.png?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=Q4Q3S%2B%2B%2B7XcClAwTDO6sPZgvViVjt6IeiXOUek%2FtBAA2UZnGIubW3g5ST5AGfLKaZTZnj1x%2F%2FlcSzPdpME3HVYKOVhpo7xVOgl%2FxfzwesFvJ4r8qXyQFYD%2FxZVSB0sZM%2FlB%2FGKnm3UjdkYYNju55Ve9%2FpZayS%2B3gOTtUBNc8c18y6bDCYrK3i%2BZo4%2Ff0kNQme7m40QjPjhZzfeabPADXGLu8OM%2BNiwA4ODeU%2BCXl4%2FPP0vckyN75jE%2FRDjH2yoC8y3AAoqduKgAxysld4I0NVUlRyuJF4smacqCyhvuR7EjOQ3XLiKzMIz2ZfTPzxa8NTo4t48lZXu2XVFOGAbNAnw%3D%3D" alt="yellow-3">
-      <img class="yellow-light-1 bg-move-1" src="https://storage.googleapis.com/vue-course-api.appspot.com/peggy123/1711103524790.png?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=Kro9LOgL9VaZOKlMpAeTEE6ktq4%2Fewtr%2FHRILZ0G%2BgUNdzEZj32EuY38gfHWJqXbczCqOK54aIfVfbKSY9wrRIbtXmoPcArevyqr0TPPfhFIaQuSDYM4wgkBGjqeQxhNh4Nhj3GuTEGEng31bDqmpYBbuVMc4QZVfmeoR231F%2Bpjxg%2BhuB3qB4Z%2Fa9c3PEngoyT0iML5MufoW7rJH7IWI3iWWXAxKauP3myMg9JMWeQzRDMcn6cjNu6bFC%2F3lwpCaXs1hfvvsXcBHuKDwwDWIFD%2Bcuo1N7WPbk5H2YUnWJ97A8vIAKaOfJbGtCh7pmxJwmrzwMzOwVN61pmRhMmrEA%3D%3D" alt="yellow-loght-1">
-      <!-- <img class="yellow-light-2 bg-move-2" src="https://storage.googleapis.com/vue-course-api.appspot.com/peggy123/1711103567679.png?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=HUgjsojjzCIQfTJJakVK858aEzXVZ3ZzGUfqhiHOL6furwo7ixxJyXcvsyCCmp17aMQXho4pR8rcW%2FTg6Qts78SJJRbi0SZNNFun39MNbI2NnjOTOoawTaqRCJLQrVHdwYydvShVQmzu4QfSG2%2FAaAmMAIFX70Ke%2BKgwfPB8zS5bNU2WsRB54hPU1S1fQ8rNoZvB29Tn47iFsnLr5dxAXddX194IIBpXUuw20ra25Jse9L5saMK2%2B%2FDveZImJGFy8YwKj3bFTnHRqhfn%2B9bEgOkcW7SFGC1gl2G%2Bkf6Wu0xkYKCGTGWEEQOdWxzg0bryGNo49Tzbhcw5c1%2F9q8w5IA%3D%3D" alt="yellow-loght-2"> -->
-      <img class="yellow-light-3 bg-move-1" src="https://storage.googleapis.com/vue-course-api.appspot.com/peggy123/1711103594072.png?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=VE%2FscClZ3ZNw4SRsHK3JTK28Jn1RxcYUX6yOWiSZ8EByoMz1cubXkq5jxH2%2BVAwP5imN4X%2BX%2FykV2Ul3LS%2FaIRAOIQBY%2Br38HEnh%2FcwOHXJJdpMr0L8cJmoezG0u7qpXN3s2qUrducdPYEp7%2FLY%2FZtILfLX%2FykGv%2FuBgKf6OEQN9poLwb5LsgNcJV%2B2LWQwbGOiI3YYq8Oa0dr5nsQxJAaKH1iccx8D87q1jLKDZvuSIh66TA78QzzIK7O8phwW2UPTWjDPOVeN6JJylQHkqaM8m0SdzSK4U2l2iWIQPIrZ%2B3eoN%2F3eYqAsDLdBktA3F2g%2FG0FnVvKRAhhekIeA8%2Bg%3D%3D" alt="yellow-light-3">
+      <img class="sofa-bottom" src="@/assets/image/bg-sofa.png" alt="sofa-bottom">
+      <img class="bed-bottom" src="@/assets/image/bg-wakeup.png" alt="bed-bottom">
+      <img class="sofa" src="@/assets/image/img-sofa.png" alt="sofa">
+      <img class="bed" src="@/assets/image/img-wakeup.png" alt="bed">
+      <img class="primary-light-2 bg-move-2" src="@/assets/image/bg-right.png" alt="light-2">
+      <img class="yellow-1 bg-move-2" src="@/assets/image/bg-right2.png" alt="yellow-1">
+      <img class="yellow-2 bg-move-2" src="@/assets/image/bg-right1.png" alt="yellow-2">
+      <img class="yellow-3 bg-move-1" src="@/assets/image/bg-top-left.png" alt="yellow-3">
+      <img class="yellow-light-1 bg-move-1" src="@/assets/image/bg-top-right.png" alt="yellow-loght-1">
+      <img class="yellow-light-3 bg-move-1" src="@/assets/image/img-banner2.png" alt="yellow-light-3">
     </div>
     <div class="text-center sticky-30 pb-35 pb-md-100">
       <p class="text-secondary p1 ">從這一刻開始</p>
@@ -57,7 +55,7 @@
       <swiper-slide class="swiper-slide" v-slot="{ isActive }">
         <router-link to="productslist?category=家居小物">
           <div class="classification-container classification-1" :class="{'swiper-active' : isActive}">
-            <img width="20%" src="https://storage.googleapis.com/vue-course-api.appspot.com/peggy123/1711103744024.png?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=BUvFGIcD1A8cQ%2FeG19%2BewImcxotP2KXEkrvYDpIQpojYrOFwCOhfIVwlAZz9xE%2BJRayTHeL9jGjE%2BdX9IOxGhXWzpyIufxIOm1mZvAF5Gp1cHsumgC5XJYvzyPKQ8gTFvzhMuqSOcMMpHVvaYgXKfCO1Fjnw9kEsP1DysWvB1dCL11DYVExEfjTmiirHxx3AiNu5KpIk6BDRQX1W5pR8vYVyTEEtB8DFbUHVBiTM5jt6001FqB74FZcvEGPDdQovtl65Xr2GBLTtGcXf8eVhm96xggVHoL5WKC6ZoOjAu9dikeaiTV21cWHvyGxsSgbjVLpmLgKJbxoZLw32W5mjEA%3D%3D" alt="家居小物" title="家居小物">
+            <img width="80%" src="@/assets/image/img-circle-house.png" alt="家居小物" title="家居小物">
             <p class="classification-text rounded-pill">家居小物</p>
           </div>
         </router-link>
@@ -65,7 +63,7 @@
       <swiper-slide class="swiper-slide" v-slot="{ isActive }">
         <router-link to="productslist?category=療癒寢具">
           <div class="classification-container classification-2" :class="{'swiper-active' : isActive}">
-            <img width="20%" src="https://storage.googleapis.com/vue-course-api.appspot.com/peggy123/1711103772403.png?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=Zk3hArkvqwr1lpklFOZ1EmJyNyn7eYsJlUJj5hCZH1zGJIw7OfkufCX5Vmutf%2FFDZyCNerlezjeNWMSt%2FVZM9t4gpf5yV1sKiaXNrbdcF04vQFNtLjublZUVgrJQ64MiivIJnNF%2BBLMZkvHE6touHepdONlikee%2FzHvpA7L2psUxJ9zkVi0Qzk11LxPyV%2BX0QXy%2BXJAlRTEiNz4iqYpitEHb2wDTFXYmK5Kg%2BayatDPzoAwWtSypzICbx5WDymmVUsQmRO1WNsqUQQGD93xuAf5mNr9RHAzEvxDoTNIYPrw%2FmAGTYoRbxXV9dHXPz%2F6ZINiB2K3tKEMvBh%2BBT1sQCQ%3D%3D" alt="療癒寢具" title="療癒寢具">
+            <img width="80%" src="@/assets/image/img-circle-bed.png" alt="療癒寢具" title="療癒寢具">
             <p class="classification-text rounded-pill">療癒寢具</p>
           </div>
         </router-link>
@@ -73,7 +71,7 @@
       <swiper-slide class="swiper-slide" v-slot="{ isActive }">
         <router-link to="productslist?category=辦公小物">
           <div class="classification-container classification-3" :class="{'swiper-active' : isActive}">
-            <img width="20%" src="https://storage.googleapis.com/vue-course-api.appspot.com/peggy123/1711103791217.png?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=jfOEW%2Bzuy7ziHbsJ4w4Qnx6STAd9h1vhobqFoULMDrd2NAG9xG8rbDtHFYK6ucnz8TPc%2Fb%2FK7McHbGlveAKGAGFGUKu%2Fqg156baSUhxtIfZv43Ryz4mRkzlBdXmV4uOSdRpr07DCDlrec%2FtpUcOidTqzaMxF%2F2wMWd0H7pv4DkWT5O%2Ft5x%2BHjZ1eX3GqTtkP2PbJk52pCMxYknWFUJrsrAOG8FDMHNBfhes0I75bEWgnOaGM3wjSkshFU1MechLYJVwmnvILTKjdG6YnK%2Bz9ObOgpJ7pgIj2EJNqzLTqgxNppv6N5TcwabitDLV%2BDg0iqbkgMZkbQ1aanAEMzyr6Qg%3D%3D" alt="辦公小物" title="辦公小物">
+            <img width="80%" src="@/assets/image/img-circle-office.png" alt="辦公小物" title="辦公小物">
             <p class="classification-text rounded-pill">辦公小物</p>
           </div>
         </router-link>
@@ -81,7 +79,7 @@
         <swiper-slide class="swiper-slide" v-slot="{ isActive }">
         <router-link to="productslist?category=療癒寢具">
           <div class="classification-container classification-2" :class="{'swiper-active' : isActive}">
-            <img width="20%" src="https://storage.googleapis.com/vue-course-api.appspot.com/peggy123/1711103772403.png?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=Zk3hArkvqwr1lpklFOZ1EmJyNyn7eYsJlUJj5hCZH1zGJIw7OfkufCX5Vmutf%2FFDZyCNerlezjeNWMSt%2FVZM9t4gpf5yV1sKiaXNrbdcF04vQFNtLjublZUVgrJQ64MiivIJnNF%2BBLMZkvHE6touHepdONlikee%2FzHvpA7L2psUxJ9zkVi0Qzk11LxPyV%2BX0QXy%2BXJAlRTEiNz4iqYpitEHb2wDTFXYmK5Kg%2BayatDPzoAwWtSypzICbx5WDymmVUsQmRO1WNsqUQQGD93xuAf5mNr9RHAzEvxDoTNIYPrw%2FmAGTYoRbxXV9dHXPz%2F6ZINiB2K3tKEMvBh%2BBT1sQCQ%3D%3D" alt="療癒寢具" title="療癒寢具">
+            <img width="80%" src="@/assets/image/img-circle-bed.png" alt="療癒寢具" title="療癒寢具">
             <p class="classification-text rounded-pill">療癒寢具</p>
           </div>
         </router-link>
@@ -166,7 +164,7 @@
         </h3>
         <p class="text-secondary mb-15">Raiko休日製作所，以療癒為概念<br>慰勞週間忙碌的自己<br>選一件可以忘掉上班煩惱的小物<br>開啟週末慵懶模式！</p>
         <div class="d-flex justify-content-center position-relative mx-auto" data-aos="fade-up">
-          <img class="about-img" src="https://storage.googleapis.com/vue-course-api.appspot.com/peggy123/1711102829585.png?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=SGhaMWNFzIjpAwN%2FRpBWpXFBahhcWXGxRfMIS%2FHh6mAospKr7msjkF5Ot7PzVHqeoQPeXTrkDk8PC5ee7H9pA3pli2m%2FqJlpxotjLsdb1CebOIdMaJC7nRSs1gUTPUByUo%2FlsqwEF0XotaUsJevYg7nHGAYuRPYMCrcqdXx3Fb4ARtP27KhNwxITvnDvb4%2FgRtDbT60M5XO4LfwzdSu7k5g6FZd4QD7sjO%2FnM4yxDK5LT%2FVExBEKSSv0QhC%2BAAiq%2FrhfKHNJO2wP6shXmuZnfhuul5z%2BF00Kp2cLRbzav6bmuGFsujWSXFSeHhytAACf5HJrsvz%2BipXPQg0TP5ZvIA%3D%3D" alt="關於休日" title="關於休日">
+          <img class="about-img" src="@/assets/image/img-house.png" alt="關於休日" title="關於休日">
         </div>
       </div>
     </div>
@@ -181,36 +179,36 @@
           <div class="card-container col-6 col-md-3">
             <div class="card-outer">
               <div class="card-1">
-                <img class="img-fluid" src="https://storage.googleapis.com/vue-course-api.appspot.com/peggy123/1711104274999.png?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=j4OhQ4LK0KOS%2BjbTqrcO3gOmPvXU2THqS2%2F%2FKT5XYHElzXFBjMsCSe0uaHyJyVTuqEuodZb6jHoIBpnOq6X1xT0%2F5SIKTEeGTaigvPGkQbPYhlPPocIILO%2FOSZWULT%2F%2FFdy%2FOA5%2Fi1ciHF0D6ZaMWa9ANwzLjON3ciW0I6d%2FeIHNT4iTGDTgv9H7zvXwp8MPgt8l3i2MfHHZ9vmiJ4UHTAL5SOJORtrN%2B6y5ZMPuXkXRa7ceMc8Lr00IdxVz08X5Nmb1a%2FqGdiuxIE9%2BFo8xzHPDnBEdJsaSAtN5eNlzwJafsyd2kKmrJmeja1VmB%2F1U%2BuwmphhtJzXRaGMdcv4SfA%3D%3D" alt="post1">
+                <img class="img-fluid" src="@/assets/image/img-post1-front.png" alt="post1">
               </div>
               <div class="card-2">
-                <img class="img-fluid" src="https://storage.googleapis.com/vue-course-api.appspot.com/peggy123/1711104355526.png?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=Yyw2AvoBew7li2MlRkhji80WR7%2Fo1WAtdVCzWg0vPjUaT5M354U5wHFoMjRADALjc7uxbkFG%2BDZF%2BcIaimKWX3csW91OHN%2BbLsMedqS%2B%2F1FD8W9TaFqwexPvjLsTI4gRO4gMa94y6BgEoD8WSKB5OdnAdwS%2BByLKVLFBjd40nbYCGe0ltWvWrrwQXyf1C5ijZ%2BVOd%2BlDBtaxQniJ107bG05CDYWPpMsGODMBAtGMmmT%2BCr6IB3K%2FNDV33q7m68pyvz18oSDEH2BhAMoyEWeqNDiwE8%2Be%2FIYmGejJTmK16ATaEUUmHPgQwytbCrIb3z%2FfUQwxKIJ3tJoQLECcd4xIHA%3D%3D" alt="post1">
+                <img class="img-fluid" src="@/assets/image/img-post1-back.png" alt="post1">
               </div>
             </div>
           </div>
           <div class="card-container col-6 col-md-3">
             <div class="card-outer">
               <div class="card-1">
-                <img class="img-fluid" src="https://storage.googleapis.com/vue-course-api.appspot.com/peggy123/1711104401401.png?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=CdjUySP0QE8U0I7hZzuU%2FEJI0K%2FvcktQPMqGe%2BK69PB7OZLSX6zzGfo7bJElgzd3eDc8DF3lLrJQx6uoRaCA3wDITO16fCCdA6c%2FZdhVZPK0kzqTEk4buxW1rOM5DInmKsECPXqU3zgJLdtrilOpKZ8ImtdI1VN9YUcKS0Ndsihw2A98aj5jsNGukby7wJC87%2B0x%2BdwESuQ7rqkYYHGIEBv4OpC4eQUfBnA%2Bo%2B0f0DMlUxcu0g9sF%2B7KME6emvG08ol0nApXUEiH0DzgYR7QqYVrrSimfWnPeyAXdG1t5Nhyb9dhIAY5eYcQAM901ULrSu6vqTEo5vL%2FbTK2WRTvtg%3D%3D" alt="post2">
+                <img class="img-fluid" src="@/assets/image/img-post2-front.png" alt="post2">
               </div>
-              <div class="card-2"><img class="img-fluid" src="https://storage.googleapis.com/vue-course-api.appspot.com/peggy123/1711104419974.png?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=E97OyuO54JwZKB6berhQkigAqzSuk9cleo400PWFNJNN1R87rqckVqYJ2TNLt1NE5N8C4UMQieJkej2zY78IETyDeUFvEYuJ761qjvI5taCRxD30CWn98wu6bn3wdtPQis1iooc96cz8y7ZbSgQaWDKLgoyc7DY6JJ%2F2Yo36Ea2YmYcwDs9CVsyodePaFym6ACogO4nlq%2FaAStYoknrjTUG3OpQgdynuqUmmcaD66qbNl3HoWM%2BLb5IyhzUr1G80%2BWJHhFu1qDcTmnhdVf%2BTZ8PjSnk8ttmqyF018sa3ydQ9nvMaA9JetH6smtWUQpysynLwtMJ1p3hBZ%2Fs4aMgtJg%3D%3D" alt="post2"> </div>
+              <div class="card-2"><img class="img-fluid" src="@/assets/image/img-post2-back.png" alt="post2"> </div>
             </div>
           </div>
           <div class="card-container col-6 col-md-3">
             <div class="card-outer ">
               <div class="card-1">
-                <img class="img-fluid" src="https://storage.googleapis.com/vue-course-api.appspot.com/peggy123/1711104663133.png?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=U0QGlzRmwvpMqdj9K44IFzSR274GNgyLH0R7pJFFxNBqCWSnv%2FCl6r10GG7EUVGH8NeCzWx7jviiInJGQGgh6mHUHTyjd8AHMTISzyE20ShHTqcL%2BKleWG6DUz1vinutvy5Iz2q2tL%2BNaHCymfPLRHQJIKJe%2B%2BP8f5JUy7vTUpG8OhvbgvMA4oxu%2FmqIbB97T9qZS%2Fv83jOGRI8uId2TdFvYQGZfJTVKJVVkrFgBZyw3czRZkQNPmgPxhZwa4%2Bw884X%2BENvp7kHK01sx27gMLPkkcyiYp0Om1LEhispAcJqUq92DsTj5VpZ%2BZ1bK5CLMKZmw3UjarHjovyNNgjh63g%3D%3D" alt="post3">
+                <img class="img-fluid" src="@/assets/image/img-post3-front.png" alt="post3">
               </div>
-              <div class="card-2"><img class="img-fluid" src="https://storage.googleapis.com/vue-course-api.appspot.com/peggy123/1711104542101.png?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=YE7zk%2Be%2FENsQrLvLG1UMId2ufxuOgu2CdMpeFMoizrMUE5IIJGM5aOuaJxTu59nJnVAB7QSzzTrcSSG0Y0%2FiI%2Bm%2F0XXBjaPqwd28yKnH1dPVu3MIUmudIc0mTCyrQHtvA8LMwNfci0bCs3bS5txD7M1q9n4HhpQL4DSzo1GWmYLOPvl30YtqGonlmyhg6kiDVzSNihLn4Hyqb3CVal2Nsd3WY9srB5HTZwDpHh%2BM1aOLUhRHsrFWQBue6z8Ft2okxUqU0N3gusuakTWBS%2FCu4Ftj5t%2F4iKrVESBKmaoQgp%2B5Wr%2B5DXyMhtCHBSFLseTAyEx8MgqCWInmuGsTO35kUg%3D%3D" alt="post3">
+              <div class="card-2"><img class="img-fluid" src="@/assets/image/img-post3-back.png" alt="post3">
               </div>
             </div>
           </div>
           <div class="card-container col-6 col-md-3">
             <div class="card-outer ">
               <div class="card-1">
-                <img class="img-fluid" src="https://storage.googleapis.com/vue-course-api.appspot.com/peggy123/1711104599091.png?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=mwEJUqR7Bv7NntSDr7aoP8Pd6skvYm%2FYhWvYUbVKsBgS94GTK1PWv0p09OhGTSkSs3rCcOkOBxdDbZ08D%2Fs3JqZrJsBkd%2Bhd6XyAuFQSWo6eW%2By8g7EQtvdEZZYeILGYBMnUVoFNwGzwAZMnZZXkJxwMN8WYYc0y8PV1wP1fPk1jopgpCip%2BTXNz6hPSKR%2BmyoWjlSurPpZtDS%2FDpiNm8kGMNOm422rYyrKD55a33ETsqz9Zm5Djcm4XrWg6hDaIaLlAOkhamLEoBwA8%2BIjuQVMUIx6EVak6tTyMo3NR3WqTy5mldI3ScbN5yJQ6Fc%2Bl44BXQkCVPsme%2BCqC%2FnHPtA%3D%3D" alt="post4">
+                <img class="img-fluid" src="@/assets/image/img-post4-front.png" alt="post4">
               </div>
-              <div class="card-2"><img class="img-fluid" src="https://storage.googleapis.com/vue-course-api.appspot.com/peggy123/1711104609254.png?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=iXN3ico5Y1XX9xp4prPWeXhSjx9ZjH80mHpj8mRP7DNcpoedcKdu3A7a1m5rv4jZpmus0SeFnTOpgdDvTnejCwEj0HIbSW7fDGK6LzOS3JXOU1PzF3VjKoMKLXOekdCJh26PrSyaRGjKRd9QCviWKVzzF5USkw2C3wNPXF8pR7JFD4VAG9e6fwnnwqnvBWDHlEdAciI8JkyKkdz5A3zMPQiD34PDM3ocUzhP%2BfgdQaoHnQJkujlft8%2FPKrDWlupqYBBST8YGFWmIAjNr0onA4a3CDUIrFYvkYw3hXlTLCNIOUhmrxEbvDGkMFzItDZjaQ8ZWKpsLqofGjr%2FUWsqAsw%3D%3D" alt="post4"></div>
+              <div class="card-2"><img class="img-fluid" src="@/assets/image/img-post4-back.png" alt="post4"></div>
             </div>
           </div>
         </div>

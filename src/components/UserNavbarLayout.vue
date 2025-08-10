@@ -48,16 +48,16 @@
             </ul>
             <div class="d-none d-md-block col-12 col-sm-5 col-md-4 d-flex justify-content-center">
               <div class="text-center pt-25">
-                <img class="menu-image" src="https://storage.googleapis.com/vue-course-api.appspot.com/peggy123/1711102829585.png?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=SGhaMWNFzIjpAwN%2FRpBWpXFBahhcWXGxRfMIS%2FHh6mAospKr7msjkF5Ot7PzVHqeoQPeXTrkDk8PC5ee7H9pA3pli2m%2FqJlpxotjLsdb1CebOIdMaJC7nRSs1gUTPUByUo%2FlsqwEF0XotaUsJevYg7nHGAYuRPYMCrcqdXx3Fb4ARtP27KhNwxITvnDvb4%2FgRtDbT60M5XO4LfwzdSu7k5g6FZd4QD7sjO%2FnM4yxDK5LT%2FVExBEKSSv0QhC%2BAAiq%2FrhfKHNJO2wP6shXmuZnfhuul5z%2BF00Kp2cLRbzav6bmuGFsujWSXFSeHhytAACf5HJrsvz%2BipXPQg0TP5ZvIA%3D%3D" alt="image">
+                <img class="menu-image" src="@/assets/image/img-house.png" alt="image">
               </div>
             </div>
           </div>
         </div>
       </div>
       <div class="background">
-        <img class="logo-bottom logo-bottom-lg" src="https://storage.googleapis.com/vue-course-api.appspot.com/peggy123/1711102966785.png?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=dG7BS7DqGff6CSyJAAm4%2FByEOqGJL1Hz4b6zyLuwDMnIYZSc9Sy3sRcDIUSgxV2V25b7Cbxi2SkBicoaKgfy2EaYpWZB%2FZCXkDdHqqaQeKeOeDAWiafHkzY5rur02WIp%2FUopXOpxWEgR7h3T0VUV3Lgn1F7LCdwd8Tj%2BMpXXgndVAwMzMAsmkvkIiWPxSFTCakqjYxvDNnxXB65qSOcbkG6uW78WIkzay%2BXCwhCsl16YUuEjl6wdZYbEdVW2%2FANmptU9fVCxeVRHVjCvA5reiYVSefE3NMyR0Lph40z7tsJhjIohEwLfCkWi9qZrzY2qbR0cLJ4uRKgImXQgnHbCSw%3D%3D" alt="logo-bottom">
-        <img class="logo-bottom logo-bottom-md" src="https://storage.googleapis.com/vue-course-api.appspot.com/peggy123/1711102966785.png?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=dG7BS7DqGff6CSyJAAm4%2FByEOqGJL1Hz4b6zyLuwDMnIYZSc9Sy3sRcDIUSgxV2V25b7Cbxi2SkBicoaKgfy2EaYpWZB%2FZCXkDdHqqaQeKeOeDAWiafHkzY5rur02WIp%2FUopXOpxWEgR7h3T0VUV3Lgn1F7LCdwd8Tj%2BMpXXgndVAwMzMAsmkvkIiWPxSFTCakqjYxvDNnxXB65qSOcbkG6uW78WIkzay%2BXCwhCsl16YUuEjl6wdZYbEdVW2%2FANmptU9fVCxeVRHVjCvA5reiYVSefE3NMyR0Lph40z7tsJhjIohEwLfCkWi9qZrzY2qbR0cLJ4uRKgImXQgnHbCSw%3D%3D" alt="logo-bottom">
-        <img class="logo-bottom logo-bottom-sm" src="https://storage.googleapis.com/vue-course-api.appspot.com/peggy123/1711102966785.png?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=dG7BS7DqGff6CSyJAAm4%2FByEOqGJL1Hz4b6zyLuwDMnIYZSc9Sy3sRcDIUSgxV2V25b7Cbxi2SkBicoaKgfy2EaYpWZB%2FZCXkDdHqqaQeKeOeDAWiafHkzY5rur02WIp%2FUopXOpxWEgR7h3T0VUV3Lgn1F7LCdwd8Tj%2BMpXXgndVAwMzMAsmkvkIiWPxSFTCakqjYxvDNnxXB65qSOcbkG6uW78WIkzay%2BXCwhCsl16YUuEjl6wdZYbEdVW2%2FANmptU9fVCxeVRHVjCvA5reiYVSefE3NMyR0Lph40z7tsJhjIohEwLfCkWi9qZrzY2qbR0cLJ4uRKgImXQgnHbCSw%3D%3D" alt="logo-bottom">
+        <img class="logo-bottom logo-bottom-lg" src="@/assets/image/bg-logo.png" alt="logo-bottom">
+        <img class="logo-bottom logo-bottom-md" src="@/assets/image/bg-logo.png" alt="logo-bottom">
+        <img class="logo-bottom logo-bottom-sm" src="@/assets/image/bg-logo.png" alt="logo-bottom">
       </div>
     </nav>
   </header>
@@ -145,7 +145,7 @@
 }
 
 .navbar-brand {
-  background-image: url(https://storage.googleapis.com/vue-course-api.appspot.com/peggy123/1711103044938.png?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=JoPOx1%2FyZBjJkn1kQe1egWcxWpM0yDwTwDSzszHCDeQzAfGgJgimiAOgS1XbbaPTV0oJND3ac9%2Fy0wb9I%2BNsEJpMxITifeQVTMUjYxbuxTppkxeHlMnZ01uHC5PYFP5dMFp55eYmY%2BM2XtJlhbcdPA6i35eZbU4E3t0Pl7B4v32ik3YeVOJpNspzDN1SqrXfos5J4poxmPxmOm3hZzP1HzaLHavJfWEiANifjH9Saa7sge5C48zlSp3%2F04mltaJH7PqGYCu7GEde5CorCF4hw2nd0HGftKJ482enYoxYJyKnKv5cgNvXVNSVhgZqDRCixCwjM0%2BcqYchfgvVyV%2FGxw%3D%3D);
+  background-image: url(@/assets/image/img-logo.png);
   max-width: 252px;
   background-size: contain;
   background-repeat: no-repeat;
